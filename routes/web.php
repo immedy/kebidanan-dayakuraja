@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\PasienController;
+use App\Models\Pasien;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +16,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('PageDashboard.Halamanutama');
+    return view('PageDashboard.Pasien.Halamanutama');
+});
+
+Route::controller(PasienController::class)->group(function(){
+    route::get('/CariPasien','pasien');
+    route::get('/TambahPasien','AddPasien');
 });
