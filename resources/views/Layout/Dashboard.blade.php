@@ -49,19 +49,19 @@
                                 </div>
                             </div>
                             <div class="menu-item">
-                                <a class="menu-link active" href="../../demo13/dist/index.html">
+                                <a class="menu-link active" href="/">
                                     <span class="menu-icon">
                                         <i class="bi bi-grid fs-3"></i>
                                     </span>
-                                    <span class="menu-title">Default</span>
+                                    <span class="menu-title">Dashboard Puskesmas</span>
                                 </a>
                             </div>
                             <div class="menu-item">
-                                <a class="menu-link" href="../../demo13/dist/dashboards/only-header.html">
+                                <a class="menu-link" href="/DashboardRS">
                                     <span class="menu-icon">
                                         <i class="bi bi-window fs-3"></i>
                                     </span>
-                                    <span class="menu-title">Only Header</span>
+                                    <span class="menu-title">Dashboard RS</span>
                                 </a>
                             </div>
                             <div class="menu-item">
@@ -69,12 +69,12 @@
                                     <span class="menu-icon">
                                         <i class="bi bi-app-indicator fs-3"></i>
                                     </span>
-                                    <span class="menu-title">Landing Page</span>
+                                    <span class="menu-title">Laporan</span>
                                 </a>
                             </div>
                             <div class="menu-item">
                                 <div class="menu-content pt-8 pb-2">
-                                    <span class="menu-section text-muted text-uppercase fs-8 ls-1">Crafted</span>
+                                    <span class="menu-section text-muted text-uppercase fs-8 ls-1">Master</span>
                                 </div>
                             </div>
                             <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
@@ -82,64 +82,32 @@
                                     <span class="menu-icon">
                                         <i class="bi bi-person fs-2"></i>
                                     </span>
-                                    <span class="menu-title">Account</span>
+                                    <span class="menu-title">Master Data</span>
                                     <span class="menu-arrow"></span>
                                 </span>
                                 <div class="menu-sub menu-sub-accordion menu-active-bg">
                                     <div class="menu-item">
-                                        <a class="menu-link" href="../../demo13/dist/account/overview.html">
+                                        <a class="menu-link" href="/Faskes">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
-                                            <span class="menu-title">Overview</span>
+                                            <span class="menu-title">Faskes 1</span>
                                         </a>
                                     </div>
                                     <div class="menu-item">
-                                        <a class="menu-link" href="../../demo13/dist/account/settings.html">
+                                        <a class="menu-link" href="/Pegawai">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
-                                            <span class="menu-title">Settings</span>
+                                            <span class="menu-title">Pegawai</span>
                                         </a>
                                     </div>
                                     <div class="menu-item">
-                                        <a class="menu-link" href="../../demo13/dist/account/security.html">
+                                        <a class="menu-link" href="/DataReferensi">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
-                                            <span class="menu-title">Security</span>
-                                        </a>
-                                    </div>
-                                    <div class="menu-item">
-                                        <a class="menu-link" href="../../demo13/dist/account/billing.html">
-                                            <span class="menu-bullet">
-                                                <span class="bullet bullet-dot"></span>
-                                            </span>
-                                            <span class="menu-title">Billing</span>
-                                        </a>
-                                    </div>
-                                    <div class="menu-item">
-                                        <a class="menu-link" href="../../demo13/dist/account/statements.html">
-                                            <span class="menu-bullet">
-                                                <span class="bullet bullet-dot"></span>
-                                            </span>
-                                            <span class="menu-title">Statements</span>
-                                        </a>
-                                    </div>
-                                    <div class="menu-item">
-                                        <a class="menu-link" href="../../demo13/dist/account/referrals.html">
-                                            <span class="menu-bullet">
-                                                <span class="bullet bullet-dot"></span>
-                                            </span>
-                                            <span class="menu-title">Referrals</span>
-                                        </a>
-                                    </div>
-                                    <div class="menu-item">
-                                        <a class="menu-link" href="../../demo13/dist/account/api-keys.html">
-                                            <span class="menu-bullet">
-                                                <span class="bullet bullet-dot"></span>
-                                            </span>
-                                            <span class="menu-title">API Keys</span>
+                                            <span class="menu-title">Referensi</span>
                                         </a>
                                     </div>
                                 </div>
@@ -291,35 +259,7 @@
                 </div>
 
                 <!--end::Content-->
-                <!--begin::Footer-->
-                <div class="footer py-4 d-flex flex-lg-column" id="kt_footer">
-                    <!--begin::Container-->
-                    <div class="container-fluid d-flex flex-column flex-md-row align-items-center justify-content-between">
-                        <!--begin::Copyright-->
-                        <div class="text-dark order-2 order-md-1">
-                            <span class="text-muted fw-bold me-1">2021©</span>
-                            <a href="" target="_blank" class="text-gray-800 text-hover-primary">Keenthemes</a>
-                        </div>
-                        <!--end::Copyright-->
-                        <!--begin::Menu-->
-                        <ul class="menu menu-gray-600 menu-hover-primary fw-bold order-1">
-                            <li class="menu-item">
-                                <a href="https://keenthemes.com" target="_blank" class="menu-link px-2">About</a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="https://keenthemes.com/support" target="_blank"
-                                    class="menu-link px-2">Support</a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="https://1.envato.market/EA4JP" target="_blank"
-                                    class="menu-link px-2">Purchase</a>
-                            </li>
-                        </ul>
-                        <!--end::Menu-->
-                    </div>
-                    <!--end::Container-->
-                </div>
-                <!--end::Footer-->
+                
             </div>
             <!--end::Wrapper-->
         </div>

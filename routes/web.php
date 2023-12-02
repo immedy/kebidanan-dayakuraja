@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PasienController;
+use App\Http\Controllers\ReferensiController;
 use App\Models\Pasien;
 use Illuminate\Support\Facades\Route;
 
@@ -18,8 +19,29 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('PageDashboard.Pasien.Halamanutama');
 });
+Route::get('/DashboardRS', function () {
+    return view('PageDashboardRs.PasienRs.PasienRs');
+});
+Route::get('/Pegawai', function () {
+    return view('PageDashboardRs.MasterData.Pegawai.HomePegawai');
+});
+Route::get('/Faskes', function () {
+    return view('PageDashboardRs.MasterData.Faskes1.Faskes');
+});
+Route::get('/DaftarKunjunganPasien', function () {
+    return view('PageDashboard.Pasien.DaftarPasien');
+});
+Route::get('/EditDaftarKunjunganPasien', function () {
+    return view('PageDashboard.Pasien.EditDaftarPasien');
+});
+
+
 
 Route::controller(PasienController::class)->group(function(){
     route::get('/CariPasien','pasien');
     route::get('/TambahPasien','AddPasien');
+});
+
+Route::controller(ReferensiController::class)->group(function(){
+    route::get('/DataReferensi','Referensi');
 });

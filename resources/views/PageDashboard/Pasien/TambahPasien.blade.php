@@ -1,13 +1,16 @@
 @extends('Layout.Dashboard')
 @section('DASHBOARD')
-    <div id="kt_app_content" class="app-content flex-column-fluid">
-        <!--begin::Content container-->
-        <div id="kt_app_content_container" class="app-container container-fluid">
-            <!--begin::Contact-->
-            <div class="card">
-                <!--begin::Body-->
+    <div class="row gy-10 g-xxl">
+        <!--begin::Col-->
+        <div class="col-xl-12">
+            <div class="card card-xl-stretch mb-5 mb-xl-8">
+                <div class="card-header border-0 pt-5">
+                    <h3 class="card-title align-items-start flex-column">
+                        <span class="card-label fw-bolder fs-3 mb-1">Data Pasien Baru</span>
+                    </h3>
+
+                </div>
                 <div class="card-body">
-                    <!--begin::Row-->
                     <div class="row mb-3">
                         <!--begin::Col-->
                         <div class="col-md-12 ">
@@ -16,7 +19,7 @@
                                 <!--begin::Input group-->
                                 <div class="row mb-3">
                                     <!--begin::Col-->
-                                    <label class="fs-5 fw-semibold mb-2">Data Identitas</label>
+                                    <label class="fs-5 fw-semibold mb-2">Data Identitas Pasien Baru</label>
                                     <div class="col-md-2 fv-row">
                                         <input type="number" class="form-control form-control-solid mb-2 "
                                             placeholder="NORM RS" name="" />
@@ -158,13 +161,10 @@
                         </div>
                         <!--end::Col-->
                     </div>
-                    <!--end::Row-->
-                    <!--begin::Row-->
                 </div>
-                <!--end::Body-->
             </div>
-            <!--end::Contact-->
         </div>
-        <!--end::Content container-->
     </div>
+</div>
+    
 @endsection

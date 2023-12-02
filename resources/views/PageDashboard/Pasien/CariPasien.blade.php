@@ -1,251 +1,145 @@
 @extends('Layout.Dashboard')
 @section('DASHBOARD')
-    <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
-        <!--begin::Content wrapper-->
-        <div class="d-flex flex-column flex-column-fluid">
-            <!--begin::Toolbar-->
-            <div id="kt_app_toolbar" class="app-toolbar pt-5">
-                <!--begin::Toolbar container-->
-                <div id="kt_app_toolbar_container" class="app-container container-fluid d-flex align-items-stretch">
-                    <!--begin::Toolbar wrapper-->
-                    <div class="app-toolbar-wrapper d-flex flex-stack flex-wrap gap-4 w-100">
-                        <!--begin::Page title-->
-                        <div class="page-title d-flex flex-column gap-1 me-3 mb-2">
-                            <!--begin::Title-->
-                            <h1 class="page-heading d-flex flex-column justify-content-center text-dark fw-bolder fs-1 lh-0">
-                                Pasien</h1>
-                            <!--end::Title-->
-                        </div>
-                        <!--end::Page title-->
-                        <!--begin::Actions-->
-                        <div>
-                            <a href="/TambahPasien"
-                                class="btn btn-icon-info btn-outline-danger btn-active-light-success border-success border"
-                                data-bs-toggle="tooltip" data-bs-placement="top" title="Tambah Pasien"><span
-                                    class="indicator-label">
-                                    <span class="svg-icon svg-icon-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
-                                            <path
-                                                d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
-                                            <path
-                                                d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-                                        </svg>
-                                    </span>
-                                </span>
-                            </a>
-                            <a href="/"
-                                class="btn btn-icon-info btn-outline-danger btn-active-success border-primary border"
-                                data-bs-toggle="tooltip" data-bs-placement="top" title="Kembali Kehalaman Utama"><span
-                                    class="indicator-label">
-                                    <span class="svg-icon svg-icon-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="bi bi-backspace" viewBox="0 0 16 16">
-                                            <path
-                                                d="M5.83 5.146a.5.5 0 0 0 0 .708L7.975 8l-2.147 2.146a.5.5 0 0 0 .707.708l2.147-2.147 2.146 2.147a.5.5 0 0 0 .707-.708L9.39 8l2.146-2.146a.5.5 0 0 0-.707-.708L8.683 7.293 6.536 5.146a.5.5 0 0 0-.707 0z" />
-                                            <path
-                                                d="M13.683 1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-7.08a2 2 0 0 1-1.519-.698L.241 8.65a1 1 0 0 1 0-1.302L5.084 1.7A2 2 0 0 1 6.603 1h7.08zm-7.08 1a1 1 0 0 0-.76.35L1 8l4.844 5.65a1 1 0 0 0 .759.35h7.08a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1h-7.08z" />
-                                        </svg>
-                                    </span>
-                                </span>
-                            </a>
-                        </div>
-                        <!--end::Actions-->
-                    </div>
-                    <!--end::Toolbar wrapper-->
-                </div>
-                <!--end::Toolbar container-->
-            </div>
-            <!--end::Toolbar-->
-            <!--begin::Content-->
-            <div id="kt_app_content" class="app-content flex-column-fluid">
-                <!--begin::Content container-->
-                <div id="kt_app_content_container" class="app-container container-fluid">
-                    <!--begin::Products-->
-                    <div class="card card-flush">
-                        <!--begin::Card header-->
-                        <div class="card-header align-items-center py-5 gap-2 gap-md-5">
-                            <!--begin::Card toolbar-->
-                            <div class="card-toolbar flex-row-fluid justify-content-end gap-5">
-                                <div class="d-flex align-items-center position-relative my-1">
-                                    <i class="ki-duotone ki-magnifier fs-3 position-absolute ms-4">
-                                        <span class="path1"></span>
-                                        <span class="path2"></span>
-                                    </i>
-                                    <input type="text" data-kt-ecommerce-product-filter="search"
-                                        class="form-control form-control-solid w-250px ps-12"
-                                        placeholder="Search Product" />
-                                </div>
-                            </div>
-                            <!--end::Card toolbar-->
-                        </div>
-                        <!--end::Card header-->
-                        <!--begin::Card body-->
-                        <div class="card-body pt-0">
-                            <!--begin::Table-->
-                            <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_ecommerce_products_table">
-                                <thead>
-                                    <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
-                                        <th class="w-10px pe-2">
-                                            <div class="form-check form-check-sm form-check-custom form-check-solid me-3">
-                                                No
-                                            </div>
-                                        </th>
-                                        <th class="min-w-200px">Pasien</th>
-                                        <th class="text-center min-w-100px">NIK</th>
-                                        <th class="text-center min-w-70px">Alamat</th>
-                                        <th class="text-center min-w-100px">Tempat Lahir</th>
-                                        <th class="text-end min-w-70px">Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="fw-semibold text-gray-600">
-                                    {{-- @foreach ($pasien as $p) --}}
-                                    <tr>
-                                        <td>
-                                            1
-                                        </td>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <div class="ms-5">
-                                                    <!--begin::Title-->
-                                                    <a href="#" class="text-gray-800 text-hover-primary fs-5 fw-bold"
-                                                        data-kt-ecommerce-product-filter="product_name"></a>
-                                                    <!--end::Title-->
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="text-end pe-0">
-                                            <span class="fw-bold">089089890888088</span>
-                                        </td>
-                                        <td class="text-end pe-0" data-order="34">
-                                            <span class="fw-bold ms-3">jalan ini sanan anisnsinsi</span>
-                                        </td>
-                                        <td class="text-center">12-02-2000</td>
+    <div class="row gy-10 g-xxl">
+        <!--begin::Col-->
+        <div class="col-xl-12">
 
-                                        <td class="text-end">
-                                            <div>
-                                                <a href=""
-                                                    class="btn btn-icon-info btn-outline-danger btn-active-info border-info border">
-                                                    <span class="indicator-label" data-bs-toggle="tooltip" data-bs-placement="top"
-                                                    title="Edit  Pasien">
-                                                        <span class="svg-icon svg-icon-2" >
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                                                                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                                                                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-                                                              </svg>
-                                                        </span>
-                                                    </span>
-                                                </a>
-                                                <a href=""
-                                                    class="btn btn-icon-success btn-outline-danger btn-active-success border-success border"
-                                                     data-bs-toggle="modal" data-bs-target="#kt_modal_scrollable_2">
-                                                    <span class="indicator-label" data-bs-toggle="tooltip" data-bs-placement="top"
-                                                    title="Daftar">
-                                                        <span class="svg-icon svg-icon-2">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-square-text" viewBox="0 0 16 16">
-                                                                <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-2.5a2 2 0 0 0-1.6.8L8 14.333 6.1 11.8a2 2 0 0 0-1.6-.8H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
-                                                                <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
-                                                              </svg>
-                                                        </span>
-                                                    </span>
-                                                </a>
+            <div class="card card-xl-stretch mb-5 mb-xl-8">
+                <div class="card-header border-0 pt-5">
+                    <h3 class="card-title align-items-start flex-column">
+                        <span class="card-label fw-bolder fs-3 mb-1">pasien</span>
+                    </h3>
+                    <form action="">
+                        <div class="card-toolbar">
+                            <div>
+                                <input type="text" name="" value="" class="form-control sm me-6"
+                                    placeholder="Cari Pasien" />
+                            </div>
+                            <div>
+                                <button type="submit"
+                                    class="btn btn-icon btn-outline-warning btn-active-light-info border border-success btn-sm me-1"
+                                    data-bs-toggle="tooltip" data-bs-placement="bottom" title="Cari Pegawai"><span
+                                        class="indicator-label">
+                                        <span class="svg-icon svg-icon-2">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                                            </svg>
+                                        </span>
+                                    </span>
+                                </button>
+                            </div>
+                            <a href="/TambahPasien"
+                                class="border border-success btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
+                                <!--begin::Svg Icon | path: icons/duotune/general/gen027.svg-->
+                                <span class="svg-icon svg-icon-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                        fill="currentColor" class="bi bi-person-add" viewBox="0 0 16 16">
+                                        <path
+                                            d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0m-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0M8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4" />
+                                        <path
+                                            d="M8.256 14a4.474 4.474 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10c.26 0 .507.009.74.025.226-.341.496-.65.804-.918C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4s1 1 1 1z" />
+                                    </svg>
+                                </span>
+                                <!--end::Svg Icon-->
+                            </a>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-body py-3">
+                    <!--begin::Table container-->
+                    <div class="table-responsive">
+                        <!--begin::Table-->
+                        <table class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
+                            <!--begin::Table head-->
+                            <thead>
+                                <tr class="fw-bolder text-muted">
+                                    <th class="w-25px">
+                                        No
+                                    </th>
+                                    <th class="min-w-150px">Nama</th>
+                                    <th class="min-w-140px">Tanggal Lahir</th>
+                                    <th class="min-w-120px text-center">Alamat</th>
+                                    <th class="min-w-120px text-center">Faskes </th>
+                                    <th class="min-w-100px text-center">Aksi</th>
+                                </tr>
+                            </thead>
+                            <!--end::Table head-->
+                            <!--begin::Table body-->
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        1
+                                    </td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <div class="d-flex justify-content-start flex-column">
+                                                <a href="#" class="text-dark fw-bolder text-hover-primary fs-6">Ana
+                                                    Simmons</a>
                                             </div>
-                                        </td>
-                                    </tr>
-                                    {{-- @endforeach --}}
-                                </tbody>
-                            </table>
-                            <!--end::Table-->
-                        </div>
-                        <!--end::Card body-->
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="text-dark fw-bolder text-hover-primary d-block fs-6">05 April
+                                            2000</span>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="d-flex flex-column w-100 me-2">
+                                            <span class="text-dark fw-bolder text-hover-primary d-block fs-6">Jalan Siratrul
+                                                Mustakim</span>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="d-flex flex-column w-100 me-2">
+                                            <span class="text-dark fw-bolder text-hover-primary d-block fs-6">Puskesmas Muara Muntai</span>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="d-flex justify-content-end flex-shrink-0">
+                                            <a href="javascript:void(0)" data-url=""
+                                                class="btn btn-icon btn-bg-light btn-active-color-info btn-sm me-1 border border-success"
+                                                data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Pasien">
+                                                <!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->
+                                                <span class="svg-icon svg-icon-3">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                        fill="currentColor" class="bi bi-shield-lock" viewBox="0 0 16 16">
+                                                        <path
+                                                            d="M5.338 1.59a61.44 61.44 0 0 0-2.837.856.481.481 0 0 0-.328.39c-.554 4.157.726 7.19 2.253 9.188a10.725 10.725 0 0 0 2.287 2.233c.346.244.652.42.893.533.12.057.218.095.293.118a.55.55 0 0 0 .101.025.615.615 0 0 0 .1-.025c.076-.023.174-.061.294-.118.24-.113.547-.29.893-.533a10.726 10.726 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 0-.328-.39c-.651-.213-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 1.067c-.53 0-1.552.223-2.662.524zM5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.775 11.775 0 0 1-2.517 2.453 7.159 7.159 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7.158 7.158 0 0 1-1.048-.625 11.777 11.777 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 62.456 62.456 0 0 1 5.072.56z" />
+                                                        <path
+                                                            d="M9.5 6.5a1.5 1.5 0 0 1-1 1.415l.385 1.99a.5.5 0 0 1-.491.595h-.788a.5.5 0 0 1-.49-.595l.384-1.99a1.5 1.5 0 1 1 2-1.415z" />
+                                                    </svg>
+                                                    <!--end::Svg Icon-->
+                                                </span>
+                                            </a>
+                                            <a href="/DaftarKunjunganPasien"
+                                                class="btn btn-icon btn-bg-light btn-active-color-info btn-sm me-1 border border-info">
+                                                <!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->
+                                                <span class="svg-icon svg-icon-3">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                        fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                                        <path
+                                                            d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                                                        <path fill-rule="evenodd"
+                                                            d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                                                    </svg>
+                                                    <!--end::Svg Icon-->
+                                                </span>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <!--end::Table body-->
+                        </table>
+                        <!--end::Table-->
                     </div>
-                    <!--end::Products-->
+                    <!--end::Table container-->
                 </div>
-                <!--end::Content container-->
+                <!--begin::Body-->
             </div>
-            <!--end::Content-->
-        </div>
-        <!--end::Content wrapper-->
-    </div>
-    {{-- Modal --}}
-    <div class="modal fade" tabindex="-1" id="kt_modal_scrollable_2">
-        <div class="modal-dialog modal-dialog-centered mw-900px">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Daftar Pasien</h5>
-    
-                    <!--begin::Close-->
-                    <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
-                        <i class="ki-duotone ki-cross fs-2x"><span class="path1"></span><span class="path2"></span></i>
-                    </div>
-                    <!--end::Close-->
-                </div>
-    
-                <div class="modal-body">
-                    <div class="row mb-3">
-                        <!--begin::Col-->
-                        <label class="fs-5 fw-semibold mb-2">Data Identitas</label>
-                        <div class="col-md-2 fv-row">
-                            <input type="number" class="form-control form-control-solid mb-2 "
-                                placeholder="NORM RS" name="" />
-                        </div>
-                        <div class="col-md-4 fv-row">
-                            <input type="text" class="form-control form-control-solid mb-2"
-                                placeholder="NAMA LENGKAP" name="" />
-                        </div>
-                        <div class="col-md-3 fv-row">
-                            <input type="text" class="form-control form-control-solid mb-2"
-                                placeholder="NAMA PANGGILAN" name="" />
-                        </div>
-                        <div class="col-md-3 fv-row">
-                            <input type="" class="form-control form-control-solid mb-2"
-                                placeholder="TEMPAT LAHIR" name="" />
-                        </div>
-                        <div class="col-md-2 fv-row">
-                            <input class="form-control form-control-solid mb-2" placeholder="TANGGAL lAHIR"
-                                name="" id="TANGGAL_LAHIR" />
-                        </div>
-                        <div class="col-md-1 fv-row">
-                            <input type="number" class="form-control form-control-solid mb-2"
-                                placeholder="Umur Thn" name="" />
-                        </div>
-                        <div class="col-md-1 fv-row">
-                            <input type="number" class="form-control form-control-solid mb-2"
-                                placeholder="Umur Bln" name="" />
-                        </div>
-                        <div class="col-md-1 fv-row">
-                            <input type="number" class="form-control form-control-solid mb-2"
-                                placeholder="Umur Hr" name="" />
-                        </div>
-                        <div class="col-md-3 fv-row">
-                            <input type="text" class="form-control form-control-solid mb-2"
-                                placeholder="STATUS PERKAWINAN" name="" />
-                        </div>
-                        <div class="col-md-4 fv-row">
-                            <input type="text" class="form-control form-control-solid mb-2"
-                                placeholder="AGAMA" name="" />
-                        </div>
-                        <div class="col-md-4 fv-row">
-                            <input type="text" class="form-control form-control-solid mb-2"
-                                placeholder="PENDIDIKAN" name="" />
-                        </div>
-                        <div class="col-md-4 fv-row">
-                            <input type="text" class="form-control form-control-solid mb-2"
-                                placeholder="PEKERJAAN" name="" />
-                        </div>
-                        <div class="col-md-4 mb-15 fv-row">
-                            <input type="text" class="form-control form-control-solid mb-2"
-                                placeholder="GOL DARAH" name="" />
-                        </div>
-                    </div>
-                </div>
-    
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-            </div>
+
         </div>
     </div>
-    {{-- modal --}}
+  
 @endsection
