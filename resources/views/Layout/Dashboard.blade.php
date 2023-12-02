@@ -49,7 +49,7 @@
                                 </div>
                             </div>
                             <div class="menu-item">
-                                <a class="menu-link active" href="/">
+                                <a class="menu-link" href="/">
                                     <span class="menu-icon">
                                         <i class="bi bi-grid fs-3"></i>
                                     </span>

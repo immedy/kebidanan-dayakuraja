@@ -25,9 +25,7 @@ Route::get('/DashboardRS', function () {
 Route::get('/Pegawai', function () {
     return view('PageDashboardRs.MasterData.Pegawai.HomePegawai');
 });
-Route::get('/Faskes', function () {
-    return view('PageDashboardRs.MasterData.Faskes1.Faskes');
-});
+
 Route::get('/DaftarKunjunganPasien', function () {
     return view('PageDashboard.Pasien.DaftarPasien');
 });
@@ -44,4 +42,8 @@ Route::controller(PasienController::class)->group(function(){
 
 Route::controller(ReferensiController::class)->group(function(){
     route::get('/DataReferensi','Referensi');
+    route::get('/Faskes','Faskes');
+    route::post('Addreferensi','AddReferensi')->name('AddReferensi');
+    route::post('/AddDatareferensi','AddDatareferensi')->name('AddDatareferensi');
+    route::post('/AddFaskes','AddFaskes')->name('AddFaskes');
 });
