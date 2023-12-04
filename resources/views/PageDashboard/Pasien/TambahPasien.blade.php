@@ -38,7 +38,7 @@
                                     </div>
                                     <div class="col-md-2 fv-row">
                                         <input class="form-control form-control-solid mb-2" placeholder="TANGGAL lAHIR"
-                                            name="" id="TANGGAL_LAHIR" />
+                                            name="" id="Tanggal" />
                                     </div>
                                     <div class="col-md-1 fv-row">
                                         <input type="number" class="form-control form-control-solid mb-2"
@@ -166,5 +166,5 @@
         </div>
     </div>
 </div>
-    
+
 @endsection

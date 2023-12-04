@@ -35,8 +35,8 @@ Route::get('/EditDaftarKunjunganPasien', function () {
 
 
 Route::controller(PasienController::class)->group(function(){
-    route::get('/CariPasien','pasien')->middleware('auth');
-    route::get('/TambahPasien','AddPasien')->middleware('auth');
+    route::get('/CariPasien','index')->middleware('auth');
+    route::get('/TambahPasien','create')->middleware('auth');
 });
 
 Route::controller(ReferensiController::class)->group(function(){
