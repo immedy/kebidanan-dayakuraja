@@ -13,4 +13,8 @@ class pegawai extends Model
     {
         return $this->belongsTo(faskes::class);
     }
+    public function user()
+    {
+        return $this->hasOne(User::class,'pegawai_id','id');
+    }
 }

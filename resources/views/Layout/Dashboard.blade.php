@@ -53,7 +53,7 @@
                                     <span class="menu-icon">
                                         <i class="bi bi-grid fs-3"></i>
                                     </span>
-                                    <span class="menu-title">Dashboard Puskesmas</span>
+                                    <span class="menu-title">Dashboard</span>
                                 </a>
                             </div>
                             <div class="menu-item">

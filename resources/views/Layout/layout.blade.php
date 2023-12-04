@@ -28,6 +28,7 @@
     <!--begin::Global Stylesheets Bundle(used by all pages)-->
     <link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!--end::Global Stylesheets Bundle-->
 </head>
 <!--end::Head-->
@@ -74,6 +75,7 @@
     <script src="assets/js/custom/apps/chat/chat.js"></script>
     <script src="assets/js/custom/modals/create-app.js"></script>
     <script src="assets/js/custom/modals/upgrade-plan.js"></script>
+    <script src="{{asset('assets/js/UserDetail.js')}}"></script>
     <script>
         $("#Tanggal").flatpickr({
             enableTime: true,

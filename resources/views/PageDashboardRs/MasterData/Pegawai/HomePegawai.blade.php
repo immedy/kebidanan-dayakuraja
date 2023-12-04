@@ -122,10 +122,10 @@
                                         <td>
                                             <div class="d-flex justify-content-end flex-shrink-0">
                                                 <a href="javascript:void(0)"
-                                                    data-url="" id="Username"
+                                                    data-url="{{route('Username', $p->id)}}" id="Username"
                                                     class="btn btn-icon btn-bg-light btn-active-color-info btn-sm me-1 border border-success"
                                                     data-bs-toggle="tooltip" data-bs-placement="top"
-                                                    title="Edit Username">
+                                                    title="Tambah Username">
                                                     <!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->
                                                     <span class="svg-icon svg-icon-3">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="16"
@@ -157,25 +157,6 @@
                                                         <!--end::Svg Icon-->
                                                     </span>
                                                 </a>
-                                                @if (!empty($p->User) && $p->User->pegawai_id && $p->User->username && $p->User->password && $p->User->status == 1)
-                                                <a href="/Dashboard/HakAkses/{{ Crypt::encryptString($p->id) }}"
-                                                    class="btn btn-icon btn-bg-light btn-active-color-danger btn-sm me-1 border  border-danger"
-                                                    data-bs-toggle="tooltip" data-bs-placement="top"
-                                                    title="Hak Akses Pegawai">
-                                                    <!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->
-                                                    <span class="svg-icon svg-icon-3">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16"
-                                                            height="16" fill="currentColor"
-                                                            class="bi bi-list-ol" viewBox="0 0 16 16">
-                                                            <path fill-rule="evenodd"
-                                                                d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5z" />
-                                                            <path
-                                                                d="M1.713 11.865v-.474H2c.217 0 .363-.137.363-.317 0-.185-.158-.31-.361-.31-.223 0-.367.152-.373.31h-.59c.016-.467.373-.787.986-.787.588-.002.954.291.957.703a.595.595 0 0 1-.492.594v.033a.615.615 0 0 1 .569.631c.003.533-.502.8-1.051.8-.656 0-1-.37-1.008-.794h.582c.008.178.186.306.422.309.254 0 .424-.145.422-.35-.002-.195-.155-.348-.414-.348h-.3zm-.004-4.699h-.604v-.035c0-.408.295-.844.958-.844.583 0 .96.326.96.756 0 .389-.257.617-.476.848l-.537.572v.03h1.054V9H1.143v-.395l.957-.99c.138-.142.293-.304.293-.508 0-.18-.147-.32-.342-.32a.33.33 0 0 0-.342.338v.041zM2.564 5h-.635V2.924h-.031l-.598.42v-.567l.629-.443h.635V5z" />
-                                                        </svg>
-                                                    </span>
-                                                    <!--end::Svg Icon-->
-                                                </a>
-                                                @endif
                                                 
                                             </div>
                                         </td>
@@ -239,4 +220,73 @@
         </div>
     </div>
     {{-- end Add Pegawai --}}
+    {{-- Edit UserName --}}
+    <div class="modal fade " tabindex="-1" id="CariUsername">
+        <div class="modal-dialog border border-danger">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="user-nama"></h5>
+                </div>
+                <form action="{{route('AddUsername')}}" method="post">
+                    @method('PUT')
+                    @csrf
+                    <div class="modal-body">
+                        <div class="fv-row mb-3">
+                            <label class="text-dark fw-bolder text-hover-primary fs-6">Username</label>
+                            <label class="text-dark fw-bolder text-hover-primary fs-6" id="pegawai_id"></label>
+                            <input type="text" name="username" id="user-user" autofocus
+                                class="form-control form-control-solid mb-3 mb-lg-0" placeholder="" value=""
+                                required />
+
+                            <!--end::Input-->
+                        </div>
+                        <div class="fv-row mb-3">
+
+                            <input type="text" name="pegawai_id" id="id"
+                                class="form-control form-control-solid mb-3 mb-lg-0" placeholder="" value=""
+                                required hidden />
+
+                            <!--end::Input-->
+                        </div>
+                        <div class="fv-row mb-3">
+                            <label class="text-dark fw-bolder text-hover-primary fs-6">Hak Akses</label>
+                            <select name="hak_akses" class="form-select form-select-solid"
+                                data-dropdown-parent="#CariUsername" data-control="select2"
+                                data-placeholder="Pilih Jenis Hak Akses" required>
+                                <option></option>
+                                    <option value="1">Admin Rumah Sakit</option>
+                                    <option value="2">Admin Puskesmas</option>
+                            </select>
+                            <!--end::Input-->
+                        </div>
+                        <div class="fv-row mb-3">
+                            <label class="text-dark fw-bolder text-hover-primary fs-6">Password</label>
+                            <input type="password" name="password" id="user-password"
+                                class="form-control form-control-solid mb-3 mb-lg-0" placeholder="" value=""
+                                required />
+                            <!--end::Input-->
+                        </div>
+                        <div class="fv-row mb-3">
+                            <label class="text-dark fw-bolder text-hover-primary fs-6">Konfirmasi Password</label>
+                            <input type="password" name="confirm-password"
+                                class="form-control form-control-solid mb-3 mb-lg-0" placeholder="" id="confirm-password"
+                                required />
+                            <small id="error" class="text-danger d-none">Password Tidak Sama..</small>
+                            <!--end::Input-->
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Keluar</button>
+                        <button type="submit" class="btn btn-primary" id="validasi-password" disabled><span
+                                class="indicator-label">
+                                Simpan
+                            </span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{-- ENd Edit Username --}}
 @endsection
