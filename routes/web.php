@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PasienController;
+use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\ReferensiController;
 use App\Models\Pasien;
 use Illuminate\Support\Facades\Route;
@@ -22,9 +23,7 @@ Route::get('/', function () {
 Route::get('/DashboardRS', function () {
     return view('PageDashboardRs.PasienRs.PasienRs');
 });
-Route::get('/Pegawai', function () {
-    return view('PageDashboardRs.MasterData.Pegawai.HomePegawai');
-});
+
 
 Route::get('/DaftarKunjunganPasien', function () {
     return view('PageDashboard.Pasien.DaftarPasien');
@@ -46,4 +45,9 @@ Route::controller(ReferensiController::class)->group(function(){
     route::post('Addreferensi','AddReferensi')->name('AddReferensi');
     route::post('/AddDatareferensi','AddDatareferensi')->name('AddDatareferensi');
     route::post('/AddFaskes','AddFaskes')->name('AddFaskes');
+});
+
+Route::controller(PegawaiController::class)->group(function(){
+    route::get('/Pegawai','pegawai');
+    route::post('AddPegawai','AddPegawai')->name('AddPegawai');
 });

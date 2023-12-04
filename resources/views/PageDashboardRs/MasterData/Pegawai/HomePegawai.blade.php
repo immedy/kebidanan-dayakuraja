@@ -10,23 +10,54 @@
                     <h3 class="card-title align-items-start flex-column">
                         <span class="card-label fw-bolder fs-3 mb-1">Pegawai</span>
                     </h3>
-                    <div class="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover"
-                        title="Cari Pasien">
-                        <a href="/CariPasien"
-                            class="border border-success btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
-                            <!--begin::Svg Icon | path: icons/duotune/general/gen027.svg-->
-                            <span class="svg-icon svg-icon-3">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                    class="bi bi-person-add" viewBox="0 0 16 16">
-                                    <path
-                                        d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0m-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0M8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4" />
-                                    <path
-                                        d="M8.256 14a4.474 4.474 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10c.26 0 .507.009.74.025.226-.341.496-.65.804-.918C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4s1 1 1 1z" />
-                                </svg>
-                            </span>
-                            <!--end::Svg Icon-->
-                        </a>
-                    </div>
+                    <form action="">
+                        <div class="card-toolbar">
+                            <div>
+                                <input type="text" name="caripegawai" value="{{ request('caripegawai') }}"
+                                    class="form-control sm me-1" placeholder="Cari Pegawai" />
+                            </div>
+                            <div>
+                                <button type="submit"
+                                    class="btn btn-icon btn-outline-warning btn-active-light-info border border-success btn-sm me-1"
+                                    data-bs-toggle="tooltip" data-bs-placement="bottom" title="Cari Pegawai"><span
+                                        class="indicator-label">
+                                        <span class="svg-icon svg-icon-2">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                                            </svg>
+                                        </span>
+                                    </span>
+                                </button>
+                            </div>
+
+                            <div class="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top"
+                                data-bs-trigger="hover" title="Tambah Pegawai">
+                                {{-- @if (Auth::user()->akses != 1)
+                    @else --}}
+                                <div class="d-flex justify-content-end flex-shrink-0">
+                                    <a href="#"
+                                        class=" btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1 border border-info"
+                                        data-bs-toggle="modal" data-bs-target="#modalAddPegawai">
+                                        <!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
+                                        <span class="svg-icon svg-icon-2">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-person-plus" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
+                                                <path fill-rule="evenodd"
+                                                    d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z" />
+                                            </svg>
+                                        </span>
+                                    </a>
+                                </div>
+                                {{-- @endif --}}
+                            </div>
+                        </div>
+                    </form>
+
+
                 </div>
                 <!--end::Header-->
                 <!--begin::Body-->
@@ -41,105 +72,171 @@
                                     <th class="w-25px">
                                         No
                                     </th>
+                                    <th class="min-w-100px">NIP</th>
                                     <th class="min-w-150px">Nama</th>
-                                    <th class="min-w-140px">Faskes</th>
-                                    <th class="min-w-120px text-center">Alamat</th>
-                                    <th class="min-w-100px text-center">Aksi</th>
+                                    <th class="min-w-170px ">Faskes</th>
+                                    <th class="min-w-50px">Username</th>
+                                    <th class="min-w-100px text-end">Actions</th>
                                 </tr>
                             </thead>
-                            <!--end::Table head-->
-                            <!--begin::Table body-->
                             <tbody>
-                                <tr>
-                                    <td>
-                                        1
-                                    </td>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <div class="d-flex justify-content-start flex-column">
-                                                <a href="#" class="text-dark fw-bolder text-hover-primary fs-6">Ana
-                                                    Simmons</a>
-                                                <span class="text-muted fw-bold text-muted d-block fs-7">0907055059</span>
+                                @foreach ($pegawai as $p)
+                                    <tr>
+                                        <td>
+                                            {{ $loop->iteration }}
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="d-flex justify-content-start flex-column">
+                                                    <a class="text-dark fw-bolder text-hover-primary fs-6"></a>
+                                                    {{ $p->nip }}
+                                                </div>
                                             </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <span class="text-dark fw-bolder text-hover-primary d-block fs-6">05 April
-                                            2000</span>
-                                    </td>
-                                    <td class="text-center">
-                                        <div class="d-flex flex-column w-100 me-2">
-                                            <span class="text-dark fw-bolder text-hover-primary d-block fs-6">Jalan Siratrul
-                                                Mustakim</span>
-                                        </div>
-                                    </td>
-                                    <td class="text-center">
-                                        <div class="d-flex justify-content-end flex-shrink-0">
-                                            <a href="#"
-                                                class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
-                                                <!--begin::Svg Icon | path: icons/duotune/general/gen019.svg-->
-                                                <span class="svg-icon svg-icon-3">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                        viewBox="0 0 24 24" fill="none">
-                                                        <path
-                                                            d="M17.5 11H6.5C4 11 2 9 2 6.5C2 4 4 2 6.5 2H17.5C20 2 22 4 22 6.5C22 9 20 11 17.5 11ZM15 6.5C15 7.9 16.1 9 17.5 9C18.9 9 20 7.9 20 6.5C20 5.1 18.9 4 17.5 4C16.1 4 15 5.1 15 6.5Z"
-                                                            fill="black" />
-                                                        <path opacity="0.3"
-                                                            d="M17.5 22H6.5C4 22 2 20 2 17.5C2 15 4 13 6.5 13H17.5C20 13 22 15 22 17.5C22 20 20 22 17.5 22ZM4 17.5C4 18.9 5.1 20 6.5 20C7.9 20 9 18.9 9 17.5C9 16.1 7.9 15 6.5 15C5.1 15 4 16.1 4 17.5Z"
-                                                            fill="black" />
-                                                    </svg>
-                                                </span>
-                                                <!--end::Svg Icon-->
-                                            </a>
-                                            <a href="#"
-                                                class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
-                                                <!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->
-                                                <span class="svg-icon svg-icon-3">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                        viewBox="0 0 24 24" fill="none">
-                                                        <path opacity="0.3"
-                                                            d="M21.4 8.35303L19.241 10.511L13.485 4.755L15.643 2.59595C16.0248 2.21423 16.5426 1.99988 17.0825 1.99988C17.6224 1.99988 18.1402 2.21423 18.522 2.59595L21.4 5.474C21.7817 5.85581 21.9962 6.37355 21.9962 6.91345C21.9962 7.45335 21.7817 7.97122 21.4 8.35303ZM3.68699 21.932L9.88699 19.865L4.13099 14.109L2.06399 20.309C1.98815 20.5354 1.97703 20.7787 2.03189 21.0111C2.08674 21.2436 2.2054 21.4561 2.37449 21.6248C2.54359 21.7934 2.75641 21.9115 2.989 21.9658C3.22158 22.0201 3.4647 22.0084 3.69099 21.932H3.68699Z"
-                                                            fill="black" />
-                                                        <path
-                                                            d="M5.574 21.3L3.692 21.928C3.46591 22.0032 3.22334 22.0141 2.99144 21.9594C2.75954 21.9046 2.54744 21.7864 2.3789 21.6179C2.21036 21.4495 2.09202 21.2375 2.03711 21.0056C1.9822 20.7737 1.99289 20.5312 2.06799 20.3051L2.696 18.422L5.574 21.3ZM4.13499 14.105L9.891 19.861L19.245 10.507L13.489 4.75098L4.13499 14.105Z"
-                                                            fill="black" />
-                                                    </svg>
-                                                </span>
-                                                <!--end::Svg Icon-->
-                                            </a>
-                                            <a href="#"
-                                                class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
-                                                <!--begin::Svg Icon | path: icons/duotune/general/gen027.svg-->
-                                                <span class="svg-icon svg-icon-3">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                        viewBox="0 0 24 24" fill="none">
-                                                        <path
-                                                            d="M5 9C5 8.44772 5.44772 8 6 8H18C18.5523 8 19 8.44772 19 9V18C19 19.6569 17.6569 21 16 21H8C6.34315 21 5 19.6569 5 18V9Z"
-                                                            fill="black" />
-                                                        <path opacity="0.5"
-                                                            d="M5 5C5 4.44772 5.44772 4 6 4H18C18.5523 4 19 4.44772 19 5V5C19 5.55228 18.5523 6 18 6H6C5.44772 6 5 5.55228 5 5V5Z"
-                                                            fill="black" />
-                                                        <path opacity="0.5"
-                                                            d="M9 4C9 3.44772 9.44772 3 10 3H14C14.5523 3 15 3.44772 15 4V4H9V4Z"
-                                                            fill="black" />
-                                                    </svg>
-                                                </span>
-                                                <!--end::Svg Icon-->
-                                            </a>
-                                        </div>
-                                    </td>
-                                </tr>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="d-flex justify-content-start flex-column">
+                                                    <a class="text-dark fw-bolder text-hover-primary fs-6"></a>
+                                                    {{ $p->nama }}
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="text-center">
+                                            <div class="d-flex align-items-center">
+                                                <div class="d-flex justify-content-start flex-column">
+                                                    <a class="text-dark fw-bolder text-hover-primary fs-6"></a>
+                                                    {{ $p->faskes->nama }}
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="text-center">
+                                            <div class="d-flex align-items-center">
+                                                <div class="d-flex justify-content-start flex-column">
+                                                    @if (!empty($p->User->username))
+                                                        <a
+                                                            class="text-dark fw-bolder text-hover-primary fs-6">{{ $p->User->username }}</a>
+                                                    @endif                                                            
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex justify-content-end flex-shrink-0">
+                                                <a href="javascript:void(0)"
+                                                    data-url="" id="Username"
+                                                    class="btn btn-icon btn-bg-light btn-active-color-info btn-sm me-1 border border-success"
+                                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                                    title="Edit Username">
+                                                    <!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->
+                                                    <span class="svg-icon svg-icon-3">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                                            height="16" fill="currentColor"
+                                                            class="bi bi-shield-lock" viewBox="0 0 16 16">
+                                                            <path
+                                                                d="M5.338 1.59a61.44 61.44 0 0 0-2.837.856.481.481 0 0 0-.328.39c-.554 4.157.726 7.19 2.253 9.188a10.725 10.725 0 0 0 2.287 2.233c.346.244.652.42.893.533.12.057.218.095.293.118a.55.55 0 0 0 .101.025.615.615 0 0 0 .1-.025c.076-.023.174-.061.294-.118.24-.113.547-.29.893-.533a10.726 10.726 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 0-.328-.39c-.651-.213-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 1.067c-.53 0-1.552.223-2.662.524zM5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.775 11.775 0 0 1-2.517 2.453 7.159 7.159 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7.158 7.158 0 0 1-1.048-.625 11.777 11.777 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 62.456 62.456 0 0 1 5.072.56z" />
+                                                            <path
+                                                                d="M9.5 6.5a1.5 1.5 0 0 1-1 1.415l.385 1.99a.5.5 0 0 1-.491.595h-.788a.5.5 0 0 1-.49-.595l.384-1.99a1.5 1.5 0 1 1 2-1.415z" />
+                                                        </svg>
+                                                        <!--end::Svg Icon-->
+                                                    </span>
+                                                </a>
+                                                <a href="javascript:void(0)"
+                                                    data-url="" id="Pegawai"
+                                                    class="btn btn-icon btn-bg-light btn-active-color-info btn-sm me-1 border border-info"
+                                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                                    title="Edit Pegawai">
+                                                    <!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->
+                                                    <span class="svg-icon svg-icon-3">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                                            height="16" fill="currentColor"
+                                                            class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                                            <path
+                                                                d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                                                            <path fill-rule="evenodd"
+                                                                d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                                                        </svg>
+                                                        <!--end::Svg Icon-->
+                                                    </span>
+                                                </a>
+                                                @if (!empty($p->User) && $p->User->pegawai_id && $p->User->username && $p->User->password && $p->User->status == 1)
+                                                <a href="/Dashboard/HakAkses/{{ Crypt::encryptString($p->id) }}"
+                                                    class="btn btn-icon btn-bg-light btn-active-color-danger btn-sm me-1 border  border-danger"
+                                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                                    title="Hak Akses Pegawai">
+                                                    <!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->
+                                                    <span class="svg-icon svg-icon-3">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                                            height="16" fill="currentColor"
+                                                            class="bi bi-list-ol" viewBox="0 0 16 16">
+                                                            <path fill-rule="evenodd"
+                                                                d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5z" />
+                                                            <path
+                                                                d="M1.713 11.865v-.474H2c.217 0 .363-.137.363-.317 0-.185-.158-.31-.361-.31-.223 0-.367.152-.373.31h-.59c.016-.467.373-.787.986-.787.588-.002.954.291.957.703a.595.595 0 0 1-.492.594v.033a.615.615 0 0 1 .569.631c.003.533-.502.8-1.051.8-.656 0-1-.37-1.008-.794h.582c.008.178.186.306.422.309.254 0 .424-.145.422-.35-.002-.195-.155-.348-.414-.348h-.3zm-.004-4.699h-.604v-.035c0-.408.295-.844.958-.844.583 0 .96.326.96.756 0 .389-.257.617-.476.848l-.537.572v.03h1.054V9H1.143v-.395l.957-.99c.138-.142.293-.304.293-.508 0-.18-.147-.32-.342-.32a.33.33 0 0 0-.342.338v.041zM2.564 5h-.635V2.924h-.031l-.598.42v-.567l.629-.443h.635V5z" />
+                                                        </svg>
+                                                    </span>
+                                                    <!--end::Svg Icon-->
+                                                </a>
+                                                @endif
+                                                
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
-                            <!--end::Table body-->
                         </table>
-                        <!--end::Table-->
                     </div>
-                    <!--end::Table container-->
+                    {{-- {{ $pegawai->links() }} --}}
                 </div>
-                <!--begin::Body-->
             </div>
             <!--end::Tables Widget 9-->
         </div>
         <!--end::Col-->
     </div>
+
+    {{-- add Pegawai --}}
+    <div class="modal fade " tabindex="-1" id="modalAddPegawai">
+        <div class="modal-dialog border border-danger">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Tambah Pegawai</h5>
+                </div>
+                <form action="{{route('AddPegawai')}}" method="post">
+                    @csrf
+                    <div class="modal-body">
+                        <div class="fv-row mb-3">
+                            <label class="text-dark fw-bolder text-hover-primary fs-6">No Induk Pegawai</label>
+                            <input type="text" name="nip" class="form-control form-control-solid mb-3 mb-lg-0"
+                                placeholder="NIP" autofocus required />
+                            <!--end::Input-->
+                        </div>
+                        <div class="fv-row mb-3">
+                            <label class="text-dark fw-bolder text-hover-primary fs-6">Nama </label>
+                            <input type="text" name="nama" class="form-control form-control-solid mb-3 mb-lg-0"
+                                placeholder="Nama Lengkap" required />
+                            <!--end::Input-->
+                        </div>
+                        <div class="fv-row ">
+                            <label class="text-dark fw-bolder text-hover-primary fs-6">Faskes</label>
+                            <select name="faskes_id" class="form-select form-select-solid"
+                                data-dropdown-parent="#modalAddPegawai" data-control="select2"
+                                data-placeholder="Pilih Jenis Referensi" required>
+                                <option></option>
+                                @foreach ($faskes as $p)
+                                    <option value="{{ $p->id }}">{{ $p->nama }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Keluar</button>
+                        <button type="submit" class="btn btn-primary"><span class="indicator-label">
+                                Simpan
+                            </span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{-- end Add Pegawai --}}
 @endsection
