@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pasien;
+use App\Models\Wilayah;
+use Illuminate\Http\Request;
 use App\Http\Requests\StorePasienRequest;
 use App\Http\Requests\UpdatePasienRequest;
 
@@ -64,5 +66,34 @@ class PasienController extends Controller
     public function destroy(Pasien $pasien)
     {
         //
+    }
+
+    public function getCity(Request $request)
+    {
+        $city = Wilayah::selectCity(2, $request->id);
+        if (count($city) > 0)
+        {
+            return response()->json($city);
+        }
+    }
+
+    public function getCounty(Request $request)
+    {
+        # code...
+        $county = Wilayah::selectCounty(3, $request->id);
+        if (count($county) > 0) {
+            # code...
+            return response()->json($county);
+        }
+    }
+
+    public function getVillage(Request $request)
+    {
+        # code...
+        $village = Wilayah::selectVillage(4, $request->id);
+        if (count($village) > 0) {
+            # code...
+            return response()->json($village);
+        }
     }
 }

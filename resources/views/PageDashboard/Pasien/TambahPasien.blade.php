@@ -125,20 +125,26 @@
                                             placeholder="ALAMAT" name="" />
                                     </div>
                                     <div class="col-md-6 fv-row">
-                                        <input type="text" class="form-control form-control-solid mb-2"
-                                            placeholder="PROVINSI" name="" />
+                                            {{-- <select name="provinsi" id="provinsi" class="form-control-sm" required>
+                                                <option selected disabled value="">Pilih Provinsi</option>
+                                                @if ($provincies->count())
+                                                    @foreach ($provincies as $prov)
+                                                        <option value="{{ $prov->ID }}">{{ $prov->DESKRIPSI }}</option>
+                                                    @endforeach
+                                                @endif
+                                            </select> --}}
                                     </div>
                                     <div class="col-md-6 fv-row">
                                         <input type="text" class="form-control form-control-solid mb-2"
-                                            placeholder="KABUPATEN" name="" />
+                                            placeholder="KABUPATEN" name="kota" id="kota" />
                                     </div>
                                     <div class="col-md-6 fv-row">
                                         <input type="text" class="form-control form-control-solid mb-2"
-                                            placeholder="KECAMATAN" name="" />
+                                            placeholder="KECAMATAN" name="kecamatan" id="kecamatan" />
                                     </div>
                                     <div class="col-md-6 fv-row">
                                         <input type="text" class="form-control form-control-solid mb-2"
-                                            placeholder="KELURAHA/DESA" name="" />
+                                            placeholder="KELURAHAN/DESA" name="desa" id="desa" />
                                     </div>
                                     <div class="col-md-4 fv-row">
                                         <input type="text" class="form-control form-control-solid mb-2"
@@ -166,5 +172,54 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#provinsi').on('change', function () {
+            var provinsiId = this.value;
+            $('#kota').html('');
+            $.ajax({
+                url: '{{ route('getCity') }}?id='+provinsiId,
+                type: 'get',
+                success: function (res) {
+                    $('#kota').html('<option selected disabled value="">Pilih Kabupaten</option>');
+                        $.each(res, function (key, value) {
+                            $('#kota').append('<option value= "' + value.ID + '">' + value.DESKRIPSI + '</option>');
+                            $('#kecamatan').html('<option selected disabled value="">Pilih Kecamatan</option>');
+                        });
+                }
+            });
+        });
+        $('#kota').on('change', function () {
+            var cityId = this.value;
+            $('#kecamatan').html('');
+            $.ajax({
+                url: '{{ route('getCounty') }}?id='+cityId,
+                type: 'get',
+                success: function (res) {
+                    $('#kecamatan').html('<option selected disabled value="">Pilih Kecamatan</option>');
+                        $.each(res, function (key, value) {
+                            $('#kecamatan').append('<option value="'+ value.ID +'">' + value.DESKRIPSI +'</option>');
+                            $('#desa').html('<option selected disabled value="">Pilih Desa</option>');
+                        });
+                }
+            });
+        });
+        $('#kecamatan').on('change', function () {
+            var countyId = this.value;
+            $('#desa').html('');
+            $.ajax({
+                url: '{{ route('getVillage') }}?id='+countyId,
+                type: 'get',
+                success: function (res) {
+                    $('#desa').html('<option selected disabled value="">Pilih Desa</option>');
+                        $.each(res, function (key, value) {
+                            $('#desa').append('<option value="'+ value.ID +'">'+ value.DESKRIPSI +'</option>');
+                        });
+                }
+            });
+        });
+    });
+</script>
 
 @endsection
