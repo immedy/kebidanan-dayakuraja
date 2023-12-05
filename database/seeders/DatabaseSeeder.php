@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\DataReferensi;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -18,5 +20,14 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+        $this->call(WilayahSeeder::class);
+        $this->call(DataReferensiSeeder::class);
+        $this->call(FaskesSeeder::class);
+        $this->call(PasienSeeder::class);
+        $this->call(PegawaiSeeder::class);
+        $this->call(ReferensiSeeder::class);
+        $this->call(RujukanSeeder::class);
+        $this->call(UserSeeder::class);
+
     }
 }

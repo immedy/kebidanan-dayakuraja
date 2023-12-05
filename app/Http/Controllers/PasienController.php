@@ -25,7 +25,9 @@ class PasienController extends Controller
     public function create()
     {
         //
-        return view('PageDashboard.Pasien.TambahPasien');
+        return view('PageDashboard.Pasien.TambahPasien', [
+            "provincies" => Wilayah::selectWilayah(1),
+        ]);
     }
 
     /**
@@ -34,6 +36,9 @@ class PasienController extends Controller
     public function store(StorePasienRequest $request)
     {
         //
+        Pasien::create([
+
+        ]);
     }
 
     /**
@@ -70,20 +75,20 @@ class PasienController extends Controller
 
     public function getCity(Request $request)
     {
-        $city = Wilayah::selectCity(2, $request->id);
-        if (count($city) > 0)
+        $kota = Wilayah::selectCity(2, $request->id);
+        if (count($kota) > 0)
         {
-            return response()->json($city);
+            return response()->json($kota);
         }
     }
 
     public function getCounty(Request $request)
     {
         # code...
-        $county = Wilayah::selectCounty(3, $request->id);
-        if (count($county) > 0) {
+        $kecamatan = Wilayah::selectCounty(3, $request->id);
+        if (count($kecamatan) > 0) {
             # code...
-            return response()->json($county);
+            return response()->json($kecamatan);
         }
     }
 

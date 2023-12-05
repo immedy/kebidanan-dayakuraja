@@ -72,46 +72,7 @@
                                         <input type="text" class="form-control form-control-solid mb-2"
                                             placeholder="GOL DARAH" name="" />
                                     </div>
-                                    <label class="fs-5 fw-semibold mb-2">Alamat Sekarang</label>
-                                    <div class="col-md-12 fv-row">
-                                        <input type="text" class="form-control form-control-solid mb-2"
-                                            placeholder="ALAMAT" name="" />
-                                    </div>
-                                    <div class="col-md-6 fv-row">
-                                        <input type="text" class="form-control form-control-solid mb-2"
-                                            placeholder="PROVINSI" name="" />
-                                    </div>
-                                    <div class="col-md-6 fv-row">
-                                        <input type="text" class="form-control form-control-solid mb-2"
-                                            placeholder="KABUPATEN" name="" />
-                                    </div>
-                                    <div class="col-md-6 fv-row">
-                                        <input type="text" class="form-control form-control-solid mb-2"
-                                            placeholder="KECAMATAN" name="" />
-                                    </div>
-                                    <div class="col-md-6 fv-row">
-                                        <input type="text" class="form-control form-control-solid mb-2"
-                                            placeholder="KELURAHA/DESA" name="" />
-                                    </div>
-                                    <div class="col-md-4 fv-row">
-                                        <input type="text" class="form-control form-control-solid mb-2"
-                                            placeholder="RT" name="" />
-                                    </div>
-                                    <div class="col-md-4 fv-row">
-                                        <input type="text" class="form-control form-control-solid mb-2"
-                                            placeholder="RW" name="" />
-                                    </div>
-                                    <div class="col-md-4 mb-5 fv-row">
-                                        <input type="text" class="form-control form-control-solid mb-2"
-                                            placeholder="KODE POS" name="" />
-                                    </div>
-                                    <label class="fs-5 fw-semibold mb-2">Kartu Identitas</label>
-                                    <div class="col-md-12 fv-row">
-                                        <input class="form-check-input" type="checkbox" value="" />
-                                        <label class="form-check-label mb-3" for="flexCheckDefault">
-                                            Sama Dengan Alamat Sekarang
-                                        </label>
-                                    </div>
+                                    <label class="fs-5 fw-semibold mb-2">Alamat Kartu Identitas</label>
                                     <div class="col-md-6 fv-row">
                                         <input type="text" class="form-control form-control-solid mb-2"
                                             placeholder="JENIS IDENTITAS" name="" />
@@ -125,26 +86,66 @@
                                             placeholder="ALAMAT" name="" />
                                     </div>
                                     <div class="col-md-6 fv-row">
-                                            {{-- <select name="provinsi" id="provinsi" class="form-control-sm" required>
+                                        <select name="provinsi1" id="provinsi1" class="form-control-sm" required>
+                                            <option selected disabled value="">Pilih Provinsi</option>
+                                            @if ($provincies->count())
+                                                @foreach ($provincies as $prov)
+                                                    <option value="{{ $prov->id }}">{{ $prov->DESKRIPSI }}</option>
+                                                @endforeach
+                                            @endif
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 fv-row">
+                                        <select name="kota1" id="kota1" class="form-control-sm" required></select>
+                                    </div>
+                                    <div class="col-md-6 fv-row">
+                                        <select name="kecamatan1" id="kecamatan1" class="form-control-sm" required></select>
+                                    </div>
+                                    <div class="col-md-6 fv-row">
+                                        <select name="desa1" id="desa1" class="form-control-sm" required></select>
+                                    </div>
+                                    <div class="col-md-4 fv-row">
+                                        <input type="text" class="form-control form-control-solid mb-2"
+                                            placeholder="RT" name="" />
+                                    </div>
+                                    <div class="col-md-4 fv-row">
+                                        <input type="text" class="form-control form-control-solid mb-2"
+                                            placeholder="RW" name="" />
+                                    </div>
+                                    <div class="col-md-4 mb-5 fv-row">
+                                        <input type="text" class="form-control form-control-solid mb-2"
+                                            placeholder="KODE POS" name="" />
+                                    </div>
+                                    <label class="fs-5 fw-semibold mb-2">Alamat Sekarang</label>
+                                    <div class="col-md-12 fv-row">
+                                        <input class="form-check-input" type="checkbox" id="checkboxalamat" name="checkboxalamat" value="" />
+                                        <label class="form-check-label mb-3" for="flexCheckDefault">
+                                            Sama Dengan Alamat Kartu Identitas <span id="outputcek">false</span>
+                                        </label>
+                                    </div>
+
+                                    <div class="col-md-12 fv-row">
+                                        <input type="text" class="form-control form-control-solid mb-2"
+                                            placeholder="ALAMAT" name="" />
+                                    </div>
+                                    <div class="col-md-6 fv-row">
+                                            <select name="provinsi2" id="provinsi2" class="form-control-sm" required>
                                                 <option selected disabled value="">Pilih Provinsi</option>
                                                 @if ($provincies->count())
                                                     @foreach ($provincies as $prov)
                                                         <option value="{{ $prov->ID }}">{{ $prov->DESKRIPSI }}</option>
                                                     @endforeach
                                                 @endif
-                                            </select> --}}
+                                            </select>
                                     </div>
                                     <div class="col-md-6 fv-row">
-                                        <input type="text" class="form-control form-control-solid mb-2"
-                                            placeholder="KABUPATEN" name="kota" id="kota" />
+                                        <select name="kota2" id="kota2" class="form-control-sm"></select>
                                     </div>
                                     <div class="col-md-6 fv-row">
-                                        <input type="text" class="form-control form-control-solid mb-2"
-                                            placeholder="KECAMATAN" name="kecamatan" id="kecamatan" />
+                                            <select name="kecamatan2" id="kecamatan2" class="form-control-sm" required></select>
                                     </div>
                                     <div class="col-md-6 fv-row">
-                                        <input type="text" class="form-control form-control-solid mb-2"
-                                            placeholder="KELURAHAN/DESA" name="desa" id="desa" />
+                                            <select name="desa2" id="desa2" class="form-control-sm" required></select>
                                     </div>
                                     <div class="col-md-4 fv-row">
                                         <input type="text" class="form-control form-control-solid mb-2"
@@ -175,50 +176,136 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
-        $('#provinsi').on('change', function () {
+        $('#provinsi1').on('change', function () {
             var provinsiId = this.value;
-            $('#kota').html('');
+            $('#kota1').html('');
             $.ajax({
                 url: '{{ route('getCity') }}?id='+provinsiId,
                 type: 'get',
                 success: function (res) {
-                    $('#kota').html('<option selected disabled value="">Pilih Kabupaten</option>');
+                    $('#kota1').html('<option selected disabled value="">Pilih Kabupaten</option>');
                         $.each(res, function (key, value) {
-                            $('#kota').append('<option value= "' + value.ID + '">' + value.DESKRIPSI + '</option>');
-                            $('#kecamatan').html('<option selected disabled value="">Pilih Kecamatan</option>');
+                            $('#kota1').append('<option value= "' + value.id + '">' + value.DESKRIPSI + '</option>');
+                            $('#kecamatan1').html('<option selected disabled value="">Pilih Kecamatan</option>');
                         });
                 }
             });
         });
-        $('#kota').on('change', function () {
+        $('#kota1').on('change', function () {
             var cityId = this.value;
-            $('#kecamatan').html('');
+            $('#kecamatan1').html('');
             $.ajax({
                 url: '{{ route('getCounty') }}?id='+cityId,
                 type: 'get',
                 success: function (res) {
-                    $('#kecamatan').html('<option selected disabled value="">Pilih Kecamatan</option>');
+                    $('#kecamatan1').html('<option selected disabled value="">Pilih Kecamatan</option>');
                         $.each(res, function (key, value) {
-                            $('#kecamatan').append('<option value="'+ value.ID +'">' + value.DESKRIPSI +'</option>');
-                            $('#desa').html('<option selected disabled value="">Pilih Desa</option>');
+                            $('#kecamatan1').append('<option value="'+ value.id +'">' + value.DESKRIPSI +'</option>');
+                            $('#desa1').html('<option selected disabled value="">Pilih Desa</option>');
                         });
                 }
             });
         });
-        $('#kecamatan').on('change', function () {
+        $('#kecamatan1').on('change', function () {
             var countyId = this.value;
-            $('#desa').html('');
+            $('#desa1').html('');
             $.ajax({
                 url: '{{ route('getVillage') }}?id='+countyId,
                 type: 'get',
                 success: function (res) {
-                    $('#desa').html('<option selected disabled value="">Pilih Desa</option>');
+                    $('#desa1').html('<option selected disabled value="">Pilih Desa</option>');
                         $.each(res, function (key, value) {
-                            $('#desa').append('<option value="'+ value.ID +'">'+ value.DESKRIPSI +'</option>');
+                            $('#desa1').append('<option value="'+ value.id +'">'+ value.DESKRIPSI +'</option>');
                         });
                 }
             });
         });
+    });
+</script>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $('#provinsi2').on('change', function () {
+            var provinsiId = this.value;
+            $('#kota2').html('');
+            $.ajax({
+                url: '{{ route('getCity') }}?id='+provinsiId,
+                type: 'get',
+                success: function (res) {
+                    $('#kota2').html('<option selected disabled value="">Pilih Kabupaten</option>');
+                        $.each(res, function (key, value) {
+                            $('#kota2').append('<option value= "' + value.id + '">' + value.DESKRIPSI + '</option>');
+                            $('#kecamatan2').html('<option selected disabled value="">Pilih Kecamatan</option>');
+                        });
+                }
+            });
+        });
+        $('#kota2').on('change', function () {
+            var cityId = this.value;
+            $('#kecamatan2').html('');
+            $.ajax({
+                url: '{{ route('getCounty') }}?id='+cityId,
+                type: 'get',
+                success: function (res) {
+                    $('#kecamatan2').html('<option selected disabled value="">Pilih Kecamatan</option>');
+                        $.each(res, function (key, value) {
+                            $('#kecamatan2').append('<option value="'+ value.id +'">' + value.DESKRIPSI +'</option>');
+                            $('#desa2').html('<option selected disabled value="">Pilih Desa</option>');
+                        });
+                }
+            });
+        });
+        $('#kecamatan2').on('change', function () {
+            var countyId = this.value;
+            $('#desa2').html('');
+            $.ajax({
+                url: '{{ route('getVillage') }}?id='+countyId,
+                type: 'get',
+                success: function (res) {
+                    $('#desa2').html('<option selected disabled value="">Pilih Desa</option>');
+                        $.each(res, function (key, value) {
+                            $('#desa2').append('<option value="'+ value.id +'">'+ value.DESKRIPSI +'</option>');
+                        });
+                }
+            });
+        });
+    });
+</script>
+
+<script type="text/javascript">
+    // Ambil elemen checkbox dan span
+    const checkbox = document.getElementById('checkboxalamat');
+    const outputSpan = document.getElementById('outputcek');
+    const outputSpan2 = document.getElementById('outputcek2');
+
+    var prov1 = document.getElementById('provinsi1');
+    const kota1 = document.getElementById('kota1');
+    const kecamatan1 = document.getElementById('kecamatan1');
+    const desa1 = document.getElementById('desa1');
+
+    const prov2 = document.getElementById('provinsi2');
+    const kota2 = document.getElementById('kota2');
+    const kecamatan2 = document.getElementById('kecamatan2');
+    const desa2 = document.getElementById('desa2');
+
+    // Tambahkan event listener untuk checkbox
+    checkbox.addEventListener('change', function() {
+      // Periksa apakah checkbox dicentang atau tidak
+    if (checkbox.checked) {
+        outputSpan.textContent = 'true';
+        prov2.disabled = true;
+        kota2.disabled = true;
+        kecamatan2.disabled = true;
+        desa2.disabled = true;
+
+    } else {
+        outputSpan.textContent = 'false';
+        prov2.disabled = false;
+        kota2.disabled = false;
+        kecamatan2.disabled = false;
+        desa2.disabled = false;
+    }
     });
 </script>
 

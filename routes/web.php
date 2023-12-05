@@ -37,9 +37,9 @@ Route::get('/EditDaftarKunjunganPasien', function () {
 Route::controller(PasienController::class)->group(function(){
     route::get('/CariPasien','index')->middleware('auth');
     route::get('/TambahPasien','create')->middleware('auth');
-    route::get('/getCity','getCity')->name('getCity')->middleware('auth');
-    route::get('/getCounty','getCounty')->name('getCounty')->middleware('auth');
-    route::get('/getVillage','getVillage')->name('getVillage')->middleware('auth');
+    route::get('/getCity','getCity')->name('getCity');
+    route::get('/getCounty','getCounty')->name('getCounty');
+    route::get('/getVillage','getVillage')->name('getVillage');
 });
 
 Route::controller(ReferensiController::class)->group(function(){
