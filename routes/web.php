@@ -45,7 +45,8 @@ Route::controller(PasienController::class)->group(function(){
 });
 
 Route::controller(RujukanController::class)->group(function(){
-    route::get('/tambahRujukan/{id}', 'show')->name('createrujukan');
+    route::get('/tambahRujukan/{id}', 'create')->name('createrujukan')->middleware('auth');
+    route::post('/simpanRujukan/{id}', 'store')->name('storerujukan')->middleware('auth');
 });
 
 Route::controller(ReferensiController::class)->group(function(){

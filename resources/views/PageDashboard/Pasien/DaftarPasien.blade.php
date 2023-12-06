@@ -14,8 +14,12 @@
         <!--begin::Content-->
         <div id="kt_account_profile_details" class="collapse show">
             <!--begin::Form-->
-            <form id="kt_account_profile_details_form" class="form" action="" method="post">
+            @php
+                $id = $pasien->id;
+            @endphp
+            <form id="kt_account_profile_details_form" class="form" action="{{ route('storerujukan', $id) }}" method="post">
                 @csrf
+
                 <!--begin::Card body-->
                 <div class="card-body border-top p-9">
                     <!--begin::Input group-->
