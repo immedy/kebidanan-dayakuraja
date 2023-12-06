@@ -3,6 +3,7 @@
 use App\Http\Controllers\PasienController;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\ReferensiController;
+use App\Http\Controllers\RujukanController;
 use App\Models\Pasien;
 use Illuminate\Support\Facades\Route;
 
@@ -35,11 +36,16 @@ Route::get('/EditDaftarKunjunganPasien', function () {
 
 
 Route::controller(PasienController::class)->group(function(){
-    route::get('/CariPasien','index')->middleware('auth');
-    route::get('/TambahPasien','create')->middleware('auth');
+    route::get('/CariPasien','index')->name('caripasien')->middleware('auth');
+    route::get('/TambahPasien','create')->name('tambahpasien')->middleware('auth');
+    route::post('/pasienstore','store')->middleware('auth');
     route::get('/getCity','getCity')->name('getCity');
     route::get('/getCounty','getCounty')->name('getCounty');
     route::get('/getVillage','getVillage')->name('getVillage');
+});
+
+Route::controller(RujukanController::class)->group(function(){
+    route::get('/tambahRujukan/{id}', 'create')->name('createrujukan');
 });
 
 Route::controller(ReferensiController::class)->group(function(){

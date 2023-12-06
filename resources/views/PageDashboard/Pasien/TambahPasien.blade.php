@@ -15,30 +15,31 @@
                         <!--begin::Col-->
                         <div class="col-md-12 ">
                             <!--begin::Form-->
-                            <form action="" class="form mb-15" method="post" id="kt_contact_form">
+                            <form action="/pasienstore" class="form mb-15" method="post" id="kt_contact_form">
+                                @csrf
                                 <!--begin::Input group-->
                                 <div class="row mb-3">
                                     <!--begin::Col-->
                                     <label class="fs-5 fw-semibold mb-2">Data Identitas Pasien Baru</label>
                                     <div class="col-md-2 fv-row">
                                         <input type="number" class="form-control form-control-solid mb-2 "
-                                            placeholder="NORM RS" name="" />
+                                            placeholder="NORM RS" name="norm" id="norm" />
                                     </div>
                                     <div class="col-md-4 fv-row">
                                         <input type="text" class="form-control form-control-solid mb-2"
-                                            placeholder="NAMA LENGKAP" name="" />
+                                            placeholder="NAMA LENGKAP" name="namalengkap" />
                                     </div>
                                     <div class="col-md-3 fv-row">
                                         <input type="text" class="form-control form-control-solid mb-2"
-                                            placeholder="NAMA PANGGILAN" name="" />
+                                            placeholder="NAMA PANGGILAN" name="namapanggilan" />
                                     </div>
                                     <div class="col-md-3 fv-row">
                                         <input type="" class="form-control form-control-solid mb-2"
-                                            placeholder="TEMPAT LAHIR" name="" />
+                                            placeholder="TEMPAT LAHIR" name="tempat_lahir" />
                                     </div>
                                     <div class="col-md-2 fv-row">
                                         <input class="form-control form-control-solid mb-2" placeholder="TANGGAL lAHIR"
-                                            name="" id="Tanggal" />
+                                            name="tanggal_lahir" id="Tanggal" />
                                     </div>
                                     <div class="col-md-1 fv-row">
                                         <input type="number" class="form-control form-control-solid mb-2"
@@ -54,36 +55,36 @@
                                     </div>
                                     <div class="col-md-3 fv-row">
                                         <input type="text" class="form-control form-control-solid mb-2"
-                                            placeholder="STATUS PERKAWINAN" name="" />
+                                            placeholder="STATUS PERKAWINAN" name="perkawinan" />
                                     </div>
                                     <div class="col-md-4 fv-row">
                                         <input type="text" class="form-control form-control-solid mb-2"
-                                            placeholder="AGAMA" name="" />
+                                            placeholder="AGAMA" name="agama" />
                                     </div>
                                     <div class="col-md-4 fv-row">
                                         <input type="text" class="form-control form-control-solid mb-2"
-                                            placeholder="PENDIDIKAN" name="" />
+                                            placeholder="PENDIDIKAN" name="pendidikan" />
                                     </div>
                                     <div class="col-md-4 fv-row">
                                         <input type="text" class="form-control form-control-solid mb-2"
-                                            placeholder="PEKERJAAN" name="" />
+                                            placeholder="PEKERJAAN" name="pekerjaan" />
                                     </div>
                                     <div class="col-md-4 mb-15 fv-row">
                                         <input type="text" class="form-control form-control-solid mb-2"
-                                            placeholder="GOL DARAH" name="" />
+                                            placeholder="GOL DARAH" name="goldar" />
                                     </div>
                                     <label class="fs-5 fw-semibold mb-2">Alamat Kartu Identitas</label>
                                     <div class="col-md-6 fv-row">
                                         <input type="text" class="form-control form-control-solid mb-2"
-                                            placeholder="JENIS IDENTITAS" name="" />
+                                            placeholder="JENIS IDENTITAS" name="jenis_identitas" />
                                     </div>
                                     <div class="col-md-6 fv-row">
                                         <input type="text" class="form-control form-control-solid mb-2"
-                                            placeholder="NO KARTU" name="" />
+                                            placeholder="NO KARTU" name="noidentitas" />
                                     </div>
                                     <div class="col-md-12 fv-row">
                                         <input type="text" class="form-control form-control-solid mb-2"
-                                            placeholder="ALAMAT" name="" />
+                                            placeholder="ALAMAT" name="alamat" />
                                     </div>
                                     <div class="col-md-6 fv-row">
                                         <select name="provinsi1" id="provinsi1" class="form-control-sm" required>
@@ -106,15 +107,15 @@
                                     </div>
                                     <div class="col-md-4 fv-row">
                                         <input type="text" class="form-control form-control-solid mb-2"
-                                            placeholder="RT" name="" />
+                                            placeholder="RT" name="rt" />
                                     </div>
                                     <div class="col-md-4 fv-row">
                                         <input type="text" class="form-control form-control-solid mb-2"
-                                            placeholder="RW" name="" />
+                                            placeholder="RW" name="rw" />
                                     </div>
                                     <div class="col-md-4 mb-5 fv-row">
                                         <input type="text" class="form-control form-control-solid mb-2"
-                                            placeholder="KODE POS" name="" />
+                                            placeholder="KODE POS" name="kodepos" />
                                     </div>
                                     <label class="fs-5 fw-semibold mb-2">Alamat Sekarang</label>
                                     <div class="col-md-12 fv-row">
@@ -129,7 +130,7 @@
                                             placeholder="ALAMAT" name="" />
                                     </div>
                                     <div class="col-md-6 fv-row">
-                                            <select name="provinsi2" id="provinsi2" class="form-control-sm" required>
+                                            <select name="provinsi2" id="provinsi2" class="form-control-sm" >
                                                 <option selected disabled value="">Pilih Provinsi</option>
                                                 @if ($provincies->count())
                                                     @foreach ($provincies as $prov)
@@ -142,10 +143,10 @@
                                         <select name="kota2" id="kota2" class="form-control-sm"></select>
                                     </div>
                                     <div class="col-md-6 fv-row">
-                                            <select name="kecamatan2" id="kecamatan2" class="form-control-sm" required></select>
+                                            <select name="kecamatan2" id="kecamatan2" class="form-control-sm" ></select>
                                     </div>
                                     <div class="col-md-6 fv-row">
-                                            <select name="desa2" id="desa2" class="form-control-sm" required></select>
+                                            <select name="desa2" id="desa2" class="form-control-sm" ></select>
                                     </div>
                                     <div class="col-md-4 fv-row">
                                         <input type="text" class="form-control form-control-solid mb-2"

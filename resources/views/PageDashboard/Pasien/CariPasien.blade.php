@@ -68,31 +68,36 @@
                             <!--end::Table head-->
                             <!--begin::Table body-->
                             <tbody>
+                                @php
+                                    $no = 0;
+                                @endphp
+                                @foreach ($patiens as $patien)
+
+                                @php
+                                    $no++;
+                                @endphp
                                 <tr>
                                     <td>
-                                        1
+                                        {{ $no }}
                                     </td>
                                     <td>
                                         <div class="d-flex align-items-center">
                                             <div class="d-flex justify-content-start flex-column">
-                                                <a href="#" class="text-dark fw-bolder text-hover-primary fs-6">Ana
-                                                    Simmons</a>
+                                                <a href="#" class="text-dark fw-bolder text-hover-primary fs-6">{{ $patien->namalengkap }}</a>
                                             </div>
                                         </div>
                                     </td>
                                     <td>
-                                        <span class="text-dark fw-bolder text-hover-primary d-block fs-6">05 April
-                                            2000</span>
+                                        <span class="text-dark fw-bolder text-hover-primary d-block fs-6">{{ $patien->tanggal_lahir }}</span>
                                     </td>
                                     <td class="text-center">
                                         <div class="d-flex flex-column w-100 me-2">
-                                            <span class="text-dark fw-bolder text-hover-primary d-block fs-6">Jalan Siratrul
-                                                Mustakim</span>
+                                            <span class="text-dark fw-bolder text-hover-primary d-block fs-6">{{ $patien->alamat }}</span>
                                         </div>
                                     </td>
                                     <td class="text-center">
                                         <div class="d-flex flex-column w-100 me-2">
-                                            <span class="text-dark fw-bolder text-hover-primary d-block fs-6">Puskesmas Muara Muntai</span>
+                                            <span class="text-dark fw-bolder text-hover-primary d-block fs-6">{{ $patien->faskespegawai }}</span>
                                         </div>
                                     </td>
                                     <td class="text-center">
@@ -112,7 +117,7 @@
                                                     <!--end::Svg Icon-->
                                                 </span>
                                             </a>
-                                            <a href="/DaftarKunjunganPasien"
+                                            <a href="{{ route('createrujukan', $patien->id) }}"
                                                 class="btn btn-icon btn-bg-light btn-active-color-info btn-sm me-1 border border-info">
                                                 <!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->
                                                 <span class="svg-icon svg-icon-3">
@@ -129,6 +134,7 @@
                                         </div>
                                     </td>
                                 </tr>
+                                @endforeach
                             </tbody>
                             <!--end::Table body-->
                         </table>
@@ -141,5 +147,5 @@
 
         </div>
     </div>
-  
+
 @endsection

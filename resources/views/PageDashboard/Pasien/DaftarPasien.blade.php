@@ -6,7 +6,7 @@
             data-bs-target="#kt_account_profile_details" aria-expanded="true" aria-controls="kt_account_profile_details">
             <!--begin::Card title-->
             <div class="card-title m-0">
-                <h3 class="fw-bolder m-0">Form Rujukan/Konsulatasi</h3>
+                <h3 class="fw-bolder m-0">Form Rujukan/Konsulatasi - pasien id</h3>
             </div>
             <!--end::Card title-->
         </div>
@@ -14,7 +14,8 @@
         <!--begin::Content-->
         <div id="kt_account_profile_details" class="collapse show">
             <!--begin::Form-->
-            <form id="kt_account_profile_details_form" class="form">
+            <form id="kt_account_profile_details_form" class="form" action="" method="post">
+                @csrf
                 <!--begin::Card body-->
                 <div class="card-body border-top p-9">
                     <!--begin::Input group-->
@@ -121,7 +122,7 @@
                                     <textarea class="form-control form-control-lg form-control-solid" rows="3" placeholder="Keluhan"></textarea>
                                 </div>
                                 <!--end::Col-->
-                               
+
                             </div>
                             <!--end::Row-->
                         </div>
@@ -162,7 +163,7 @@
                                 <div class="col-lg fv-row">
                                     <input type="text" name="lname"
                                         class="form-control form-control-lg form-control-solid" />
-                                </div>                                
+                                </div>
                                 <!--end::Col-->
                             </div>
                             <!--end::Row-->
@@ -198,7 +199,7 @@
                                 <div class="col-lg fv-row">
                                     <input type="text" name="lname"
                                         class="form-control form-control-lg form-control-solid" />
-                                </div>  
+                                </div>
                                 <!--end::Col-->
                                 <label class="col-lg-2 col-form-label required fw-bold fs-6">Nadi (x/menit)</label>
                                 <!--end::Label-->
@@ -213,7 +214,7 @@
                                 <div class="col-lg fv-row">
                                     <input type="text" name="lname"
                                         class="form-control form-control-lg form-control-solid" />
-                                </div>  
+                                </div>
                                 <!--end::Col-->
                             </div>
                             <!--end::Row-->
@@ -250,7 +251,7 @@
                                 <div class="col-lg fv-row">
                                     <input type="text" name="lname"
                                         class="form-control form-control-lg form-control-solid" />
-                                </div>  
+                                </div>
                                 <!--end::Col-->
                                 <label class="col-lg-2 col-form-label required fw-bold fs-6">DJJ (x/Menit)</label>
                                 <!--end::Label-->
@@ -258,7 +259,7 @@
                                 <div class="col-lg fv-row">
                                     <input type="text" name="lname"
                                         class="form-control form-control-lg form-control-solid" />
-                                </div>                                 
+                                </div>
                                 <!--end::Col-->
                             </div>
                             <!--end::Row-->
@@ -277,7 +278,7 @@
                                 <div class="col-lg fv-row">
                                     <input type="text" name="lname"
                                         class="form-control form-control-lg form-control-solid" />
-                                </div>  
+                                </div>
                                 <!--end::Col-->
 
                                 <!--begin::Label-->
@@ -287,7 +288,7 @@
                                 <div class="col-lg fv-row">
                                     <input type="text" name="lname"
                                         class="form-control form-control-lg form-control-solid" />
-                                </div>  
+                                </div>
                                 <!--end::Col-->
                                 <label class="col-lg-2 col-form-label required fw-bold fs-6">Tbj (gram)</label>
                                 <!--end::Label-->
@@ -295,7 +296,7 @@
                                 <div class="col-lg fv-row">
                                     <input type="text" name="lname"
                                         class="form-control form-control-lg form-control-solid" />
-                                </div>                                 
+                                </div>
                                 <!--end::Col-->
                                 <label class="col-lg-2 col-form-label required fw-bold fs-6">Pembukaan (cm)</label>
                                 <!--end::Label-->
@@ -316,7 +317,7 @@
                                         <option>9</option>
                                         <option>10</option>
                                     </select>
-                                </div> 
+                                </div>
                             </div>
                             <!--end::Row-->
                         </div>
@@ -338,7 +339,7 @@
                                         <option value="">Pilih..</option>
                                         <option>utuh</option>
                                         <option>Merembes</option>
-                                        <option>Negatif</option>                                        
+                                        <option>Negatif</option>
                                     </select>
                                 </div>
                                 <!--end::Col-->
@@ -352,10 +353,10 @@
                                         <option value="">Pilih..</option>
                                         <option>Jernih</option>
                                         <option>Kehijauan</option>
-                                        <option>Mekonium</option>                                        
+                                        <option>Mekonium</option>
                                         <option>Darah</option>
                                     </select>
-                                </div>   
+                                </div>
                                 <label class="col-lg-2 col-form-label required fw-bold fs-6">Bagian Terdepan</label>
                                 <!--end::Label-->
                                 <!--begin::Col-->
@@ -363,8 +364,8 @@
                                     <div class="col-lg fv-row">
                                         <input type="text" name="lname"
                                             class="form-control form-control-lg form-control-solid" />
-                                    </div> 
-                                </div>                                
+                                    </div>
+                                </div>
                                 <label class="col-lg-2 col-form-label required fw-bold fs-6">Kepala</label>
                                 <!--end::Label-->
                                 <!--begin::Col-->
@@ -378,8 +379,8 @@
                                         <option>Hodge III</option>
                                         <option>Hodge IV</option>
                                     </select>
-                                </div>   
-                                
+                                </div>
+
                             </div>
                             <!--end::Row-->
                         </div>
@@ -398,7 +399,7 @@
                                     <textarea class="form-control form-control-lg form-control-solid" rows="3" placeholder="Diagnosa"></textarea>
                                 </div>
                                 <!--end::Col-->
-                               
+
                             </div>
                             <!--end::Row-->
                         </div>
@@ -417,7 +418,7 @@
                                     <textarea class="form-control form-control-lg form-control-solid" rows="3" placeholder="Alasan Merujuk"></textarea>
                                 </div>
                                 <!--end::Col-->
-                               
+
                             </div>
                             <!--end::Row-->
                         </div>

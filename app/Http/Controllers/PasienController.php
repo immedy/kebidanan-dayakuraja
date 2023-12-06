@@ -7,6 +7,7 @@ use App\Models\Wilayah;
 use Illuminate\Http\Request;
 use App\Http\Requests\StorePasienRequest;
 use App\Http\Requests\UpdatePasienRequest;
+use Illuminate\Support\Facades\Auth;
 
 class PasienController extends Controller
 {
@@ -16,7 +17,9 @@ class PasienController extends Controller
     public function index()
     {
         //
-        return view('PageDashboard.Pasien.CariPasien');
+        return view('PageDashboard.Pasien.CariPasien', [
+            "patiens" => Pasien::all(),
+        ]);
     }
 
     /**
@@ -33,12 +36,43 @@ class PasienController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StorePasienRequest $request)
+    public function store(Request $request)
     {
         //
-        Pasien::create([
-
+        // dd($request);
+        $request['provinsi'] = $request['provinsi1'];
+        $request['kabupaten'] = $request['kota1'];
+        $request['kecamatan'] = $request['kecamatan1'];
+        $request['kelurahan'] = $request['desa1'];
+        $validatedData = $request->validate([
+            'noidentitas' => 'nullable',
+            'jenis_identitas' => 'nullable',
+            'norm' => 'nullable',
+            'namalengkap' => 'required',
+            'namapanggilan' => 'nullable',
+            'tempat_lahir' => 'required',
+            'tanggal_lahir' => 'required',
+            'agama' => 'nullable',
+            'perkawinan' => 'nullable',
+            'pendidikan' => 'nullable',
+            'pekerjaan' => 'nullable',
+            'goldar' => 'nullable',
+            'alamat' => 'required',
+            'provinsi' => 'required',
+            'kabupaten' => 'required',
+            'kecamatan' => 'required',
+            'kelurahan' => 'required',
+            'rt' => 'nullable',
+            'rw' => 'nullable',
+            'kodepos' => 'nullable',
         ]);
+        $validatedData['pegawai_id'] = Auth::user()->pegawai->id;
+        $validatedData['faskespegawai'] = Auth::user()->pegawai->faskes_id;
+        $validatedData['status'] = 1;
+
+        // dd($validatedData);
+        Pasien::create($validatedData);
+        return redirect()->route('caripasien')->with('success', 'ok aja');
     }
 
     /**
