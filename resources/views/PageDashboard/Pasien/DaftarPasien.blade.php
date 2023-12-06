@@ -6,7 +6,7 @@
             data-bs-target="#kt_account_profile_details" aria-expanded="true" aria-controls="kt_account_profile_details">
             <!--begin::Card title-->
             <div class="card-title m-0">
-                <h3 class="fw-bolder m-0">Form Rujukan/Konsulatasi - pasien id</h3>
+                <h3 class="fw-bolder m-0">Form Rujukan/Konsulatasi - {{$pasien->namalengkap}}</h3>
             </div>
             <!--end::Card title-->
         </div>

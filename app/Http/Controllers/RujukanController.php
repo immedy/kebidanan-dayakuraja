@@ -6,6 +6,7 @@ use App\Models\Rujukan;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreRujukanRequest;
 use App\Http\Requests\UpdateRujukanRequest;
+use App\Models\Pasien;
 
 class RujukanController extends Controller
 {
@@ -38,9 +39,11 @@ class RujukanController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Rujukan $rujukan)
+    public function show($id)
     {
-        //
+        return view('PageDashboard.Pasien.DaftarPasien',[
+            'pasien' => Pasien::findOrFail($id)
+        ]);
     }
 
     /**
