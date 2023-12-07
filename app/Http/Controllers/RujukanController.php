@@ -37,6 +37,40 @@ class RujukanController extends Controller
     {
         //
         dd($id);
+        $request['pasien_id'] = $id;
+        $validateData = $request->validate([
+            'pasien_id' => 'required',
+            'tanggaljam' => 'required',
+            'jaminan' => 'nullable',
+            'nokartu' => 'nullable',
+            'hpht' => 'nullable',
+            'gravida' => 'nullable',
+            'partus' => 'nullable',
+            'abortus' => 'nullable',
+            'keluhan' => 'nullable',
+            'pervaginambbmax' => 'nullable',
+            'indikasisc' => 'nullable',
+            'tahunsc' => 'nullable',
+            'keadaanumum' => 'nullable',
+            'td' => 'nullable',
+            'nadi' => 'nullable',
+            'suhu' => 'nullable',
+            'his' => 'nullable',
+            'durasi' => 'nullable',
+            'djj' => 'nullable',
+            'tfu' => 'nullable',
+            'lingkarpinggang' => 'nullable',
+            'tbj' => 'nullable',
+            'pembukaan' => 'nullable',
+            'ketuban' => 'nullable',
+            'warnaketuban' => 'nullable',
+            'bagianterdepan' => 'nullable',
+            'kepala' => 'nullable',
+            'diagnosa' => 'nullable',
+            'alasanmerujuk' => 'nullable',
+        ]);
+        Rujukan::create($validateData);
+        return redirect()->route('halamanutama')->with('success', 'Data rujukan sudah terinput!');
     }
 
     /**

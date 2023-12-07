@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('PageDashboard.Pasien.Halamanutama');
-})->middleware('auth');
+})->middleware('auth')->name('halamanutama');
 Route::get('/DashboardRS', function () {
     return view('PageDashboardRs.PasienRs.PasienRs');
 })->middleware('auth');

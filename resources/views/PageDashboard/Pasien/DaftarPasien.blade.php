@@ -123,7 +123,7 @@
                             <div class="row">
                                 <!--begin::Col-->
                                 <div class="col-lg">
-                                    <textarea class="form-control form-control-lg form-control-solid" rows="3" placeholder="Keluhan"></textarea>
+                                    <textarea id="keluhan" name="keluhan" class="form-control form-control-lg form-control-solid" rows="3" placeholder="Keluhan"></textarea>
                                 </div>
                                 <!--end::Col-->
 
@@ -142,7 +142,7 @@
                             <div class="row">
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
-                                    <input type="text" name="fname"
+                                    <input type="text" name="pervaginambbmax" id="pervaginambbmax"
                                         class="form-control form-control-lg form-control-solid mb-3 mb-lg-0"
                                         />
                                 </div>
@@ -153,7 +153,7 @@
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
-                                    <select name="" aria-label="Select a Country" data-control="select2"
+                                    <select name="indikasisc" id="indikasisc" aria-label="Select a Country" data-control="select2"
                                         data-placeholder="Pilih..."
                                         class="form-select form-select-solid form-select-lg fw-bold">
                                         <option value="">Pilih...1</option>
@@ -165,7 +165,7 @@
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
-                                    <input type="text" name="lname"
+                                    <input type="text" name="tahunsc" id="tahunsc"
                                         class="form-control form-control-lg form-control-solid" />
                                 </div>
                                 <!--end::Col-->
@@ -184,7 +184,7 @@
                             <div class="row">
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
-                                    <select name="" aria-label="Select a Country" data-control="select2"
+                                    <select name="keadaanumum" id="keadaanumum" aria-label="Select a Country" data-control="select2"
                                         data-placeholder="Pilih.."
                                         class="form-select form-select-solid form-select-lg fw-bold">
                                         <option value="">Pilih..</option>
@@ -201,7 +201,7 @@
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
-                                    <input type="text" name="lname"
+                                    <input type="text" name="td" id="td"
                                         class="form-control form-control-lg form-control-solid" />
                                 </div>
                                 <!--end::Col-->
@@ -209,14 +209,14 @@
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
-                                    <input type="text" name="lname"
+                                    <input type="text" name="nadi" id="nadi"
                                         class="form-control form-control-lg form-control-solid" />
                                 </div>
                                 <label class="col-lg-2 col-form-label required fw-bold fs-6">Suhu (Celcius)</label>
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
-                                    <input type="text" name="lname"
+                                    <input type="text" name="suhu" id="suhu"
                                         class="form-control form-control-lg form-control-solid" />
                                 </div>
                                 <!--end::Col-->
@@ -235,7 +235,7 @@
                             <div class="row">
                                 <!--begin::Col-->
                                 <div class="col-lg-2 fv-row">
-                                    <select name="" aria-label="Select a Country" data-control="select2"
+                                    <select name="his" aria-label="Select a Country" data-control="select2"
                                         data-placeholder="Pilih..."
                                         class="form-select form-select-solid form-select-lg fw-bold">
                                         <option value="">Pilih...1</option>
@@ -253,7 +253,7 @@
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
-                                    <input type="text" name="lname"
+                                    <input type="text" name="durasi" id="durasi"
                                         class="form-control form-control-lg form-control-solid" />
                                 </div>
                                 <!--end::Col-->
@@ -261,7 +261,7 @@
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
-                                    <input type="text" name="lname"
+                                    <input type="text" name="djj" id="djj"
                                         class="form-control form-control-lg form-control-solid" />
                                 </div>
                                 <!--end::Col-->
@@ -280,7 +280,7 @@
                             <div class="row">
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
-                                    <input type="text" name="lname"
+                                    <input type="text" name="tfu" id="tfu"
                                         class="form-control form-control-lg form-control-solid" />
                                 </div>
                                 <!--end::Col-->
@@ -290,7 +290,7 @@
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
-                                    <input type="text" name="lname"
+                                    <input type="text" name="lingkarpinggang" id="lingkarpinggang"
                                         class="form-control form-control-lg form-control-solid" />
                                 </div>
                                 <!--end::Col-->
@@ -298,7 +298,7 @@
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
-                                    <input type="text" name="lname"
+                                    <input type="text" name="tbj" id="tbj"
                                         class="form-control form-control-lg form-control-solid" />
                                 </div>
                                 <!--end::Col-->
@@ -306,7 +306,7 @@
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
-                                    <select name="" aria-label="Select a Country" data-control="select2"
+                                    <select name="pembukaan" id="pembukaan" aria-label="Select a Country" data-control="select2"
                                         data-placeholder="Pilih..."
                                         class="form-select form-select-solid form-select-lg fw-bold">
                                         <option value="">Pilih...1</option>
@@ -337,7 +337,7 @@
                             <div class="row">
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
-                                    <select name="" aria-label="Select a Country" data-control="select2"
+                                    <select name="ketuban" id="ketuban" aria-label="Select a Country" data-control="select2"
                                         data-placeholder="Pilih.."
                                         class="form-select form-select-solid form-select-lg fw-bold">
                                         <option value="">Pilih..</option>
@@ -351,7 +351,7 @@
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
-                                    <select name="" aria-label="Select a Country" data-control="select2"
+                                    <select name="warnaketuban" id="warnaketuban" aria-label="Select a Country" data-control="select2"
                                         data-placeholder="Pilih.."
                                         class="form-select form-select-solid form-select-lg fw-bold">
                                         <option value="">Pilih..</option>
@@ -366,7 +366,7 @@
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
                                     <div class="col-lg fv-row">
-                                        <input type="text" name="lname"
+                                        <input type="text" name="bagianterdepan" id="bagianterdepan"
                                             class="form-control form-control-lg form-control-solid" />
                                     </div>
                                 </div>
@@ -374,7 +374,7 @@
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
-                                    <select name="" aria-label="Select a Country" data-control="select2"
+                                    <select name="kepala" id="kepala" aria-label="Select a Country" data-control="select2"
                                         data-placeholder="Pilih.."
                                         class="form-select form-select-solid form-select-lg fw-bold">
                                         <option value="">Pilih..</option>
@@ -400,7 +400,7 @@
                             <div class="row">
                                 <!--begin::Col-->
                                 <div class="col-lg">
-                                    <textarea class="form-control form-control-lg form-control-solid" rows="3" placeholder="Diagnosa"></textarea>
+                                    <textarea name="diagnosa" id="diagnosa" class="form-control form-control-lg form-control-solid" rows="3" placeholder="Diagnosa"></textarea>
                                 </div>
                                 <!--end::Col-->
 
@@ -419,7 +419,7 @@
                             <div class="row">
                                 <!--begin::Col-->
                                 <div class="col-lg">
-                                    <textarea class="form-control form-control-lg form-control-solid" rows="3" placeholder="Alasan Merujuk"></textarea>
+                                    <textarea name="alasanmerujuk" class="form-control form-control-lg form-control-solid" rows="3" placeholder="Alasan Merujuk"></textarea>
                                 </div>
                                 <!--end::Col-->
 
