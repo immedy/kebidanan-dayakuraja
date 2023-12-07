@@ -87,7 +87,7 @@
                                             placeholder="ALAMAT" name="alamat" />
                                     </div>
                                     <div class="col-md-6 fv-row">
-                                        <select name="provinsi1" id="provinsi1" class="form-control-sm" required>
+                                        <select name="provinsi1" id="provinsi1" class="form-select form-select-solid mb-2"  data-control="select2" required data-placeholder="Pilih">
                                             <option selected disabled value="">Pilih Provinsi</option>
                                             @if ($provincies->count())
                                                 @foreach ($provincies as $prov)
@@ -97,13 +97,13 @@
                                         </select>
                                     </div>
                                     <div class="col-md-6 fv-row">
-                                        <select name="kota1" id="kota1" class="form-control-sm" required></select>
+                                        <select name="kota1" id="kota1" class="form-select form-select-solid mb-2"  data-control="select2" required data-placeholder="Pilih"></select>
                                     </div>
                                     <div class="col-md-6 fv-row">
-                                        <select name="kecamatan1" id="kecamatan1" class="form-control-sm" required></select>
+                                        <select name="kecamatan1" id="kecamatan1" class="form-select form-select-solid mb-2"  data-control="select2" required data-placeholder="Pilih"></select>
                                     </div>
                                     <div class="col-md-6 fv-row">
-                                        <select name="desa1" id="desa1" class="form-control-sm" required></select>
+                                        <select name="desa1" id="desa1" class="form-select form-select-solid mb-2"  data-control="select2" required data-placeholder="Pilih"></select>
                                     </div>
                                     <div class="col-md-4 fv-row">
                                         <input type="text" class="form-control form-control-solid mb-2"
@@ -126,11 +126,11 @@
                                     </div>
 
                                     <div class="col-md-12 fv-row">
-                                        <input type="text" class="form-control form-control-solid mb-2"
+                                        <input type="text" class="form-select form-select-solid mb-2"
                                             placeholder="ALAMAT" name="" />
                                     </div>
                                     <div class="col-md-6 fv-row">
-                                            <select name="provinsi2" id="provinsi2" class="form-control-sm" >
+                                            <select name="provinsi2" id="provinsi2" class="form-select form-select-solid mb-2" data-control="select2" data-placeholder="Pilih" >
                                                 <option selected disabled value="">Pilih Provinsi</option>
                                                 @if ($provincies->count())
                                                     @foreach ($provincies as $prov)
@@ -140,13 +140,13 @@
                                             </select>
                                     </div>
                                     <div class="col-md-6 fv-row">
-                                        <select name="kota2" id="kota2" class="form-control-sm"></select>
+                                        <select name="kota2" id="kota2" class="form-select form-select-solid mb-2" data-control="select2" data-placeholder="Pilih"></select>
                                     </div>
                                     <div class="col-md-6 fv-row">
-                                            <select name="kecamatan2" id="kecamatan2" class="form-control-sm" ></select>
+                                            <select name="kecamatan2" id="kecamatan2" class="form-select form-select-solid mb-2" data-control="select2" data-placeholder="Pilih"></select>
                                     </div>
                                     <div class="col-md-6 fv-row">
-                                            <select name="desa2" id="desa2" class="form-control-sm" ></select>
+                                            <select name="desa2" id="desa2" class="form-select form-select-solid mb-2" data-control="select2" data-placeholder="Pilih"></select>
                                     </div>
                                     <div class="col-md-4 fv-row">
                                         <input type="text" class="form-control form-control-solid mb-2"
