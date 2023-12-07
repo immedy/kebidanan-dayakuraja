@@ -6,6 +6,7 @@ use App\Models\Rujukan;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreRujukanRequest;
 use App\Http\Requests\UpdateRujukanRequest;
+use App\Models\Pasien;
 
 class RujukanController extends Controller
 {
@@ -20,27 +21,66 @@ class RujukanController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(Request $request)
+    public function create($id)
     {
         //
-        // dd($request->id);
-        return view('PageDashboard.Pasien.DaftarPasien');
+        // dd($id);
+        return view('PageDashboard.Pasien.DaftarPasien',[
+            'pasien' => Pasien::findOrFail($id)
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreRujukanRequest $request)
+    public function store(StoreRujukanRequest $request, $id)
     {
         //
+        dd($id);
+        $request['pasien_id'] = $id;
+        $validateData = $request->validate([
+            'pasien_id' => 'required',
+            'tanggaljam' => 'required',
+            'jaminan' => 'nullable',
+            'nokartu' => 'nullable',
+            'hpht' => 'nullable',
+            'gravida' => 'nullable',
+            'partus' => 'nullable',
+            'abortus' => 'nullable',
+            'keluhan' => 'nullable',
+            'pervaginambbmax' => 'nullable',
+            'indikasisc' => 'nullable',
+            'tahunsc' => 'nullable',
+            'keadaanumum' => 'nullable',
+            'td' => 'nullable',
+            'nadi' => 'nullable',
+            'suhu' => 'nullable',
+            'his' => 'nullable',
+            'durasi' => 'nullable',
+            'djj' => 'nullable',
+            'tfu' => 'nullable',
+            'lingkarpinggang' => 'nullable',
+            'tbj' => 'nullable',
+            'pembukaan' => 'nullable',
+            'ketuban' => 'nullable',
+            'warnaketuban' => 'nullable',
+            'bagianterdepan' => 'nullable',
+            'kepala' => 'nullable',
+            'diagnosa' => 'nullable',
+            'alasanmerujuk' => 'nullable',
+        ]);
+        Rujukan::create($validateData);
+        return redirect()->route('halamanutama')->with('success', 'Data rujukan sudah terinput!');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Rujukan $rujukan)
+    public function show($id)
     {
-        //
+        return view('PageDashboard.Pasien.DaftarPasien',[
+            'pasien' => Pasien::findOrFail($id)
+        ]);
     }
 
     /**
