@@ -33,7 +33,7 @@
                             <div class="row">
                                 <!--begin::Col-->
                                 <div class="col-lg-2 fv-row">
-                                    <input type="text" name="tanggal" id="Tanggal"
+                                    <input type="text" name="tanggaljam" id="tanggaljam"
                                         class="form-control form-control-lg form-control-solid mb-3 mb-lg-0"
                                         placeholder="Tanggal" />
                                 </div>
@@ -52,14 +52,14 @@
                             <div class="row">
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
-                                    <input type="text" name="fname"
+                                    <input type="text" name="jaminan" id="jaminan"
                                         class="form-control form-control-lg form-control-solid mb-3 mb-lg-0"
                                         placeholder="HPHT" />
                                 </div>
                                 <label class="col-lg-2 col-form-label required fw-bold fs-6">No Kartu</label>
                                 <div class="col-lg fv-row">
                                     <div class="col-lg fv-row">
-                                        <input type="number" name="tanggal"
+                                        <input type="number" name="nokartu" id="nokartu"
                                             class="form-control form-control-lg form-control-solid mb-3 mb-lg-0"
                                             placeholder="No Kartu" />
                                     </div>
@@ -79,7 +79,7 @@
                             <div class="row">
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
-                                    <input type="text" name="fname" id="tanggal"
+                                    <input type="text" name="hpht" id="hpht"
                                         class="form-control form-control-lg form-control-solid mb-3 mb-lg-0"
                                         placeholder="HPHT" />
                                 </div>
@@ -90,21 +90,21 @@
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
-                                    <input type="text" name="lname"
+                                    <input type="text" name="gravida" id="gravida"
                                         class="form-control form-control-lg form-control-solid" placeholder="gravida" />
                                 </div>
                                 <label class="col-lg-2 col-form-label required fw-bold fs-6">Partus</label>
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
-                                    <input type="text" name="lname"
+                                    <input type="text" name="partus" id="partus"
                                         class="form-control form-control-lg form-control-solid" placeholder="Partus" />
                                 </div>
                                 <label class="col-lg-2 col-form-label required fw-bold fs-6">Abortus</label>
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
-                                    <input type="text" name="lname"
+                                    <input type="text" name="abortus" id="abortus"
                                         class="form-control form-control-lg form-control-solid" placeholder="gravida" />
                                 </div>
                                 <!--end::Col-->
