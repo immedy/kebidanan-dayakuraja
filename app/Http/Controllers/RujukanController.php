@@ -6,6 +6,7 @@ use App\Models\Rujukan;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreRujukanRequest;
 use App\Http\Requests\UpdateRujukanRequest;
+use App\Models\DataReferensi;
 use App\Models\Pasien;
 
 class RujukanController extends Controller
@@ -15,7 +16,16 @@ class RujukanController extends Controller
      */
     public function index()
     {
-        //
+        return view('PageDashboard.Pasien.Halamanutama',[
+            'pasien' =>Rujukan::all()
+        ]);
+    }
+    
+    public function index2()
+    {
+        return view('PageDashboardRs.PasienRs.PasienRs',[
+            'pasien' =>Rujukan::all()
+        ]);
     }
 
     /**
@@ -26,7 +36,13 @@ class RujukanController extends Controller
         //
         // dd($id);
         return view('PageDashboard.Pasien.DaftarPasien',[
-            'pasien' => Pasien::findOrFail($id)
+            'pasien' => Pasien::findOrFail($id),
+            'jaminan' => DataReferensi::where('referensi_id', 2)->get(),
+            'indikasi' => DataReferensi::where('referensi_id', 4)->get(),
+            'KeadaanUmum' => DataReferensi::where('referensi_id',5)->get(),
+            'ketuban' => DataReferensi::where('referensi_id', 6)->get(),
+            'warna' => DataReferensi::where('referensi_id', 7)->get(),
+            'kepala' => DataReferensi::where('referensi_id', 8)->get()
         ]);
     }
 
@@ -36,7 +52,6 @@ class RujukanController extends Controller
     public function store(StoreRujukanRequest $request, $id)
     {
         //
-        dd($id);
         $request['pasien_id'] = $id;
         $validateData = $request->validate([
             'pasien_id' => 'required',
@@ -69,6 +84,9 @@ class RujukanController extends Controller
             'diagnosa' => 'nullable',
             'alasanmerujuk' => 'nullable',
         ]);
+        $validateData['oleh'] = auth()->user()->pegawai->id;
+        $validateData['faskes'] = auth()->user()->pegawai->faskes_id;
+        $validateData['status'] = 0;
         Rujukan::create($validateData);
         return redirect()->route('halamanutama')->with('success', 'Data rujukan sudah terinput!');
     }
@@ -78,9 +96,7 @@ class RujukanController extends Controller
      */
     public function show($id)
     {
-        return view('PageDashboard.Pasien.DaftarPasien',[
-            'pasien' => Pasien::findOrFail($id)
-        ]);
+       //
     }
 
     /**

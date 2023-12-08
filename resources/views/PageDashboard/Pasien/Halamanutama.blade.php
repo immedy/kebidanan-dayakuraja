@@ -45,60 +45,73 @@
                                     <th class="min-w-140px">Tanggal Lahir</th>
                                     <th class="min-w-120px text-center">Alamat</th>
                                     <th class="min-w-120px text-center">Tanggal Rujuk</th>
+                                    <th class="min-w-50px text-center">Status</th>
                                     <th class="min-w-100px text-center">Aksi</th>
                                 </tr>
                             </thead>
                             <!--end::Table head-->
                             <!--begin::Table body-->
                             <tbody>
+                                @foreach ($pasien as $p)
                                 <tr>
                                     <td>
-                                        1
+                                        {{ $loop->iteration }}
                                     </td>
                                     <td>
                                         <div class="d-flex align-items-center">
                                             <div class="d-flex justify-content-start flex-column">
-                                                <a href="#" class="text-dark fw-bolder text-hover-primary fs-6">Ana
-                                                    Simmons</a>
-                                                <span class="text-muted fw-bold text-muted d-block fs-7">0907055059</span>
+                                                <a href="#" class="text-dark fw-bolder text-hover-primary fs-6">{{$p->pasien->namalengkap}} </a>
+                                                <span class="text-muted fw-bold text-muted d-block fs-7">No reg {{$p->id}} </span>
                                             </div>
                                         </div>
                                     </td>
                                     <td>
-                                        <span class="text-dark fw-bolder text-hover-primary d-block fs-6">05 April
-                                            2000</span>
+                                        <span class="text-dark fw-bolder text-hover-primary d-block fs-6">{{$p->pasien->FormattedDate}} </span>
                                     </td>
                                     <td class="text-center">
                                         <div class="d-flex flex-column w-100 me-2">
-                                            <span class="text-dark fw-bolder text-hover-primary d-block fs-6">Jalan Siratrul
-                                                Mustakim</span>
+                                            <span class="text-dark fw-bolder text-hover-primary d-block fs-6">{{$p->pasien->alamat}} </span>
                                         </div>
                                     </td>
                                     <td class="text-center">
-                                        <span class="text-dark fw-bolder text-hover-primary d-block fs-6">05 April
-                                            2000</span>
+                                        <span class="text-dark fw-bolder text-hover-primary d-block fs-6">{{$p->FormattedDate}}</span>
                                     </td>
                                     <td class="text-center">
-                                        <div class="d-flex justify-content-center flex-shrink-0">                                            
-                                            <a href="/EditDaftarKunjunganPasien"
-                                                class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
+                                        <span class="badge badge-light-success fs-8 fw-bolder">Terbaca</span>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="d-flex justify-content-center flex-shrink-0">
+                                            <a href=""
+                                                class="btn btn-icon btn-bg-light btn-active-color-info btn-sm me-1 border border-success"
+                                                data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Pasien">
                                                 <!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->
                                                 <span class="svg-icon svg-icon-3">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                        viewBox="0 0 24 24" fill="none">
-                                                        <path opacity="0.3"
-                                                            d="M21.4 8.35303L19.241 10.511L13.485 4.755L15.643 2.59595C16.0248 2.21423 16.5426 1.99988 17.0825 1.99988C17.6224 1.99988 18.1402 2.21423 18.522 2.59595L21.4 5.474C21.7817 5.85581 21.9962 6.37355 21.9962 6.91345C21.9962 7.45335 21.7817 7.97122 21.4 8.35303ZM3.68699 21.932L9.88699 19.865L4.13099 14.109L2.06399 20.309C1.98815 20.5354 1.97703 20.7787 2.03189 21.0111C2.08674 21.2436 2.2054 21.4561 2.37449 21.6248C2.54359 21.7934 2.75641 21.9115 2.989 21.9658C3.22158 22.0201 3.4647 22.0084 3.69099 21.932H3.68699Z"
-                                                            fill="black" />
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                        fill="currentColor" class="bi bi-book" viewBox="0 0 16 16">
                                                         <path
-                                                            d="M5.574 21.3L3.692 21.928C3.46591 22.0032 3.22334 22.0141 2.99144 21.9594C2.75954 21.9046 2.54744 21.7864 2.3789 21.6179C2.21036 21.4495 2.09202 21.2375 2.03711 21.0056C1.9822 20.7737 1.99289 20.5312 2.06799 20.3051L2.696 18.422L5.574 21.3ZM4.13499 14.105L9.891 19.861L19.245 10.507L13.489 4.75098L4.13499 14.105Z"
-                                                            fill="black" />
+                                                            d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783" />
                                                     </svg>
+                                                    <!--end::Svg Icon-->
                                                 </span>
-                                                <!--end::Svg Icon-->
-                                            </a>                                            
+                                            </a>
+                                            <a href=""
+                                                class="btn btn-icon btn-bg-light btn-active-color-info btn-sm me-1 border border-info">
+                                                <!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->
+                                                <span class="svg-icon svg-icon-3">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                        fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                                        <path
+                                                            d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                                                        <path fill-rule="evenodd"
+                                                            d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                                                    </svg>
+                                                    <!--end::Svg Icon-->
+                                                </span>
+                                            </a>
                                         </div>
                                     </td>
                                 </tr>
+                                @endforeach
                             </tbody>
                             <!--end::Table body-->
                         </table>

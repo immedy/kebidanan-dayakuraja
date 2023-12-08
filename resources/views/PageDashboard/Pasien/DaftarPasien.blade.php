@@ -6,7 +6,7 @@
             data-bs-target="#kt_account_profile_details" aria-expanded="true" aria-controls="kt_account_profile_details">
             <!--begin::Card title-->
             <div class="card-title m-0">
-                <h3 class="fw-bolder m-0">Form Rujukan/Konsulatasi - {{$pasien->namalengkap}}</h3>
+                <h3 class="fw-bolder m-0">Form Rujukan/Konsulatasi - {{ $pasien->namalengkap }}</h3>
             </div>
             <!--end::Card title-->
         </div>
@@ -17,7 +17,8 @@
             @php
                 $id = $pasien->id;
             @endphp
-            <form id="kt_account_profile_details_form" class="form" action="{{ route('storerujukan', $id) }}" method="post">
+            <form id="kt_account_profile_details_form" class="form" action="{{ route('storerujukan', $id) }}"
+                method="post">
                 @csrf
 
                 <!--begin::Card body-->
@@ -33,7 +34,7 @@
                             <div class="row">
                                 <!--begin::Col-->
                                 <div class="col-lg-2 fv-row">
-                                    <input type="text" name="tanggaljam" id="tanggaljam"
+                                    <input type="datetime" name="tanggaljam" id="tanggaljam"
                                         class="form-control form-control-lg form-control-solid mb-3 mb-lg-0"
                                         placeholder="Tanggal" />
                                 </div>
@@ -52,9 +53,13 @@
                             <div class="row">
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
-                                    <input type="text" name="jaminan" id="jaminan"
-                                        class="form-control form-control-lg form-control-solid mb-3 mb-lg-0"
-                                        placeholder="HPHT" />
+                                    <select name="jaminan" class="form-select form-select-solid mb-2" data-control="select2"
+                                        required data-placeholder="Pilih">
+                                        <option selected disabled value="">Pilih</option>
+                                        @foreach ($jaminan as $p)
+                                            <option value="{{ $p->id }}"> {{ $p->deskripsi }} </option>
+                                        @endforeach
+                                    </select>
                                 </div>
                                 <label class="col-lg-2 col-form-label required fw-bold fs-6">No Kartu</label>
                                 <div class="col-lg fv-row">
@@ -123,7 +128,8 @@
                             <div class="row">
                                 <!--begin::Col-->
                                 <div class="col-lg">
-                                    <textarea id="keluhan" name="keluhan" class="form-control form-control-lg form-control-solid" rows="3" placeholder="Keluhan"></textarea>
+                                    <textarea id="keluhan" name="keluhan" class="form-control form-control-lg form-control-solid" rows="3"
+                                        placeholder="Keluhan"></textarea>
                                 </div>
                                 <!--end::Col-->
 
@@ -143,8 +149,7 @@
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
                                     <input type="text" name="pervaginambbmax" id="pervaginambbmax"
-                                        class="form-control form-control-lg form-control-solid mb-3 mb-lg-0"
-                                        />
+                                        class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" />
                                 </div>
                                 <!--end::Col-->
 
@@ -153,19 +158,20 @@
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
-                                    <select name="indikasisc" id="indikasisc" aria-label="Select a Country" data-control="select2"
-                                        data-placeholder="Pilih..."
+                                    <select name="indikasisc" id="indikasisc" aria-label="Select a Country"
+                                        data-control="select2" data-placeholder="Pilih..."
                                         class="form-select form-select-solid form-select-lg fw-bold">
                                         <option value="">Pilih...1</option>
-                                        <option>Tidak</option>
-                                        <option>Iya</option>
+                                        @foreach ($indikasi as $p)
+                                            <option value="{{ $p->id }}"> {{ $p->deskripsi }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <label class="col-lg-2 col-form-label required fw-bold fs-6">Tahun SC</label>
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
-                                    <input type="text" name="tahunsc" id="tahunsc"
+                                    <input type="text" name="tahunsc" id="TahunSc"
                                         class="form-control form-control-lg form-control-solid" />
                                 </div>
                                 <!--end::Col-->
@@ -184,14 +190,13 @@
                             <div class="row">
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
-                                    <select name="keadaanumum" id="keadaanumum" aria-label="Select a Country" data-control="select2"
-                                        data-placeholder="Pilih.."
+                                    <select name="keadaanumum" id="keadaanumum" aria-label="Select a Country"
+                                        data-control="select2" data-placeholder="Pilih.."
                                         class="form-select form-select-solid form-select-lg fw-bold">
                                         <option value="">Pilih..</option>
-                                        <option>Sadar</option>
-                                        <option>Sedang</option>
-                                        <option>Lemah</option>
-                                        <option>Tidak Sadar</option>
+                                        @foreach ($KeadaanUmum as $p)
+                                            <option value="{{ $p->id }}">{{ $p->deskripsi }} </option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <!--end::Col-->
@@ -239,11 +244,11 @@
                                         data-placeholder="Pilih..."
                                         class="form-select form-select-solid form-select-lg fw-bold">
                                         <option value="">Pilih...1</option>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
                                     </select>
                                 </div>
                                 <!--end::Col-->
@@ -306,20 +311,20 @@
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
-                                    <select name="pembukaan" id="pembukaan" aria-label="Select a Country" data-control="select2"
-                                        data-placeholder="Pilih..."
+                                    <select name="pembukaan" id="pembukaan" aria-label="Select a Country"
+                                        data-control="select2" data-placeholder="Pilih..."
                                         class="form-select form-select-solid form-select-lg fw-bold">
                                         <option value="">Pilih...1</option>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                        <option>6</option>
-                                        <option>7</option>
-                                        <option>8</option>
-                                        <option>9</option>
-                                        <option>10</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
                                     </select>
                                 </div>
                             </div>
@@ -337,13 +342,13 @@
                             <div class="row">
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
-                                    <select name="ketuban" id="ketuban" aria-label="Select a Country" data-control="select2"
-                                        data-placeholder="Pilih.."
+                                    <select name="ketuban" id="ketuban" aria-label="Select a Country"
+                                        data-control="select2" data-placeholder="Pilih.."
                                         class="form-select form-select-solid form-select-lg fw-bold">
                                         <option value="">Pilih..</option>
-                                        <option>utuh</option>
-                                        <option>Merembes</option>
-                                        <option>Negatif</option>
+                                        @foreach ($ketuban as $p)
+                                            <option value="{{ $p->id }}">{{ $p->deskripsi }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <!--end::Col-->
@@ -351,14 +356,13 @@
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
-                                    <select name="warnaketuban" id="warnaketuban" aria-label="Select a Country" data-control="select2"
-                                        data-placeholder="Pilih.."
+                                    <select name="warnaketuban" id="warnaketuban" aria-label="Select a Country"
+                                        data-control="select2" data-placeholder="Pilih.."
                                         class="form-select form-select-solid form-select-lg fw-bold">
                                         <option value="">Pilih..</option>
-                                        <option>Jernih</option>
-                                        <option>Kehijauan</option>
-                                        <option>Mekonium</option>
-                                        <option>Darah</option>
+                                        @foreach ($warna as $p )
+                                        <option value="{{$p->id}}">{{$p->deskripsi}} </option>    
+                                        @endforeach
                                     </select>
                                 </div>
                                 <label class="col-lg-2 col-form-label required fw-bold fs-6">Bagian Terdepan</label>
@@ -374,14 +378,13 @@
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
-                                    <select name="kepala" id="kepala" aria-label="Select a Country" data-control="select2"
-                                        data-placeholder="Pilih.."
+                                    <select name="kepala" id="kepala" aria-label="Select a Country"
+                                        data-control="select2" data-placeholder="Pilih.."
                                         class="form-select form-select-solid form-select-lg fw-bold">
                                         <option value="">Pilih..</option>
-                                        <option>Hodge I</option>
-                                        <option>Hodge II</option>
-                                        <option>Hodge III</option>
-                                        <option>Hodge IV</option>
+                                        @foreach ($kepala as $p)
+                                            <option value="{{$p->id}}">{{$p->deskripsi}} </option>
+                                        @endforeach
                                     </select>
                                 </div>
 
@@ -400,7 +403,8 @@
                             <div class="row">
                                 <!--begin::Col-->
                                 <div class="col-lg">
-                                    <textarea name="diagnosa" id="diagnosa" class="form-control form-control-lg form-control-solid" rows="3" placeholder="Diagnosa"></textarea>
+                                    <textarea name="diagnosa" id="diagnosa" class="form-control form-control-lg form-control-solid" rows="3"
+                                        placeholder="Diagnosa"></textarea>
                                 </div>
                                 <!--end::Col-->
 
@@ -419,7 +423,8 @@
                             <div class="row">
                                 <!--begin::Col-->
                                 <div class="col-lg">
-                                    <textarea name="alasanmerujuk" class="form-control form-control-lg form-control-solid" rows="3" placeholder="Alasan Merujuk"></textarea>
+                                    <textarea name="alasanmerujuk" class="form-control form-control-lg form-control-solid" rows="3"
+                                        placeholder="Alasan Merujuk"></textarea>
                                 </div>
                                 <!--end::Col-->
 

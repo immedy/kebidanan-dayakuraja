@@ -76,12 +76,7 @@
     <script src="{{asset('assets/js/custom/modals/create-app.js')}}"></script>
     <script src="{{asset('assets/js/custom/modals/upgrade-plan.js')}}"></script>
     <script src="{{asset('assets/js/UserDetail.js')}}"></script>
-    <script>
-        $("#Tanggal").flatpickr({
-            enableTime: true,
-            dateFormat: "Y-m-d H:i",
-        });
-    </script>
+    <script src="{{asset('assets/js/Tanggal.js')}}"></script>
     <!--end::Page Custom Javascript-->
     <!--end::Javascript-->
 </body>

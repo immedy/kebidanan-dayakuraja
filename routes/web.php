@@ -18,13 +18,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('PageDashboard.Pasien.Halamanutama');
-})->middleware('auth')->name('halamanutama');
-Route::get('/DashboardRS', function () {
-    return view('PageDashboardRs.PasienRs.PasienRs');
-})->middleware('auth');
-
 
 Route::get('/DaftarKunjunganPasien', function () {
     return view('PageDashboard.Pasien.DaftarPasien');
@@ -45,6 +38,8 @@ Route::controller(PasienController::class)->group(function(){
 });
 
 Route::controller(RujukanController::class)->group(function(){
+    route::get('/','index')->middleware('auth');
+    route::get('/DashboardRS','index2')->middleware('auth');
     route::get('/tambahRujukan/{id}', 'create')->name('createrujukan')->middleware('auth');
     route::post('/simpanRujukan/{id}', 'store')->name('storerujukan')->middleware('auth');
 });
