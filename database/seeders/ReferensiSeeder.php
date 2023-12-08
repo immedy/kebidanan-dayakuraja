@@ -17,5 +17,10 @@ class ReferensiSeeder extends Seeder
         referensi::create(['referensi' => 'Kartu Identitas']);
         referensi::create(['referensi' => 'Jaminan Kesehatan']);
         referensi::create(['referensi' => 'Pendidikan']);
+        referensi::create(['referensi' => 'Indikasi SC']);
+        referensi::create(['referensi' => 'Keadaan Umum']);
+        referensi::create(['referensi' => 'Ketuban']);
+        referensi::create(['referensi' => 'Warna']);
+        referensi::create(['referensi' => 'Kepala']);
     }
 }
