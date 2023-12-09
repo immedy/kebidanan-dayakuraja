@@ -60,10 +60,10 @@
                                             <div class="d-flex align-items-center">
                                                 <div class="d-flex justify-content-start flex-column">
                                                     <a href="#"
-                                                        class="text-dark fw-bolder text-hover-primary fs-6">{{ $p->pasien->namalengkap }}  
+                                                        class="text-dark fw-bolder text-hover-primary fs-6">{{ $p->pasien->namalengkap }}
                                                     </a>
                                                     <span class="text-muted fw-bold text-muted d-block fs-7">Faskes
-                                                        {{$p->faskes->nama}} </span>
+                                                        {{ $p->faskes->nama }} </span> <span>{{$p->Oleh->nama}} </span>
                                                 </div>
                                             </div>
                                         </td>
@@ -84,22 +84,23 @@
                                                 class="text-dark fw-bolder text-hover-primary d-block fs-6">{{ $p->FormattedDate }}</span>
                                         </td>
                                         <td class="text-center">
-                                            <span class="badge badge-light-success fs-8 fw-bolder">Terbaca</span>
-                                        </td>
-                                        <td class="text-center">
                                             <div class="d-flex justify-content-center flex-shrink-0">
-                                                <a href=""
+                                                <a href="{{route('DetailRujukan', $p->id)}}"
                                                     class="btn btn-icon btn-bg-light btn-active-color-info btn-sm me-1 border border-success"
-                                                    data-bs-toggle="tooltip" data-bs-placement="top" title="Input Advice Dokter">
+                                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                                    title="Input Advice Dokter">
                                                     <!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->
                                                     <span class="svg-icon svg-icon-3">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="16"
-                                                            height="16" fill="currentColor" class="bi bi-book"
+                                                            height="16" fill="currentColor" class="bi bi-journal-medical"
                                                             viewBox="0 0 16 16">
+                                                            <path fill-rule="evenodd"
+                                                                d="M8 4a.5.5 0 0 1 .5.5v.634l.549-.317a.5.5 0 1 1 .5.866L9 6l.549.317a.5.5 0 1 1-.5.866L8.5 6.866V7.5a.5.5 0 0 1-1 0v-.634l-.549.317a.5.5 0 1 1-.5-.866L7 6l-.549-.317a.5.5 0 0 1 .5-.866l.549.317V4.5A.5.5 0 0 1 8 4M5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5" />
                                                             <path
-                                                                d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783" />
+                                                                d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2" />
+                                                            <path
+                                                                d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1z" />
                                                         </svg>
-                                                        <!--end::Svg Icon-->
                                                     </span>
                                                 </a>
                                                 <a href=""
@@ -115,6 +116,19 @@
                                                                 d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
                                                         </svg>
                                                         <!--end::Svg Icon-->
+                                                    </span>
+                                                </a>
+                                                <a href=""
+                                                    class="btn btn-icon btn-bg-light btn-active-color-info btn-sm me-1 border border-success"
+                                                    data-bs-toggle="tooltip" data-bs-placement="top" title="Terima Pasien">
+                                                    <!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->
+                                                    <span class="svg-icon svg-icon-3">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                                            height="16" fill="currentColor" class="bi bi-send"
+                                                            viewBox="0 0 16 16">
+                                                            <path
+                                                                d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z" />
+                                                        </svg>
                                                     </span>
                                                 </a>
                                             </div>

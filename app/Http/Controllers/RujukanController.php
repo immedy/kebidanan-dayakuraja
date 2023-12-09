@@ -96,7 +96,9 @@ class RujukanController extends Controller
      */
     public function show($id)
     {
-       //
+       return view('PageDashboardRs.PasienRs.DetailPasien',[
+        'Pasien' => Rujukan::findOrFail($id)
+       ]);
     }
 
     /**

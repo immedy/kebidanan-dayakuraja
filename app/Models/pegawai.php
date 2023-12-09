@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class pegawai extends Model
 {
@@ -16,5 +17,9 @@ class pegawai extends Model
     public function user()
     {
         return $this->hasOne(User::class,'pegawai_id','id');
+    }
+    public function oleh(): BelongsTo
+    {
+        return $this->belongsTo(Rujukan::class,'id','oleh');
     }
 }

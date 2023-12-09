@@ -5,6 +5,8 @@ namespace App\Models;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Rujukan extends Model
 {
@@ -22,4 +24,8 @@ class Rujukan extends Model
      {
         return $this->belongsTo(faskes::class,'faskes_id','id');
      }
+    public function Oleh(): BelongsTo
+    {
+        return $this->belongsTo(pegawai::class,'oleh');
+    }
 }
