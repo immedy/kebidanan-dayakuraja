@@ -31,7 +31,7 @@ Route::controller(PasienController::class)->group(function(){
 
 Route::controller(RujukanController::class)->group(function(){
     route::get('/','index')->middleware(['auth','AdminPuskesmas'])->name('halamanutama');
-    route::get('/DashboardRS','index2')->middleware('auth');
+    route::get('/DashboardRS','index2')->middleware('AdminRs');
     route::get('/tambahRujukan/{id}', 'create')->name('createrujukan')->middleware(['auth','AdminPuskesmas']);
     route::post('/simpanRujukan/{id}', 'store')->name('storerujukan')->middleware(['auth','AdminPuskesmas']);
     route::get('/DashboardRS/Rujukan/{id}','show')->middleware('auth')->name('DetailRujukan');
