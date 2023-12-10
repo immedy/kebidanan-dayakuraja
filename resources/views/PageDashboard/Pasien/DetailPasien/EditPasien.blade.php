@@ -15,7 +15,8 @@
                         <!--begin::Col-->
                         <div class="col-md-12 ">
                             <!--begin::Form-->
-                            <form action="/pasienstore" class="form mb-15" method="post" id="kt_contact_form">
+                            <form action="{{ route('UpdatePasien', $pasien->id) }}" class="form mb-15" method="post" id="kt_contact_form">
+                                @method('put')
                                 @csrf
                                 <!--begin::Input group-->
                                 <div class="row mb-3">
@@ -23,7 +24,7 @@
                                     <label class="fs-5 fw-semibold mb-2">Data Identitas Pasien</label>
                                     <div class="col-md-2 fv-row">
                                         <input type="number" class="form-control form-control-solid mb-2 "
-                                            placeholder="NORM RS" name="norm" id="norm" />
+                                            placeholder="NORM RS" name="norm" id="norm" value="{{ $pasien->norm }}" />
                                     </div>
                                     <div class="col-md-4 fv-row">
                                         <input type="text" class="form-control form-control-solid mb-2"
@@ -31,15 +32,15 @@
                                     </div>
                                     <div class="col-md-3 fv-row">
                                         <input type="text" class="form-control form-control-solid mb-2"
-                                            placeholder="NAMA PANGGILAN" name="namapanggilan" />
+                                            placeholder="NAMA PANGGILAN" name="namapanggilan" value="{{ $pasien->namapanggilan }}"/>
                                     </div>
                                     <div class="col-md-3 fv-row">
                                         <input type="" class="form-control form-control-solid mb-2"
-                                            placeholder="TEMPAT LAHIR" name="tempat_lahir" />
+                                            placeholder="TEMPAT LAHIR" name="tempat_lahir" value="{{ $pasien->tempat_lahir }}"/>
                                     </div>
                                     <div class="col-md-2 fv-row">
                                         <input class="form-control form-control-solid mb-2" placeholder="TANGGAL lAHIR"
-                                            name="tanggal_lahir" id="Tanggal" />
+                                            name="tanggal_lahir" id="Tanggal" value="{{ $pasien->tanggal_lahir }}"/>
                                     </div>
                                     <div class="col-md-1 fv-row">
                                         <input type="number" class="form-control form-control-solid mb-2"
@@ -120,7 +121,7 @@
                                     </div>
                                     <div class="col-md-12 fv-row">
                                         <input type="text" class="form-control form-control-solid mb-2"
-                                            placeholder="ALAMAT" name="alamat" />
+                                            placeholder="ALAMAT" name="alamat" value="{{ $pasien->alamat }}" />
                                     </div>
                                     <div class="col-md-6 fv-row">
                                         <select name="provinsi1" id="provinsi1"
@@ -149,15 +150,15 @@
                                     </div>
                                     <div class="col-md-4 fv-row">
                                         <input type="text" class="form-control form-control-solid mb-2"
-                                            placeholder="RT" name="rt" />
+                                            placeholder="RT" name="rt" value="{{ $pasien->rt }}"/>
                                     </div>
                                     <div class="col-md-4 fv-row">
                                         <input type="text" class="form-control form-control-solid mb-2"
-                                            placeholder="RW" name="rw" />
+                                            placeholder="RW" name="rw" value="{{ $pasien->rw }}" />
                                     </div>
                                     <div class="col-md-4 mb-5 fv-row">
                                         <input type="text" class="form-control form-control-solid mb-2"
-                                            placeholder="KODE POS" name="kodepos" />
+                                            placeholder="KODE POS" name="kodepos" value="{{ $pasien->kodepos }}"/>
                                     </div>
                                     {{-- <label class="fs-5 fw-semibold mb-2">Alamat Sekarang</label>
                                     <div class="col-md-12 fv-row">

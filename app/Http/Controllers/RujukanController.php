@@ -20,7 +20,7 @@ class RujukanController extends Controller
             'pasien' =>Rujukan::all()
         ]);
     }
-    
+
     public function index2()
     {
         return view('PageDashboardRs.PasienRs.PasienRs',[
@@ -110,10 +110,10 @@ class RujukanController extends Controller
             'KeadaanUmum' => DataReferensi::where('referensi_id',5)->get(),
             'ketuban' => DataReferensi::where('referensi_id', 6)->get(),
             'warna' => DataReferensi::where('referensi_id', 7)->get(),
-            'kepala' => DataReferensi::where('referensi_id', 8)->get()  
+            'kepala' => DataReferensi::where('referensi_id', 8)->get()
         ]);
     }
-    
+
     public function AdviceDokter()
     {
         return view('PageDashboard.Pasien.DetailPasien.AdviceDokter',[
@@ -123,17 +123,73 @@ class RujukanController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Rujukan $rujukan)
+    // public function edit(Rujukan $rujukan)
+    public function edit(Request $request)
     {
         //
+        $id = $request->id;
+        // dd($id);
+        return view('PageDashboard.Pasien.DetailPasien.EditPasienRujukan',[
+            'Pasien' => Rujukan::findOrFail($id),
+            'jaminan' => DataReferensi::where('referensi_id', 2)->get(),
+            'indikasi' => DataReferensi::where('referensi_id', 4)->get(),
+            'KeadaanUmum' => DataReferensi::where('referensi_id',5)->get(),
+            'ketuban' => DataReferensi::where('referensi_id', 6)->get(),
+            'warna' => DataReferensi::where('referensi_id', 7)->get(),
+            'kepala' => DataReferensi::where('referensi_id', 8)->get()
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateRujukanRequest $request, Rujukan $rujukan)
+    // public function update(UpdateRujukanRequest $request, Rujukan $rujukan)
+    public function update(Request $request, $id)
     {
         //
+        $rujukan = Rujukan::findOrFail($id);
+        // dd($rujukan->pasien_id);
+        $request['pasien_id'] = $rujukan->pasien_id;
+        $request['status'] = $rujukan->status;
+        // dd($id);
+        // dd($rujukan['id']);
+        $validateData = $request->validate([
+            'pasien_id' => 'required',
+            'tanggaljam' => 'required',
+            'jaminan' => 'nullable',
+            'nokartu' => 'nullable',
+            'hpht' => 'nullable',
+            'gravida' => 'nullable',
+            'partus' => 'nullable',
+            'abortus' => 'nullable',
+            'keluhan' => 'nullable',
+            'pervaginambbmax' => 'nullable',
+            'indikasisc' => 'nullable',
+            'tahunsc' => 'nullable',
+            'keadaanumum' => 'nullable',
+            'td' => 'nullable',
+            'nadi' => 'nullable',
+            'suhu' => 'nullable',
+            'his' => 'nullable',
+            'durasi' => 'nullable',
+            'djj' => 'nullable',
+            'tfu' => 'nullable',
+            'lingkarpinggang' => 'nullable',
+            'tbj' => 'nullable',
+            'pembukaan' => 'nullable',
+            'ketuban' => 'nullable',
+            'warnaketuban' => 'nullable',
+            'bagianterdepan' => 'nullable',
+            'kepala' => 'nullable',
+            'diagnosa' => 'nullable',
+            'alasanmerujuk' => 'nullable',
+        ]);
+        $validateData['oleh'] = auth()->user()->pegawai->id;
+        $validateData['faskes_id'] = auth()->user()->pegawai->faskes_id;
+        // $validateData['status'] = 0;
+        $rujukan->update($validateData);
+        $rujukan->save();
+        return redirect()->route('halamanutama')->with('success', 'Data rujukan berhasil diedit!');
     }
 
     /**
@@ -143,4 +199,17 @@ class RujukanController extends Controller
     {
         //
     }
+
+    public function UpdateStatusPasien($id) {
+        $record = Rujukan::findOrFail($id);
+        if ($record) {
+            // Update the 'status' field to 1
+            $record->update(['status' => 1]);
+            return redirect()->route('halamanutama');
+            return response()->json(['success' => true]);
+        } else {
+            return response()->json(['success' => false, 'message' => 'Record not found']);
+        }
+    }
+
 }

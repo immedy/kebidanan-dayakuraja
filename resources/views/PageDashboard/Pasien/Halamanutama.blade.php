@@ -86,15 +86,15 @@
                                         </td>
                                         <td class="text-center">
                                             @if ($p->status == 0)
-                                            <span class="badge badge-light-danger fs-8 fw-bolder">Belum Diterima</span>    
+                                            <span class="badge badge-light-danger fs-8 fw-bolder">Belum Diterima</span>
                                             @else
-                                            <span class="badge badge-light-success fs-8 fw-bolder">Diterima</span>  
+                                            <span class="badge badge-light-success fs-8 fw-bolder">Diterima</span>
                                             @endif
-                                            
+
                                         </td>
                                         <td class="text-center">
                                             <div class="d-flex justify-content-center flex-shrink-0">
-                                                <a href="{{route('EditDetailRujukan', $p->id) }}" 
+                                                <a href="{{route('EditDetailRujukan', $p->id) }}"
                                                     class="btn btn-icon btn-bg-light btn-active-color-info btn-sm me-1 border border-success"
                                                     data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Rujukan">
                                                     <!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->
@@ -121,6 +121,11 @@
                                                         </svg>
                                                     </span>
                                                 </a>
+                                                @if ($p->status == 0)
+
+                                                {{-- <button id="updateStatusButton" data-record-id="{{ $p->id }}">Update Status</button> --}}
+                                                <a href="{{ route('UpdateStatusPasien', $p->id) }}">Terima Pasien</a>
+                                                @endif
                                             </div>
                                         </td>
                                     </tr>
@@ -138,4 +143,36 @@
         </div>
         <!--end::Col-->
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#updateStatusButton').click(function() {
+                // Make an AJAX request to update the data
+                $.ajax({
+                    url: '/UpdateStatusPasien',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: {
+                        // Add any data you need to send to the server
+                        // ...
+                        record_id: recordId,
+                        _token: '{{ csrf_token() }}',
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            // Reload the page after updating the data
+                            location.reload();
+                        } else {
+                            alert('Failed to update data');
+                        }
+                    },
+                    error: function() {
+                        alert('Error occurred while updating data');
+                    }
+                });
+            });
+        });
+    </script>
+
 @endsection

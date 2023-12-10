@@ -100,17 +100,60 @@ class PasienController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Pasien $pasien)
+    public function edit(Pasien $pasien, $id)
     {
         //
+        return view('PageDashboard.Pasien.DetailPasien.EditPasien',[
+            'pasien' => Pasien::findOrFail($id),
+            "provincies" => Wilayah::selectWilayah(1),
+            "StatusKawin" => DataReferensi::where('referensi_id',9)->get(),
+            "Agama" => DataReferensi::where('referensi_id',13)->get(),
+            "Pendidikan" => DataReferensi::where('referensi_id',10)->get(),
+            "Pekerjaan" => DataReferensi::where('referensi_id',11)->get(),
+            "Goldar" => DataReferensi::where('referensi_id',12)->get(),
+            "identitas" => DataReferensi::where('referensi_id', 1)->get(),
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatePasienRequest $request, Pasien $pasien)
+    public function update(Request $request, $id)
     {
         //
+        $pasien = Pasien::findOrFail($id);
+        $request['provinsi'] = $request['provinsi1'];
+        $request['kabupaten'] = $request['kota1'];
+        $request['kecamatan'] = $request['kecamatan1'];
+        $request['kelurahan'] = $request['desa1'];
+        $validatedData = $request->validate([
+            'noidentitas' => 'nullable',
+            'jenis_identitas' => 'nullable',
+            'norm' => 'nullable',
+            'namalengkap' => 'required',
+            'namapanggilan' => 'nullable',
+            'tempat_lahir' => 'required',
+            'tanggal_lahir' => 'required',
+            'agama' => 'nullable',
+            'perkawinan' => 'nullable',
+            'pendidikan' => 'nullable',
+            'pekerjaan' => 'nullable',
+            'goldar' => 'nullable',
+            'alamat' => 'required',
+            'provinsi' => 'required',
+            'kabupaten' => 'required',
+            'kecamatan' => 'required',
+            'kelurahan' => 'required',
+            'rt' => 'nullable',
+            'rw' => 'nullable',
+            'kodepos' => 'nullable',
+        ]);
+        $validatedData['pegawai_id'] = Auth::user()->pegawai->id;
+        $validatedData['faskespegawai'] = Auth::user()->pegawai->faskes_id;
+        $validatedData['status'] = $pasien->status;
+        // Pasien::update($validatedData);
+        $pasien->update($validatedData);
+        return redirect()->route('caripasien')->with('success', 'Pasien Telah diupdate');
     }
 
     /**
