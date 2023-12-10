@@ -108,7 +108,7 @@
                                                         <!--end::Svg Icon-->
                                                     </span>
                                                 </a>
-                                                <a href="{{route('AdviceDokter')}}"
+                                                <a href="{{route('AdviceDokter', $p->id)}}"
                                                 data-bs-toggle="tooltip" data-bs-placement="top" title="Lihat Advice Dokter"
                                                     class="btn btn-icon btn-bg-light btn-active-color-info btn-sm me-1 border border-info">
                                                     <!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->

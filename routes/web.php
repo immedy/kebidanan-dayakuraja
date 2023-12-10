@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\AdviceController;
 use App\Http\Controllers\PasienController;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\ReferensiController;
 use App\Http\Controllers\RujukanController;
+use App\Models\Advice;
 use App\Models\Pasien;
 use Illuminate\Support\Facades\Route;
 
@@ -39,8 +41,12 @@ Route::controller(RujukanController::class)->group(function(){
     // route::get('/RujukanEdit/{id}','DetailRujukan')->name('EditDetailRujukan')->middleware(['auth','AdminPuskesmas']);
     route::get('/RujukanEdit/{id}','edit')->name('EditDetailRujukan')->middleware(['auth','AdminPuskesmas']);
     route::put('/RujukanEditSave/{id}','update')->name('RujukanUpdate')->middleware(['auth','AdminPuskesmas']);
-    route::get('/AdviceDokter','AdviceDokter')->name('AdviceDokter')->middleware(['auth','AdminPuskesmas']);
+    // route::get('/AdviceDokter','AdviceDokter')->name('AdviceDokter')->middleware(['auth','AdminPuskesmas']);
     route::get('/UpdateStatusPasien/{id}','UpdateStatusPasien')->name('UpdateStatusPasien')->middleware(['auth','AdminPuskesmas']);
+});
+
+Route::controller(AdviceController::class)->group(function(){
+    route::get('/AdviceDokter/{id}', 'index')->name('AdviceDokter')->middleware(['auth', 'AdminPuskesmas']);
 });
 
 Route::controller(ReferensiController::class)->group(function(){
