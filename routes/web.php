@@ -19,46 +19,40 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/DaftarKunjunganPasien', function () {
-    return view('PageDashboard.Pasien.DaftarPasien');
-})->middleware('auth');
-Route::get('/EditDaftarKunjunganPasien', function () {
-    return view('PageDashboard.Pasien.EditDaftarPasien');
-})->middleware('auth');
-
-
-
 Route::controller(PasienController::class)->group(function(){
-    route::get('/CariPasien','index')->name('caripasien')->middleware('auth');
-    route::get('/TambahPasien','create')->name('tambahpasien')->middleware('auth');
-    route::post('/pasienstore','store')->middleware('auth');
+    route::get('/CariPasien','index')->name('caripasien')->middleware(['auth','AdminPuskesmas']);
+    route::get('/TambahPasien','create')->name('tambahpasien')->middleware(['auth','AdminPuskesmas']);
+    route::post('/pasienstore','store')->middleware(['auth','AdminPuskesmas']);
+    route::get('/EditPasien/{id}','show')->middleware(['auth','AdminPuskesmas'])->name('EditPasien');
     route::get('/getCity','getCity')->name('getCity');
     route::get('/getCounty','getCounty')->name('getCounty');
     route::get('/getVillage','getVillage')->name('getVillage');
 });
 
 Route::controller(RujukanController::class)->group(function(){
-    route::get('/','index')->middleware('auth');
+    route::get('/','index')->middleware(['auth','AdminPuskesmas'])->name('halamanutama');
     route::get('/DashboardRS','index2')->middleware('auth');
-    route::get('/tambahRujukan/{id}', 'create')->name('createrujukan')->middleware('auth');
-    route::post('/simpanRujukan/{id}', 'store')->name('storerujukan')->middleware('auth');
+    route::get('/tambahRujukan/{id}', 'create')->name('createrujukan')->middleware(['auth','AdminPuskesmas']);
+    route::post('/simpanRujukan/{id}', 'store')->name('storerujukan')->middleware(['auth','AdminPuskesmas']);
     route::get('/DashboardRS/Rujukan/{id}','show')->middleware('auth')->name('DetailRujukan');
+    route::get('/RujukanEdit/{id}','DetailRujukan')->name('EditDetailRujukan')->middleware(['auth','AdminPuskesmas']);
+    route::get('/AdviceDokter','AdviceDokter')->name('AdviceDokter')->middleware(['auth','AdminPuskesmas']);
 });
 
 Route::controller(ReferensiController::class)->group(function(){
-    route::get('/DataReferensi','Referensi')->middleware('auth');
-    route::get('/Faskes','Faskes')->middleware('auth');
-    route::post('Addreferensi','AddReferensi')->name('AddReferensi')->middleware('auth');
-    route::post('/AddDatareferensi','AddDatareferensi')->name('AddDatareferensi')->middleware('auth');
-    route::post('/AddFaskes','AddFaskes')->name('AddFaskes')->middleware('auth');
+    route::get('/DataReferensi','Referensi')->middleware(['auth','AdminRs']);
+    route::get('/Faskes','Faskes')->middleware(['auth','AdminRs']);
+    route::post('Addreferensi','AddReferensi')->name('AddReferensi')->middleware(['auth','AdminRs']);
+    route::post('/AddDatareferensi','AddDatareferensi')->name('AddDatareferensi')->middleware(['auth','AdminRs']);
+    route::post('/AddFaskes','AddFaskes')->name('AddFaskes')->middleware(['auth','AdminRs']);
 });
 
 Route::controller(PegawaiController::class)->group(function(){
     route::get('/login','Login')->name('login');
     route::post('/Autentikasi','Autentikasi')->name('Autentikasi');
     route::post('/logout','logout')->middleware('auth')->middleware('auth');
-    route::get('/Pegawai','pegawai')->middleware('auth');
-    route::post('AddPegawai','AddPegawai')->name('AddPegawai')->middleware('auth');
-    route::get('/username/{id}','Username')->name('Username')->middleware('auth');
-    route::put('/AddUsername','AddUsername')->name('AddUsername')->middleware('auth');
+    route::get('/Pegawai','pegawai')->middleware(['auth','AdminRs']);
+    route::post('AddPegawai','AddPegawai')->name('AddPegawai')->middleware(['auth','AdminRs']);
+    route::get('/username/{id}','Username')->name('Username')->middleware(['auth','AdminRs']);
+    route::put('/AddUsername','AddUsername')->name('AddUsername')->middleware(['auth','AdminRs']);
 });

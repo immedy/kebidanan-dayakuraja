@@ -18,7 +18,7 @@ return new class extends Migration
             $table->dateTime('tanggaljam');
             $table->foreignId('jaminan')->nullable();
             $table->string('nokartu')->nullable();
-            $table->char('hpht',20)->nullable();
+            $table->date('hpht',20)->nullable();
             $table->char('gravida',3)->nullable();
             $table->char('partus',3)->nullable();
             $table->char('abortus',3)->nullable();

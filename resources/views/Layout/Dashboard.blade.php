@@ -48,70 +48,73 @@
                                     <span class="menu-section text-muted text-uppercase fs-8 ls-1">Dashboard</span>
                                 </div>
                             </div>
-                            <div class="menu-item">
-                                <a class="menu-link" href="/">
-                                    <span class="menu-icon">
-                                        <i class="bi bi-grid fs-3"></i>
-                                    </span>
-                                    <span class="menu-title">Dashboard</span>
-                                </a>
-                            </div>
-                            <div class="menu-item">
-                                <a class="menu-link" href="/DashboardRS">
-                                    <span class="menu-icon">
-                                        <i class="bi bi-window fs-3"></i>
-                                    </span>
-                                    <span class="menu-title">Dashboard RS</span>
-                                </a>
-                            </div>
-                            <div class="menu-item">
-                                <a class="menu-link" href="../../demo13/dist/landing.html">
-                                    <span class="menu-icon">
-                                        <i class="bi bi-app-indicator fs-3"></i>
-                                    </span>
-                                    <span class="menu-title">Laporan</span>
-                                </a>
-                            </div>
-                            <div class="menu-item">
-                                <div class="menu-content pt-8 pb-2">
-                                    <span class="menu-section text-muted text-uppercase fs-8 ls-1">Master</span>
+                            @if (Auth()->user()->hak_akses != 2)
+                                <div class="menu-item">
+                                    <a class="menu-link" href="/DashboardRS">
+                                        <span class="menu-icon">
+                                            <i class="bi bi-window fs-3"></i>
+                                        </span>
+                                        <span class="menu-title">Dashboard</span>
+                                    </a>
                                 </div>
-                            </div>
-                            <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-                                <span class="menu-link">
-                                    <span class="menu-icon">
-                                        <i class="bi bi-person fs-2"></i>
-                                    </span>
-                                    <span class="menu-title">Master Data</span>
-                                    <span class="menu-arrow"></span>
-                                </span>
-                                <div class="menu-sub menu-sub-accordion menu-active-bg">
-                                    <div class="menu-item">
-                                        <a class="menu-link" href="/Faskes">
-                                            <span class="menu-bullet">
-                                                <span class="bullet bullet-dot"></span>
-                                            </span>
-                                            <span class="menu-title">Faskes 1</span>
-                                        </a>
-                                    </div>
-                                    <div class="menu-item">
-                                        <a class="menu-link" href="/Pegawai">
-                                            <span class="menu-bullet">
-                                                <span class="bullet bullet-dot"></span>
-                                            </span>
-                                            <span class="menu-title">Pegawai</span>
-                                        </a>
-                                    </div>
-                                    <div class="menu-item">
-                                        <a class="menu-link" href="/DataReferensi">
-                                            <span class="menu-bullet">
-                                                <span class="bullet bullet-dot"></span>
-                                            </span>
-                                            <span class="menu-title">Referensi</span>
-                                        </a>
+                                <div class="menu-item">
+                                    <a class="menu-link" href="#">
+                                        <span class="menu-icon">
+                                            <i class="bi bi-app-indicator fs-3"></i>
+                                        </span>
+                                        <span class="menu-title">Laporan</span>
+                                    </a>
+                                </div>
+                                <div class="menu-item">
+                                    <div class="menu-content pt-8 pb-2">
+                                        <span class="menu-section text-muted text-uppercase fs-8 ls-1">Master</span>
                                     </div>
                                 </div>
-                            </div>
+                                <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                                    <span class="menu-link">
+                                        <span class="menu-icon">
+                                            <i class="bi bi-person fs-2"></i>
+                                        </span>
+                                        <span class="menu-title">Master Data</span>
+                                        <span class="menu-arrow"></span>
+                                    </span>
+                                    <div class="menu-sub menu-sub-accordion menu-active-bg">
+                                        <div class="menu-item">
+                                            <a class="menu-link" href="/Faskes">
+                                                <span class="menu-bullet">
+                                                    <span class="bullet bullet-dot"></span>
+                                                </span>
+                                                <span class="menu-title">Faskes 1</span>
+                                            </a>
+                                        </div>
+                                        <div class="menu-item">
+                                            <a class="menu-link" href="/Pegawai">
+                                                <span class="menu-bullet">
+                                                    <span class="bullet bullet-dot"></span>
+                                                </span>
+                                                <span class="menu-title">Pegawai</span>
+                                            </a>
+                                        </div>
+                                        <div class="menu-item">
+                                            <a class="menu-link" href="/DataReferensi">
+                                                <span class="menu-bullet">
+                                                    <span class="bullet bullet-dot"></span>
+                                                </span>
+                                                <span class="menu-title">Referensi</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            @else
+                                <div class="menu-item">
+                                    <a class="menu-link" href="/">
+                                        <span class="menu-icon">
+                                            <i class="bi bi-grid fs-3"></i>
+                                        </span>
+                                        <span class="menu-title">Dashboard</span>
+                                    </a>
+                                </div>
+                            @endif
                         </div>
                         <!--end::Menu-->
                     </div>
@@ -186,7 +189,6 @@
                                             data-kt-menu-placement="bottom-end">
                                             <img src="{{ asset('assets/media/avatars/150-26.jpg') }}" alt="user" />
                                         </div>
-
                                         <div class="cursor-pointer symbol symbol-30px symbol-md-40px"
                                             style="margin-left: 5%">
                                             <form action="/logout" method="post">
@@ -224,7 +226,7 @@
                                                     <!--begin::Username-->
                                                     <div class="d-flex flex-column">
                                                         <div class="fw-bolder d-flex align-items-center fs-5">
-                                                            {{-- {{ auth()->user()->pegawai->nama }} --}}
+                                                            {{ auth()->user()->pegawai->nama }}
                                                             <span>
                                                         </div>
 

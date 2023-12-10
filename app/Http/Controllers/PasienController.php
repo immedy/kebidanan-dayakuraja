@@ -7,6 +7,7 @@ use App\Models\Wilayah;
 use Illuminate\Http\Request;
 use App\Http\Requests\StorePasienRequest;
 use App\Http\Requests\UpdatePasienRequest;
+use App\Models\DataReferensi;
 use Illuminate\Support\Facades\Auth;
 
 class PasienController extends Controller
@@ -30,6 +31,12 @@ class PasienController extends Controller
         //
         return view('PageDashboard.Pasien.TambahPasien', [
             "provincies" => Wilayah::selectWilayah(1),
+            "StatusKawin" => DataReferensi::where('referensi_id',9)->get(),
+            "Agama" => DataReferensi::where('referensi_id',13)->get(),
+            "Pendidikan" => DataReferensi::where('referensi_id',10)->get(),
+            "Pekerjaan" => DataReferensi::where('referensi_id',11)->get(),
+            "Goldar" => DataReferensi::where('referensi_id',12)->get(),
+            "identitas" => DataReferensi::where('referensi_id', 1)->get(),
         ]);
     }
 
@@ -69,18 +76,25 @@ class PasienController extends Controller
         $validatedData['pegawai_id'] = Auth::user()->pegawai->id;
         $validatedData['faskespegawai'] = Auth::user()->pegawai->faskes_id;
         $validatedData['status'] = 1;
-
-        // dd($validatedData);
         Pasien::create($validatedData);
-        return redirect()->route('caripasien')->with('success', 'ok aja');
+        return redirect()->route('caripasien')->with('success', 'Pasien Telah terinput');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Pasien $pasien)
+    public function show(Pasien $pasien, $id)
     {
-        //
+        return view('PageDashboard.Pasien.DetailPasien.EditPasien',[
+            'pasien' => Pasien::findOrFail($id),
+            "provincies" => Wilayah::selectWilayah(1),
+            "StatusKawin" => DataReferensi::where('referensi_id',9)->get(),
+            "Agama" => DataReferensi::where('referensi_id',13)->get(),
+            "Pendidikan" => DataReferensi::where('referensi_id',10)->get(),
+            "Pekerjaan" => DataReferensi::where('referensi_id',11)->get(),
+            "Goldar" => DataReferensi::where('referensi_id',12)->get(),
+            "identitas" => DataReferensi::where('referensi_id', 1)->get(),
+        ]);
     }
 
     /**

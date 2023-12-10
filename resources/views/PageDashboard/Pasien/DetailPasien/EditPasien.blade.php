@@ -6,7 +6,7 @@
             <div class="card card-xl-stretch mb-5 mb-xl-8">
                 <div class="card-header border-0 pt-5">
                     <h3 class="card-title align-items-start flex-column">
-                        <span class="card-label fw-bolder fs-3 mb-1">Data Pasien Baru</span>
+                        <span class="card-label fw-bolder fs-3 mb-1"> Edit Data Pasien </span>
                     </h3>
 
                 </div>
@@ -20,14 +20,14 @@
                                 <!--begin::Input group-->
                                 <div class="row mb-3">
                                     <!--begin::Col-->
-                                    <label class="fs-5 fw-semibold mb-2">Data Identitas Pasien Baru</label>
+                                    <label class="fs-5 fw-semibold mb-2">Data Identitas Pasien</label>
                                     <div class="col-md-2 fv-row">
                                         <input type="number" class="form-control form-control-solid mb-2 "
                                             placeholder="NORM RS" name="norm" id="norm" />
                                     </div>
                                     <div class="col-md-4 fv-row">
                                         <input type="text" class="form-control form-control-solid mb-2"
-                                            placeholder="NAMA LENGKAP" name="namalengkap" />
+                                            placeholder="NAMA LENGKAP" name="namalengkap" value="{{$pasien->namalengkap}}"/>
                                     </div>
                                     <div class="col-md-3 fv-row">
                                         <input type="text" class="form-control form-control-solid mb-2"
@@ -203,7 +203,7 @@
                                             placeholder="KODE POS" name="" />
                                     </div> --}}
                                     <div class="modal-footer">
-                                        <a href="/" type="button" class="btn btn-danger btn-outline ">Tutup</a>
+                                        <a href="{{route('caripasien')}}" type="button" class="btn btn-danger btn-outline ">Tutup</a>
                                         <button type="submit" class="btn btn-primary btn-outline">Simpan</button>
                                     </div>
                             </form>

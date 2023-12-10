@@ -6,7 +6,7 @@
             data-bs-target="#kt_account_profile_details" aria-expanded="true" aria-controls="kt_account_profile_details">
             <!--begin::Card title-->
             <div class="card-title m-0">
-                <h3 class="fw-bolder m-0">Form Rujukan/Konsulatasi - {{ $pasien->namalengkap }}</h3>
+                <h3 class="fw-bolder m-0">Edit Form Rujukan/Konsulatasi - {{ $Pasien->namalengkap }}</h3>
             </div>
             <!--end::Card title-->
         </div>
@@ -15,7 +15,7 @@
         <div id="kt_account_profile_details" class="collapse show">
             <!--begin::Form-->
             @php
-                $id = $pasien->id;
+                $id = $Pasien->id;
             @endphp
             <form id="kt_account_profile_details_form" class="form" action="{{ route('storerujukan', $id) }}"
                 method="post">
@@ -34,7 +34,7 @@
                             <div class="row">
                                 <!--begin::Col-->
                                 <div class="col-lg-2 fv-row">
-                                    <input type="datetime" name="tanggaljam" id="tanggaljam"
+                                    <input type="datetime" name="tanggaljam" id="tanggaljam" value="{{$Pasien->tanggaljam}}"
                                         class="form-control form-control-lg form-control-solid mb-3 mb-lg-0"
                                         placeholder="Tanggal" />
                                 </div>
@@ -84,7 +84,7 @@
                             <div class="row">
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
-                                    <input type="text" name="hpht" id="HPHT"
+                                    <input type="text" name="hpht" id="hpht"
                                         class="form-control form-control-lg form-control-solid mb-3 mb-lg-0"
                                         placeholder="HPHT" />
                                 </div>
@@ -171,14 +171,8 @@
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
-                                    <select name="tahunsc" id="TahunSc" aria-label="Select a Country"
-                                        data-control="select2" data-placeholder="Pilih..."
-                                        class="form-select form-select-solid form-select-lg fw-bold">
-                                        <option value="">Pilih...1</option>
-                                        @foreach ($indikasi as $p)
-                                            <option value="{{ $p->id }}"> {{ $p->deskripsi }}</option>
-                                        @endforeach
-                                    </select>
+                                    <input type="text" name="tahunsc" id="TahunSc"
+                                        class="form-control form-control-lg form-control-solid" />
                                 </div>
                                 <!--end::Col-->
                             </div>
@@ -366,8 +360,8 @@
                                         data-control="select2" data-placeholder="Pilih.."
                                         class="form-select form-select-solid form-select-lg fw-bold">
                                         <option value="">Pilih..</option>
-                                        @foreach ($warna as $p )
-                                        <option value="{{$p->id}}">{{$p->deskripsi}} </option>    
+                                        @foreach ($warna as $p)
+                                            <option value="{{ $p->id }}">{{ $p->deskripsi }} </option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -389,7 +383,7 @@
                                         class="form-select form-select-solid form-select-lg fw-bold">
                                         <option value="">Pilih..</option>
                                         @foreach ($kepala as $p)
-                                            <option value="{{$p->id}}">{{$p->deskripsi}} </option>
+                                            <option value="{{ $p->id }}">{{ $p->deskripsi }} </option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -443,8 +437,7 @@
                 <!--end::Card body-->
                 <!--begin::Actions-->
                 <div class="card-footer d-flex justify-content-end py-6 px-9">
-                    <a href="/CariPasien" class="btn btn-danger btn-active-light-primary me-2">Kembali</a>
-                    <button type="reset" class="btn btn-info btn-active-light-primary me-2">Reset</button>
+                    <a href="/" class="btn btn-danger btn-active-light-primary me-2">Kembali</a>                    
                     <button type="submit" class="btn btn-primary" id="kt_account_profile_details_submit">Simpan</button>
                 </div>
                 <!--end::Actions-->

@@ -114,10 +114,21 @@
             </div>
             <div class="row mb-7">
                 <div class="col-lg-12 d-flex align-items-center">
-                    <label class="col-lg-4 fw-bold text-muted">Paritas</label>
-                    <span class="fw-bolder fs-6 text-gray-800 me-2">{{ $Pasien->gravida }}...Gravida </span>
-                    <span class="fw-bolder fs-6 text-gray-800 me-2">{{ $Pasien->partus }}...Partus </span>
-                    <span class="fw-bolder fs-6 text-gray-800 me-2">{{ $Pasien->abortus }}...Abortus </span>
+                    <div class="col-lg-4">
+                        <label class="col-lg-4 fw-bold text-muted">Paritas</label>
+                    </div>
+                    <div class="col-lg-2">
+                        <label class="col-lg-4 fw-bold text-muted">Gradiva</label>
+                        <span class="fw-bolder fs-6 text-gray-800 me-2">2</span>                        
+                    </div>                            
+                    <div class="col-lg-2">
+                        <label class="col-lg-4 fw-bold text-muted">Partus</label>
+                        <span class="fw-bolder fs-6 text-gray-800 me-2">2</span>                        
+                    </div>
+                    <div class="col-lg-2">
+                        <label class="col-lg-4 fw-bold text-muted">Abortus</label>
+                        <span class="fw-bolder fs-6 text-gray-800 me-2">2</span>                        
+                    </div>
                 </div>
             </div>
             <div class="row mb-7">

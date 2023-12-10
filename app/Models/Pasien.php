@@ -14,4 +14,9 @@ class Pasien extends Model
     {
         return Carbon::parse($this->tanggal_lahir)->isoFormat('D MMMM Y');
     }
+    
+    public function FaskesPegawai()
+    {
+        return $this->belongsTo(faskes::class,'faskespegawai');
+    }
 }
