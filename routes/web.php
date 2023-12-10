@@ -31,10 +31,10 @@ Route::controller(PasienController::class)->group(function(){
 
 Route::controller(RujukanController::class)->group(function(){
     route::get('/','index')->middleware(['auth','AdminPuskesmas'])->name('halamanutama');
-    route::get('/DashboardRS','index2')->middleware('AdminRs');
+    route::get('/DashboardRS','index2')->middleware('auth','AdminRs');
     route::get('/tambahRujukan/{id}', 'create')->name('createrujukan')->middleware(['auth','AdminPuskesmas']);
     route::post('/simpanRujukan/{id}', 'store')->name('storerujukan')->middleware(['auth','AdminPuskesmas']);
-    route::get('/DashboardRS/Rujukan/{id}','show')->middleware('auth')->name('DetailRujukan');
+    route::get('/DashboardRS/Rujukan/{id}','show')->middleware(['auth','AdminPuskesmas'])->name('DetailRujukan');
     route::get('/RujukanEdit/{id}','DetailRujukan')->name('EditDetailRujukan')->middleware(['auth','AdminPuskesmas']);
     route::get('/AdviceDokter','AdviceDokter')->name('AdviceDokter')->middleware(['auth','AdminPuskesmas']);
 });

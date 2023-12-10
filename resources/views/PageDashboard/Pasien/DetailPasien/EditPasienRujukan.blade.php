@@ -6,7 +6,7 @@
             data-bs-target="#kt_account_profile_details" aria-expanded="true" aria-controls="kt_account_profile_details">
             <!--begin::Card title-->
             <div class="card-title m-0">
-                <h3 class="fw-bolder m-0">Edit Form Rujukan/Konsulatasi - {{ $Pasien->namalengkap }}</h3>
+                <h3 class="fw-bolder m-0">Edit Form Rujukan/Konsulatasi - {{ $Pasien->pasien->namalengkap }}</h3>
             </div>
             <!--end::Card title-->
         </div>
@@ -17,7 +17,7 @@
             @php
                 $id = $Pasien->id;
             @endphp
-            <form id="kt_account_profile_details_form" class="form" action="{{ route('storerujukan', $id) }}"
+            <form id="kt_account_profile_details_form" class="form" action=""
                 method="post">
                 @csrf
 
@@ -84,7 +84,7 @@
                             <div class="row">
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
-                                    <input type="text" name="hpht" id="hpht"
+                                    <input type="text" name="hpht" id="hpht" value="{{$Pasien->hpht}}"
                                         class="form-control form-control-lg form-control-solid mb-3 mb-lg-0"
                                         placeholder="HPHT" />
                                 </div>
@@ -128,8 +128,8 @@
                             <div class="row">
                                 <!--begin::Col-->
                                 <div class="col-lg">
-                                    <textarea id="keluhan" name="keluhan" class="form-control form-control-lg form-control-solid" rows="3"
-                                        placeholder="Keluhan"></textarea>
+                                    <textarea id="keluhan" name="keluhan" class="form-control form-control-lg form-control-solid" rows="3" 
+                                        placeholder="Keluhan">{{$Pasien->keluhan}} </textarea>
                                 </div>
                                 <!--end::Col-->
 
