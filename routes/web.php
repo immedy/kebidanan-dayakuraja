@@ -37,7 +37,7 @@ Route::controller(RujukanController::class)->group(function(){
     route::get('/DashboardRS','index2')->middleware('auth','AdminRs');
     route::get('/tambahRujukan/{id}', 'create')->name('createrujukan')->middleware(['auth','AdminPuskesmas']);
     route::post('/simpanRujukan/{id}', 'store')->name('storerujukan')->middleware(['auth','AdminPuskesmas']);
-    route::get('/DashboardRS/Rujukan/{id}','show')->middleware(['auth','AdminPuskesmas'])->name('DetailRujukan');
+    route::get('/DashboardRS/Rujukan/{id}','show')->middleware(['auth','AdminRs'])->name('DetailRujukan');
     // route::get('/RujukanEdit/{id}','DetailRujukan')->name('EditDetailRujukan')->middleware(['auth','AdminPuskesmas']);
     route::get('/RujukanEdit/{id}','edit')->name('EditDetailRujukan')->middleware(['auth','AdminPuskesmas']);
     route::put('/RujukanEditSave/{id}','update')->name('RujukanUpdate')->middleware(['auth','AdminPuskesmas']);
