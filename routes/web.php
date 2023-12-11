@@ -22,11 +22,11 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::controller(PasienController::class)->group(function(){
-    route::get('/CariPasien','index')->name('caripasien')->middleware(['auth','AdminPuskesmas']);
+    route::get('/ListPasien','index')->name('listpasien')->middleware(['auth','AdminPuskesmas']);
     route::get('/TambahPasien','create')->name('tambahpasien')->middleware(['auth','AdminPuskesmas']);
-    route::post('/pasienstore','store')->middleware(['auth','AdminPuskesmas']);
-    route::get('/EditPasien/{id}','edit')->middleware(['auth','AdminPuskesmas'])->name('EditPasien');
-    route::put('/UpdatePasien/{id}','update')->middleware(['auth','AdminPuskesmas'])->name('UpdatePasien');
+    route::post('/pasienstore','store')->name('simpanpasien')->middleware(['auth','AdminPuskesmas']);
+    route::get('/EditPasien','edit')->middleware(['auth','AdminPuskesmas'])->name('EditPasien');
+    route::put('/UpdatePasien','update')->middleware(['auth','AdminPuskesmas'])->name('UpdatePasien');
     route::get('/getCity','getCity')->name('getCity');
     route::get('/getCounty','getCounty')->name('getCounty');
     route::get('/getVillage','getVillage')->name('getVillage');
@@ -34,20 +34,20 @@ Route::controller(PasienController::class)->group(function(){
 
 Route::controller(RujukanController::class)->group(function(){
     route::get('/','index')->middleware(['auth','AdminPuskesmas'])->name('halamanutama');
-    route::get('/DashboardRS','index2')->middleware('auth','AdminRs');
-    route::get('/tambahRujukan/{id}', 'create')->name('createrujukan')->middleware(['auth','AdminPuskesmas']);
-    route::post('/simpanRujukan/{id}', 'store')->name('storerujukan')->middleware(['auth','AdminPuskesmas']);
-    route::get('/DashboardRS/Rujukan/{id}','show')->middleware(['auth','AdminRs'])->name('DetailRujukan');
+    route::get('/DashboardRS','index2')->name('DashboardRS')->middleware('auth','AdminRs');
+    route::get('/tambahRujukan', 'create')->name('createrujukan')->middleware(['auth','AdminPuskesmas']);
+    route::post('/simpanRujukan', 'store')->name('storerujukan')->middleware(['auth','AdminPuskesmas']);
+    route::get('/DashboardRS/Rujukan/','show')->middleware(['auth','AdminRs'])->name('DetailRujukan');
     // route::get('/RujukanEdit/{id}','DetailRujukan')->name('EditDetailRujukan')->middleware(['auth','AdminPuskesmas']);
-    route::get('/RujukanEdit/{id}','edit')->name('EditDetailRujukan')->middleware(['auth','AdminPuskesmas']);
-    route::put('/RujukanEditSave/{id}','update')->name('RujukanUpdate')->middleware(['auth','AdminPuskesmas']);
+    route::get('/RujukanEdit','edit')->name('EditDetailRujukan')->middleware(['auth','AdminPuskesmas']);
+    route::put('/RujukanEditSave','update')->name('RujukanUpdate')->middleware(['auth','AdminPuskesmas']);
     // route::get('/AdviceDokter','AdviceDokter')->name('AdviceDokter')->middleware(['auth','AdminPuskesmas']);
-    route::get('/UpdateStatusPasien/{id}','UpdateStatusPasien')->name('UpdateStatusPasien')->middleware(['auth','AdminPuskesmas']);
+    route::get('/UpdateStatusPasien','UpdateStatusPasien')->name('UpdateStatusPasien')->middleware(['auth','AdminRs']);
 });
 
 Route::controller(AdviceController::class)->group(function(){
-    route::get('/AdviceDokter/{id}', 'index')->name('AdviceDokter')->middleware(['auth', 'AdminPuskesmas']);
-    route::post('/TambahAdvice/{id}', 'store')->name('TambahAdvice')->middleware(['auth', 'AdminRs']);
+    route::get('/AdviceDokter', 'index')->name('AdviceDokter')->middleware(['auth', 'AdminPuskesmas']);
+    route::post('/TambahAdvice', 'store')->name('TambahAdvice')->middleware(['auth', 'AdminRs']);
 });
 
 Route::controller(ReferensiController::class)->group(function(){

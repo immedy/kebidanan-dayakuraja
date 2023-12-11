@@ -8,6 +8,7 @@ use App\Http\Requests\StoreRujukanRequest;
 use App\Http\Requests\UpdateRujukanRequest;
 use App\Models\DataReferensi;
 use App\Models\Pasien;
+use Illuminate\Support\Facades\Crypt;
 
 class RujukanController extends Controller
 {
@@ -31,10 +32,11 @@ class RujukanController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create($id)
+    public function create(Request $request)
     {
         //
         // dd($id);
+        $id = Crypt::decryptString($request->input('filter'));
         return view('PageDashboard.Pasien.DaftarPasien',[
             'pasien' => Pasien::findOrFail($id),
             'jaminan' => DataReferensi::where('referensi_id', 2)->get(),
@@ -49,9 +51,10 @@ class RujukanController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreRujukanRequest $request, $id)
+    public function store(Request $request)
     {
         //
+        $id = Crypt::decryptString($request->input('filter'));
         $request['pasien_id'] = $id;
         $validateData = $request->validate([
             'pasien_id' => 'required',
@@ -94,8 +97,10 @@ class RujukanController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    public function show(Request $request)
     {
+        // dd($request->filter);
+        $id = Crypt::decryptString($request->input('filter'));
         return view('PageDashboardRs.PasienRs.DetailPasien',[
             'Pasien' => Rujukan::findOrFail($id)
         ]);
@@ -127,7 +132,7 @@ class RujukanController extends Controller
     public function edit(Request $request)
     {
         //
-        $id = $request->id;
+        $id = Crypt::decryptString($request->input('filter'));
         // dd($id);
         return view('PageDashboard.Pasien.DetailPasien.EditPasienRujukan',[
             'Pasien' => Rujukan::findOrFail($id),
@@ -144,9 +149,10 @@ class RujukanController extends Controller
      * Update the specified resource in storage.
      */
     // public function update(UpdateRujukanRequest $request, Rujukan $rujukan)
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         //
+        $id = Crypt::decryptString($request->input('filter'));
         $rujukan = Rujukan::findOrFail($id);
         // dd($rujukan->pasien_id);
         $request['pasien_id'] = $rujukan->pasien_id;
@@ -200,12 +206,15 @@ class RujukanController extends Controller
         //
     }
 
-    public function UpdateStatusPasien($id) {
+    public function UpdateStatusPasien(Request $request) {
+        // dd($request->filter);
+        $id = Crypt::decryptString($request->input('filter'));
+        // dd($id);
         $record = Rujukan::findOrFail($id);
         if ($record) {
             // Update the 'status' field to 1
             $record->update(['status' => 1]);
-            return redirect()->route('halamanutama');
+            return redirect()->route('DashboardRS')->with('success', 'Rujukan pasien berhasil diterima!');
             return response()->json(['success' => true]);
         } else {
             return response()->json(['success' => false, 'message' => 'Record not found']);

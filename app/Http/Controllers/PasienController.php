@@ -5,10 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Pasien;
 use App\Models\Wilayah;
 use Illuminate\Http\Request;
-use App\Http\Requests\StorePasienRequest;
-use App\Http\Requests\UpdatePasienRequest;
 use App\Models\DataReferensi;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Crypt;
+use App\Http\Requests\StorePasienRequest;
+use App\Http\Requests\UpdatePasienRequest;
 
 class PasienController extends Controller
 {
@@ -77,7 +78,7 @@ class PasienController extends Controller
         $validatedData['faskespegawai'] = Auth::user()->pegawai->faskes_id;
         $validatedData['status'] = 1;
         Pasien::create($validatedData);
-        return redirect()->route('caripasien')->with('success', 'Pasien Telah terinput');
+        return redirect()->route('listpasien')->with('success', 'Pasien Telah terinput');
     }
 
     /**
@@ -100,9 +101,11 @@ class PasienController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Pasien $pasien, $id)
+    public function edit(Request $request)
     {
         //
+        // dd($request->filter);
+        $id = Crypt::decryptString($request->input('filter'));
         return view('PageDashboard.Pasien.DetailPasien.EditPasien',[
             'pasien' => Pasien::findOrFail($id),
             "provincies" => Wilayah::selectWilayah(1),
@@ -118,9 +121,10 @@ class PasienController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         //
+        $id = Crypt::decryptString($request->input('filter'));
         $pasien = Pasien::findOrFail($id);
         $request['provinsi'] = $request['provinsi1'];
         $request['kabupaten'] = $request['kota1'];
@@ -153,7 +157,7 @@ class PasienController extends Controller
         $validatedData['status'] = $pasien->status;
         // Pasien::update($validatedData);
         $pasien->update($validatedData);
-        return redirect()->route('caripasien')->with('success', 'Pasien Telah diupdate');
+        return redirect()->route('listpasien')->with('success', 'Pasien Telah diupdate');
     }
 
     /**

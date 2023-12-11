@@ -15,7 +15,7 @@
                         <!--begin::Col-->
                         <div class="col-md-12 ">
                             <!--begin::Form-->
-                            <form action="{{ route('UpdatePasien', $pasien->id) }}" class="form mb-15" method="post" id="kt_contact_form">
+                            <form action="{{ route('UpdatePasien', ['filter' => Crypt::encryptString($pasien->id)] }}" class="form mb-15" method="post" id="kt_contact_form">
                                 @method('put')
                                 @csrf
                                 <!--begin::Input group-->
@@ -204,7 +204,7 @@
                                             placeholder="KODE POS" name="" />
                                     </div> --}}
                                     <div class="modal-footer">
-                                        <a href="{{route('caripasien')}}" type="button" class="btn btn-danger btn-outline ">Tutup</a>
+                                        <a href="{{route('listpasien')}}" type="button" class="btn btn-danger btn-outline ">Tutup</a>
                                         <button type="submit" class="btn btn-primary btn-outline">Simpan</button>
                                     </div>
                             </form>

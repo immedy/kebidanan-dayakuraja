@@ -291,7 +291,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-            <form action="{{ route('TambahAdvice', $Pasien->id) }}" method="post">
+            <form action="{{ route('TambahAdvice', ['filter' => Crypt::encryptString($Pasien->id)]) }}" method="post">
                 @method('post')
                 @csrf
                 <h5 class="modal-title">Input Advice Dokter</h5>

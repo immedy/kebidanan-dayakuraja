@@ -15,7 +15,7 @@
                         <!--begin::Col-->
                         <div class="col-md-12 ">
                             <!--begin::Form-->
-                            <form action="/pasienstore" class="form mb-15" method="post" id="kt_contact_form">
+                            <form action="{{ route('simpanpasien') }}" class="form mb-15" method="post" id="kt_contact_form">
                                 @csrf
                                 <!--begin::Input group-->
                                 <div class="row mb-3">
@@ -203,7 +203,7 @@
                                             placeholder="KODE POS" name="" />
                                     </div> --}}
                                     <div class="modal-footer">
-                                        <a href="/" type="button" class="btn btn-danger btn-outline ">Tutup</a>
+                                        <a href="{{ route('listpasien') }}" type="button" class="btn btn-danger btn-outline ">Tutup</a>
                                         <button type="submit" class="btn btn-primary btn-outline">Simpan</button>
                                     </div>
                             </form>
