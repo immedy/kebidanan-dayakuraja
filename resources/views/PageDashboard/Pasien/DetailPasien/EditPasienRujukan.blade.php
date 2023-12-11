@@ -15,10 +15,11 @@
         <div id="kt_account_profile_details" class="collapse show">
             <!--begin::Form-->
             @php
-                $id = $Pasien->id;
+                // $id = $Pasien->pasien->id;
             @endphp
-            <form id="kt_account_profile_details_form" class="form" action=""
+            <form id="kt_account_profile_details_form" class="form" action="{{ route('RujukanUpdate', $Pasien->id) }}"
                 method="post">
+                @method('put')
                 @csrf
 
                 <!--begin::Card body-->
@@ -66,7 +67,7 @@
                                     <div class="col-lg fv-row">
                                         <input type="number" name="nokartu" id="nokartu"
                                             class="form-control form-control-lg form-control-solid mb-3 mb-lg-0"
-                                            placeholder="No Kartu" />
+                                            placeholder="No Kartu" value="{{ $Pasien->nokartu }}"/>
                                     </div>
                                 </div>
                             </div>
@@ -96,21 +97,21 @@
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
                                     <input type="text" name="gravida" id="gravida"
-                                        class="form-control form-control-lg form-control-solid" placeholder="gravida" />
+                                        class="form-control form-control-lg form-control-solid" placeholder="gravida" value="{{ $Pasien->gravida }}"/>
                                 </div>
                                 <label class="col-lg-2 col-form-label required fw-bold fs-6">Partus</label>
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
                                     <input type="text" name="partus" id="partus"
-                                        class="form-control form-control-lg form-control-solid" placeholder="Partus" />
+                                        class="form-control form-control-lg form-control-solid" placeholder="Partus" value="{{ $Pasien->partus }}"/>
                                 </div>
                                 <label class="col-lg-2 col-form-label required fw-bold fs-6">Abortus</label>
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
                                     <input type="text" name="abortus" id="abortus"
-                                        class="form-control form-control-lg form-control-solid" placeholder="gravida" />
+                                        class="form-control form-control-lg form-control-solid" value="{{ $Pasien->abortus }}" placeholder="abortus" />
                                 </div>
                                 <!--end::Col-->
                             </div>
@@ -128,7 +129,7 @@
                             <div class="row">
                                 <!--begin::Col-->
                                 <div class="col-lg">
-                                    <textarea id="keluhan" name="keluhan" class="form-control form-control-lg form-control-solid" rows="3" 
+                                    <textarea id="keluhan" name="keluhan" class="form-control form-control-lg form-control-solid" rows="3"
                                         placeholder="Keluhan">{{$Pasien->keluhan}} </textarea>
                                 </div>
                                 <!--end::Col-->
@@ -148,7 +149,7 @@
                             <div class="row">
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
-                                    <input type="text" name="pervaginambbmax" id="pervaginambbmax"
+                                    <input type="text" name="pervaginambbmax" value="{{ $Pasien->pervaginambbmax }}" id="pervaginambbmax"
                                         class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" />
                                 </div>
                                 <!--end::Col-->
@@ -161,7 +162,7 @@
                                     <select name="indikasisc" id="indikasisc" aria-label="Select a Country"
                                         data-control="select2" data-placeholder="Pilih..."
                                         class="form-select form-select-solid form-select-lg fw-bold">
-                                        <option value="">Pilih...1</option>
+                                        <option value="{{ $Pasien->indikasisc }}">{{ $Pasien->indikasisc }}</option>
                                         @foreach ($indikasi as $p)
                                             <option value="{{ $p->id }}"> {{ $p->deskripsi }}</option>
                                         @endforeach
@@ -171,7 +172,7 @@
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
-                                    <input type="text" name="tahunsc" id="TahunSc"
+                                    <input type="text" name="tahunsc" id="TahunSc" value="{{ $Pasien->tahunsc }}"
                                         class="form-control form-control-lg form-control-solid" />
                                 </div>
                                 <!--end::Col-->
@@ -221,7 +222,7 @@
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
-                                    <input type="text" name="suhu" id="suhu"
+                                    <input type="text" name="suhu" id="suhu" value="{{ $Pasien->suhu }}"
                                         class="form-control form-control-lg form-control-solid" />
                                 </div>
                                 <!--end::Col-->
@@ -258,7 +259,7 @@
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
-                                    <input type="text" name="durasi" id="durasi"
+                                    <input type="text" name="durasi" id="durasi" value="{{ $Pasien->durasi }}"
                                         class="form-control form-control-lg form-control-solid" />
                                 </div>
                                 <!--end::Col-->
@@ -266,7 +267,7 @@
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
-                                    <input type="text" name="djj" id="djj"
+                                    <input type="text" name="djj" id="djj" value="{{ $Pasien->djj }}"
                                         class="form-control form-control-lg form-control-solid" />
                                 </div>
                                 <!--end::Col-->
@@ -286,7 +287,7 @@
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
                                     <input type="text" name="tfu" id="tfu"
-                                        class="form-control form-control-lg form-control-solid" />
+                                        class="form-control form-control-lg form-control-solid" value="{{ $Pasien->tfu }}"/>
                                 </div>
                                 <!--end::Col-->
 
@@ -295,7 +296,7 @@
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
-                                    <input type="text" name="lingkarpinggang" id="lingkarpinggang"
+                                    <input type="text" name="lingkarpinggang" id="lingkarpinggang" value="{{ $Pasien->lingkarpinggang }}"
                                         class="form-control form-control-lg form-control-solid" />
                                 </div>
                                 <!--end::Col-->
@@ -303,7 +304,7 @@
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
-                                    <input type="text" name="tbj" id="tbj"
+                                    <input type="text" name="tbj" id="tbj" value="{{ $Pasien->tbj }}"
                                         class="form-control form-control-lg form-control-solid" />
                                 </div>
                                 <!--end::Col-->
@@ -404,7 +405,7 @@
                                 <!--begin::Col-->
                                 <div class="col-lg">
                                     <textarea name="diagnosa" id="diagnosa" class="form-control form-control-lg form-control-solid" rows="3"
-                                        placeholder="Diagnosa"></textarea>
+                                        placeholder="Diagnosa">{{ $Pasien->diagnosa }}</textarea>
                                 </div>
                                 <!--end::Col-->
 
@@ -424,7 +425,7 @@
                                 <!--begin::Col-->
                                 <div class="col-lg">
                                     <textarea name="alasanmerujuk" class="form-control form-control-lg form-control-solid" rows="3"
-                                        placeholder="Alasan Merujuk"></textarea>
+                                        placeholder="Alasan Merujuk">{{ $Pasien->alasanmerujuk }}</textarea>
                                 </div>
                                 <!--end::Col-->
 
@@ -437,7 +438,7 @@
                 <!--end::Card body-->
                 <!--begin::Actions-->
                 <div class="card-footer d-flex justify-content-end py-6 px-9">
-                    <a href="/" class="btn btn-danger btn-active-light-primary me-2">Kembali</a>                    
+                    <a href="/" class="btn btn-danger btn-active-light-primary me-2">Kembali</a>
                     <button type="submit" class="btn btn-primary" id="kt_account_profile_details_submit">Simpan</button>
                 </div>
                 <!--end::Actions-->

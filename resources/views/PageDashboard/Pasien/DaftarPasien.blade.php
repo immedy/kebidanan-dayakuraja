@@ -158,7 +158,7 @@
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
-                                    <select name="indikasisc" id="indikasisc" aria-label="Select a Country"
+                                    <select name="indikasisc" id="indikasisc"
                                         data-control="select2" data-placeholder="Pilih..."
                                         class="form-select form-select-solid form-select-lg fw-bold">
                                         <option value="">Pilih...1</option>
@@ -196,7 +196,7 @@
                             <div class="row">
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
-                                    <select name="keadaanumum" id="keadaanumum" aria-label="Select a Country"
+                                    <select name="keadaanumum" id="keadaanumum"
                                         data-control="select2" data-placeholder="Pilih.."
                                         class="form-select form-select-solid form-select-lg fw-bold">
                                         <option value="">Pilih..</option>
@@ -246,7 +246,7 @@
                             <div class="row">
                                 <!--begin::Col-->
                                 <div class="col-lg-2 fv-row">
-                                    <select name="his" aria-label="Select a Country" data-control="select2"
+                                    <select name="his"  data-control="select2"
                                         data-placeholder="Pilih..."
                                         class="form-select form-select-solid form-select-lg fw-bold">
                                         <option value="">Pilih...1</option>
@@ -317,7 +317,7 @@
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
-                                    <select name="pembukaan" id="pembukaan" aria-label="Select a Country"
+                                    <select name="pembukaan" id="pembukaan"
                                         data-control="select2" data-placeholder="Pilih..."
                                         class="form-select form-select-solid form-select-lg fw-bold">
                                         <option value="">Pilih...1</option>
@@ -348,7 +348,7 @@
                             <div class="row">
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
-                                    <select name="ketuban" id="ketuban" aria-label="Select a Country"
+                                    <select name="ketuban" id="ketuban"
                                         data-control="select2" data-placeholder="Pilih.."
                                         class="form-select form-select-solid form-select-lg fw-bold">
                                         <option value="">Pilih..</option>
@@ -362,12 +362,12 @@
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
-                                    <select name="warnaketuban" id="warnaketuban" aria-label="Select a Country"
+                                    <select name="warnaketuban" id="warnaketuban"
                                         data-control="select2" data-placeholder="Pilih.."
                                         class="form-select form-select-solid form-select-lg fw-bold">
                                         <option value="">Pilih..</option>
                                         @foreach ($warna as $p )
-                                        <option value="{{$p->id}}">{{$p->deskripsi}} </option>    
+                                        <option value="{{$p->id}}">{{$p->deskripsi}} </option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -384,7 +384,7 @@
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
-                                    <select name="kepala" id="kepala" aria-label="Select a Country"
+                                    <select name="kepala" id="kepala"
                                         data-control="select2" data-placeholder="Pilih.."
                                         class="form-select form-select-solid form-select-lg fw-bold">
                                         <option value="">Pilih..</option>
