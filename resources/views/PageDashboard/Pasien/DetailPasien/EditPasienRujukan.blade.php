@@ -17,7 +17,7 @@
             @php
                 // $id = $Pasien->pasien->id;
             @endphp
-            <form id="kt_account_profile_details_form" class="form" action="{{ route('RujukanUpdate', $Pasien->id) }}"
+            <form id="kt_account_profile_details_form" class="form" action="{{ route('RujukanUpdate', ['filter' => Crypt::encryptString($Pasien->id)]) }}"
                 method="post">
                 @method('put')
                 @csrf

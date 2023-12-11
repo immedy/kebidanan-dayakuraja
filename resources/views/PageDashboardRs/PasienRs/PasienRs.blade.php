@@ -9,7 +9,7 @@
                 <div class="card-header border-0 pt-5">
                     <h3 class="card-title align-items-start flex-column">
                         <span class="card-label fw-bolder fs-3 mb-1">Kunjungan</span>
-                    </h3>                    
+                    </h3>
                 </div>
                 <!--end::Header-->
                 <!--begin::Body-->
@@ -69,7 +69,7 @@
                                         <td class="text-center">
                                             <div class="d-flex justify-content-center flex-shrink-0">
                                                 @if ($p->status != 0)
-                                                <a href="{{route('DetailRujukan', $p->id)}}"
+                                                <a href="{{route('DetailRujukan', ['filter' => Crypt::encryptString($p->id)])}}"
                                                     class="btn btn-icon btn-bg-light btn-active-color-info btn-sm me-1 border border-success"
                                                     data-bs-toggle="tooltip" data-bs-placement="top"
                                                     title="Input Advice Dokter">
@@ -86,9 +86,10 @@
                                                                 d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1z" />
                                                         </svg>
                                                     </span>
-                                                </a>                                                    
+                                                </a>
                                                 @else
-                                                <a href=""
+                                                {{-- <a href="{{ route('UpdateStatusPasien', $p->id) }}" --}}
+                                                <a href="{{ route('UpdateStatusPasien', ['filter' => Crypt::encryptString($p->id)]) }}"
                                                     class="btn btn-icon btn-bg-light btn-active-color-danger btn-sm me-1 border border-danger"
                                                     data-bs-toggle="tooltip" data-bs-placement="top" title="Terima Pasien">
                                                     <!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->
@@ -100,7 +101,7 @@
                                                                 d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z" />
                                                         </svg>
                                                     </span>
-                                                </a>    
+                                                </a>
                                                 @endif
                                             </div>
                                         </td>

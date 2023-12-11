@@ -11,8 +11,8 @@
                         <span class="card-label fw-bolder fs-3 mb-1">Kunjungan</span>
                     </h3>
                     <div class="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover"
-                        title="Cari Pasien">
-                        <a href="/CariPasien"
+                        title="List Pasien">
+                        <a href="{{ route('listpasien') }}"
                             class="border border-success btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
                             <!--begin::Svg Icon | path: icons/duotune/general/gen027.svg-->
                             <span class="svg-icon svg-icon-3">
@@ -94,7 +94,7 @@
                                         </td>
                                         <td class="text-center">
                                             <div class="d-flex justify-content-center flex-shrink-0">
-                                                <a href="{{route('EditDetailRujukan', $p->id) }}"
+                                                <a href="{{route('EditDetailRujukan', ['filter' => Crypt::encryptString($p->id)]) }}"
                                                     class="btn btn-icon btn-bg-light btn-active-color-info btn-sm me-1 border border-success"
                                                     data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Rujukan">
                                                     <!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->
@@ -108,7 +108,7 @@
                                                         <!--end::Svg Icon-->
                                                     </span>
                                                 </a>
-                                                <a href="{{route('AdviceDokter', $p->id)}}"
+                                                <a href="{{route('AdviceDokter', ['filter' => Crypt::encryptString($p->id)])}}"
                                                 data-bs-toggle="tooltip" data-bs-placement="top" title="Lihat Advice Dokter"
                                                     class="btn btn-icon btn-bg-light btn-active-color-info btn-sm me-1 border border-info">
                                                     <!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->
@@ -121,11 +121,9 @@
                                                         </svg>
                                                     </span>
                                                 </a>
-                                                @if ($p->status == 0)
-
-                                                {{-- <button id="updateStatusButton" data-record-id="{{ $p->id }}">Update Status</button> --}}
+                                                {{-- @if ($p->status == 0)
                                                 <a href="{{ route('UpdateStatusPasien', $p->id) }}">Terima Pasien</a>
-                                                @endif
+                                                @endif --}}
                                             </div>
                                         </td>
                                     </tr>
@@ -144,7 +142,7 @@
         <!--end::Col-->
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    {{-- <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script>
         $(document).ready(function() {
             $('#updateStatusButton').click(function() {
@@ -173,6 +171,6 @@
                 });
             });
         });
-    </script>
+    </script> --}}
 
 @endsection

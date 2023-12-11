@@ -105,7 +105,7 @@
                                         </td>
                                         <td class="text-center">
                                             <div class="d-flex justify-content-end flex-shrink-0">
-                                                <a href="{{ route('EditPasien', $patien->id) }}"
+                                                <a href="{{ route('EditPasien', ['filter' => Crypt::encryptString($patien->id)]) }}"
                                                     class="btn btn-icon btn-bg-light btn-active-color-info btn-sm me-1 border border-success"
                                                     data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Pasien">
                                                     <!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->
@@ -120,7 +120,7 @@
                                                         </svg>
                                                     </span>
                                                 </a>
-                                                <a href="{{ route('createrujukan', $patien->id) }}"
+                                                <a href="{{ route('createrujukan', ['filter' => Crypt::encryptString($patien->id)]) }}"
                                                     class="btn btn-icon btn-bg-light btn-active-color-info btn-sm me-1 border border-info"
                                                     data-bs-toggle="tooltip" data-bs-placement="top" title="Rujuk Pasien Pasien">
                                                     <!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->

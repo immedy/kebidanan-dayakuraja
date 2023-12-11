@@ -17,7 +17,7 @@
             @php
                 $id = $pasien->id;
             @endphp
-            <form id="kt_account_profile_details_form" class="form" action="{{ route('storerujukan', $id) }}"
+            <form id="kt_account_profile_details_form" class="form" action="{{ route('storerujukan', ['filter' => Crypt::encryptString($id)]) }}"
                 method="post">
                 @csrf
 
@@ -443,7 +443,7 @@
                 <!--end::Card body-->
                 <!--begin::Actions-->
                 <div class="card-footer d-flex justify-content-end py-6 px-9">
-                    <a href="/CariPasien" class="btn btn-danger btn-active-light-primary me-2">Kembali</a>
+                    <a href="{{ route('listpasien') }}" class="btn btn-danger btn-active-light-primary me-2">Kembali</a>
                     <button type="reset" class="btn btn-info btn-active-light-primary me-2">Reset</button>
                     <button type="submit" class="btn btn-primary" id="kt_account_profile_details_submit">Simpan</button>
                 </div>
