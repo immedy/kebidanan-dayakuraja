@@ -36,5 +36,19 @@ class DataReferensiSeeder extends Seeder
         DataReferensi::create(['referensi_id' => '8', 'deskripsi' => 'Hodge II', 'status' => '1']);
         DataReferensi::create(['referensi_id' => '8', 'deskripsi' => 'Hodge III', 'status' => '1']);
         DataReferensi::create(['referensi_id' => '8', 'deskripsi' => 'Hodge IV', 'status' => '1']);
+        DataReferensi::create(['referensi_id' => '9', 'deskripsi' => 'Belum Kawin', 'status' => '1']);
+        DataReferensi::create(['referensi_id' => '9', 'deskripsi' => 'Kawin', 'status' => '1']);
+        DataReferensi::create(['referensi_id' => '9', 'deskripsi' => 'Cerai Hidup', 'status' => '1']);
+        DataReferensi::create(['referensi_id' => '9', 'deskripsi' => 'Cerai Mati', 'status' => '1']);
+        DataReferensi::create(['referensi_id' => '10', 'deskripsi' => 'Tidak/Belum Sekolah', 'status' => '1']);
+        DataReferensi::create(['referensi_id' => '10', 'deskripsi' => 'Belum Tamat SD/Sederajat', 'status' => '1']);
+        DataReferensi::create(['referensi_id' => '10', 'deskripsi' => 'Tamat SD/Sederajat', 'status' => '1']);
+        DataReferensi::create(['referensi_id' => '10', 'deskripsi' => 'SLTP/Sederajat', 'status' => '1']);
+        DataReferensi::create(['referensi_id' => '10', 'deskripsi' => 'SLTA/Sederajat', 'status' => '1']);
+        DataReferensi::create(['referensi_id' => '10', 'deskripsi' => 'Diploma I/II', 'status' => '1']);
+        DataReferensi::create(['referensi_id' => '10', 'deskripsi' => 'Akademi/Diploma III/Sarjana Muda', 'status' => '1']);
+        DataReferensi::create(['referensi_id' => '10', 'deskripsi' => 'Dipploma IV/Strata I', 'status' => '1']);
+        DataReferensi::create(['referensi_id' => '10', 'deskripsi' => 'Strata II', 'status' => '1']);
+        DataReferensi::create(['referensi_id' => '10', 'deskripsi' => 'Strata III', 'status' => '1']);
     }
 }
