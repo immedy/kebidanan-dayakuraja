@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Advice;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreAdviceRequest;
 use App\Http\Requests\UpdateAdviceRequest;
+use App\Models\Rujukan;
 
 class AdviceController extends Controller
 {
@@ -30,9 +32,19 @@ class AdviceController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreAdviceRequest $request)
+    public function store(Request $request, $id)
     {
         //
+        // dd($id);
+        $request['rujukan_id'] = $id;
+        $request['pegawai_id'] = auth()->user()->pegawai->id;
+        $validateData = $request->validate([
+            'rujukan_id' => 'required',
+            'advicedokter' => 'required',
+            'pegawai_id' => 'required',
+        ]);
+        Advice::create($validateData);
+        return redirect()->route('DetailRujukan', $id)->with('success', 'Data advice dokter sudah berhasil diinput!');
     }
 
     /**

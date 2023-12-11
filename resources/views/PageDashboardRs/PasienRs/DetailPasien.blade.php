@@ -119,15 +119,15 @@
                     </div>
                     <div class="col-lg-2">
                         <label class="col-lg-4 fw-bold text-muted">Gradiva</label>
-                        <span class="fw-bolder fs-6 text-gray-800 me-2">2</span>                        
-                    </div>                            
+                        <span class="fw-bolder fs-6 text-gray-800 me-2">2</span>
+                    </div>
                     <div class="col-lg-2">
                         <label class="col-lg-4 fw-bold text-muted">Partus</label>
-                        <span class="fw-bolder fs-6 text-gray-800 me-2">2</span>                        
+                        <span class="fw-bolder fs-6 text-gray-800 me-2">2</span>
                     </div>
                     <div class="col-lg-2">
                         <label class="col-lg-4 fw-bold text-muted">Abortus</label>
-                        <span class="fw-bolder fs-6 text-gray-800 me-2">2</span>                        
+                        <span class="fw-bolder fs-6 text-gray-800 me-2">2</span>
                     </div>
                 </div>
             </div>
@@ -164,7 +164,7 @@
                     <div class="col-lg-2">
                         <label class="col-lg-4 fw-bold text-muted">Tahun SC</label>
                         <span class="fw-bolder fs-6 text-gray-800 me-2">2010</span>
-                    </div>                 
+                    </div>
                 </div>
             </div>
             <div class="row mb-7">
@@ -204,12 +204,12 @@
                     <div class="col-lg-2">
                         <span class="fw-bolder fs-6 text-gray-800 me-2">10</span>
                         <label class="col-lg-4 fw-bold text-muted">Detik</label>
-                    </div>                    
+                    </div>
                     <div class="col-lg-2">
                         <label class="col-lg-4 fw-bold text-muted">DJJ</label>
                         <span class="fw-bolder fs-6 text-gray-800 me-2"> 10</span>
                         <label class="col-lg-4 fw-bold text-muted">x/Menit</label>
-                    </div>                    
+                    </div>
                 </div>
             </div>
             <div class="row mb-7">
@@ -224,12 +224,12 @@
                         <label class="col-lg-4 fw-bold text-muted">Lingkar Pinggang</label>
                         <span class="fw-bolder fs-6 text-gray-800 me-2">10</span>
                         <label class="col-lg-4 fw-bold text-muted">cm</label>
-                    </div>                    
+                    </div>
                     <div class="col-lg-2">
                         <label class="col-lg-4 fw-bold text-muted">Tbj</label>
                         <span class="fw-bolder fs-6 text-gray-800 me-2"> 10</span>
                         <label class="col-lg-4 fw-bold text-muted">Gram</label>
-                    </div>                    
+                    </div>
                 </div>
             </div>
             <div class="row mb-7">
@@ -240,15 +240,15 @@
                     <div class="col-lg-1">
                         <span class="fw-bolder fs-6 text-gray-800 me-2"> 10</span>
                         <label class="col-lg-4 fw-bold text-muted">CM</label>
-                    </div>                            
+                    </div>
                     <div class="col-lg-2">
                         <label class="col-lg-4 fw-bold text-muted">Ketuban</label>
-                        <span class="fw-bolder fs-6 text-gray-800 me-2"> utuh</span>                        
+                        <span class="fw-bolder fs-6 text-gray-800 me-2"> utuh</span>
                     </div>
                     <div class="col-lg-4">
                         <label class="col-lg-4 fw-bold text-muted">Warna Ketuban</label>
-                        <span class="fw-bolder fs-6 text-gray-800 me-2"> Jernih</span>                        
-                    </div>                    
+                        <span class="fw-bolder fs-6 text-gray-800 me-2"> Jernih</span>
+                    </div>
                 </div>
             </div>
             <div class="row mb-7">
@@ -257,12 +257,12 @@
                         <label class="col-lg-4 fw-bold text-muted">Bagian Terdepan</label>
                     </div>
                     <div class="col-lg-1">
-                        <span class="fw-bolder fs-6 text-gray-800 me-2"> kaki</span>                        
-                    </div>                            
+                        <span class="fw-bolder fs-6 text-gray-800 me-2"> kaki</span>
+                    </div>
                     <div class="col-lg-2">
                         <label class="col-lg-4 fw-bold text-muted">Kepala</label>
-                        <span class="fw-bolder fs-6 text-gray-800 me-2"> Hodge II</span>                        
-                    </div>                                       
+                        <span class="fw-bolder fs-6 text-gray-800 me-2"> Hodge II</span>
+                    </div>
                 </div>
             </div>
             <div class="row mb-7">
@@ -291,6 +291,9 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
+            <form action="{{ route('TambahAdvice', $Pasien->id) }}" method="post">
+                @method('post')
+                @csrf
                 <h5 class="modal-title">Input Advice Dokter</h5>
 
                 <!--begin::Close-->
@@ -301,13 +304,14 @@
             </div>
 
             <div class="modal-body">
-                <Textarea class="form-control"></Textarea>
+                <Textarea name="advicedokter" class="form-control"></Textarea>
             </div>
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">simpan</button>
+                <button type="submit" class="btn btn-primary">simpan</button>
             </div>
+            </form>
         </div>
     </div>
 </div>

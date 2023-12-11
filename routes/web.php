@@ -47,6 +47,7 @@ Route::controller(RujukanController::class)->group(function(){
 
 Route::controller(AdviceController::class)->group(function(){
     route::get('/AdviceDokter/{id}', 'index')->name('AdviceDokter')->middleware(['auth', 'AdminPuskesmas']);
+    route::post('/TambahAdvice/{id}', 'store')->name('TambahAdvice')->middleware(['auth', 'AdminRs']);
 });
 
 Route::controller(ReferensiController::class)->group(function(){
