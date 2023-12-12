@@ -89,7 +89,8 @@
             <div class="card-title m-0">
                 <h3 class="fw-bolder m-0">Detail Rujukan</h3>
             </div>
-            <button type="button" class="btn btn-primary align-self-center"data-bs-toggle="modal" data-bs-target="#kt_modal_1">Advice Dokter</button>
+            <button type="button" class="btn btn-primary align-self-center"data-bs-toggle="modal"
+                data-bs-target="#kt_modal_1">Advice Dokter</button>
         </div>
         <div class="card-body p-9">
             <div class="row mb-7">
@@ -118,23 +119,39 @@
                         <label class="col-lg-4 fw-bold text-muted">Paritas</label>
                     </div>
                     <div class="col-lg-2">
-                        <label class="col-lg-4 fw-bold text-muted">Gradiva</label>
-                        <span class="fw-bolder fs-6 text-gray-800 me-2">2</span>
+                        @if (!empty($Pasien->gravida))
+                            <label class="col-lg-4 fw-bold text-muted">Gradiva</label>
+                            <span class="fw-bolder fs-6 text-gray-800 me-2">{{ $Pasien->gravida }}</span>
+                        @else
+                            <label class="col-lg-4 fw-bold text-muted">Gradiva</label>
+                            <span class="fw-bolder fs-6 text-gray-800 me-2">0</span>
+                        @endif
                     </div>
                     <div class="col-lg-2">
-                        <label class="col-lg-4 fw-bold text-muted">Partus</label>
-                        <span class="fw-bolder fs-6 text-gray-800 me-2">2</span>
+                        @if (!empty($Pasien->partus))
+                            <label class="col-lg-4 fw-bold text-muted">Partus</label>
+                            <span class="fw-bolder fs-6 text-gray-800 me-2">{{ $Pasien->partus }}</span>
+                        @else
+                            <label class="col-lg-4 fw-bold text-muted">Partus</label>
+                            <span class="fw-bolder fs-6 text-gray-800 me-2">0</span>
+                        @endif
                     </div>
                     <div class="col-lg-2">
-                        <label class="col-lg-4 fw-bold text-muted">Abortus</label>
-                        <span class="fw-bolder fs-6 text-gray-800 me-2">2</span>
+                        @if (!empty($Pasien->abortus))
+                            <label class="col-lg-4 fw-bold text-muted">Abortus</label>
+                            <span class="fw-bolder fs-6 text-gray-800 me-2">{{ $Pasien->abortus }} </span>
+                        @else
+                            <label class="col-lg-4 fw-bold text-muted">Abortus</label>
+                            <span class="fw-bolder fs-6 text-gray-800 me-2">0</span>
+                        @endif
                     </div>
                 </div>
             </div>
             <div class="row mb-7">
                 <div class="col-lg-12 d-flex align-items-center">
                     <label class="col-lg-4 fw-bold text-muted">Usia Kehamilan</label>
-                    <span class="fw-bolder fs-6 text-gray-800 me-2"> </span>
+                    <span class="fw-bolder fs-6 text-gray-800 me-2">{{ $Pasien->usiakandungan }} </span><label
+                        class="col-lg-4 fw-bold text-muted">Minggu</label>
                 </div>
             </div>
             <div class="row mb-7">
@@ -145,25 +162,19 @@
             </div>
             <div class="row mb-7">
                 <div class="col-lg-12 d-flex align-items-center">
-                    <label class="col-lg-4 fw-bold text-muted">Bila Pervaginam Berat Bayi Terbesar</label>
-                    <span class="fw-bolder fs-6 text-gray-800 me-2"></span>
-                </div>
-            </div>
-            <div class="row mb-7">
-                <div class="col-lg-12 d-flex align-items-center">
                     <div class="col-lg-4">
                         <label class="col-lg-4 fw-bold text-muted">Bila Pervaginam Berat Bayi Terbesar</label>
                     </div>
                     <div class="col-lg-1">
-                        <span class="fw-bolder fs-6 text-gray-800 me-2">32</span>
+                        <span class="fw-bolder fs-6 text-gray-800 me-2">{{$Pasien->pervaginambbmax}} </span>
                     </div>
                     <div class="col-lg-2">
                         <label class="col-lg-4 fw-bold text-muted">Indikasi SC</label>
-                        <span class="fw-bolder fs-6 text-gray-800 me-2">Iya</span>
+                        <span class="fw-bolder fs-6 text-gray-800 me-2">{{$Pasien->INDIKASI->deskripsi}} </span>
                     </div>
                     <div class="col-lg-2">
                         <label class="col-lg-4 fw-bold text-muted">Tahun SC</label>
-                        <span class="fw-bolder fs-6 text-gray-800 me-2">2010</span>
+                        <span class="fw-bolder fs-6 text-gray-800 me-2">{{$Pasien->tahunsc}} </span>
                     </div>
                 </div>
             </div>
@@ -173,22 +184,22 @@
                         <label class="col-lg-4 fw-bold text-muted">Keadaan umum</label>
                     </div>
                     <div class="col-lg-1">
-                        <span class="fw-bolder fs-6 text-gray-800 me-2">{{ $Pasien->keadaanumum }} Sedang </span>
+                        <span class="fw-bolder fs-6 text-gray-800 me-2">{{ $Pasien->KeadaanUmum->deskripsi}}</span>
                     </div>
                     <div class="col-lg-2">
-                        <span class="fw-bolder fs-6 text-gray-800 me-2">TD 10</span>
-                        <label class="col-lg-4 fw-bold text-muted">mmGh</label>
+                        <span class="fw-bolder fs-6 text-gray-800 me-2">TD = {{$Pasien->td}}</span>
+                        <label class="col-lg-4 fw-bold text-muted"> mmGh</label>
                     </div>
                     <div class="col-lg-2">
-                        <span class="fw-bolder fs-6 text-gray-800 me-2">Nadi 10</span>
-                        <label class="col-lg-4 fw-bold text-muted">x/Menit</label>
+                        <span class="fw-bolder fs-6 text-gray-800 me-2">Nadi = {{$Pasien->nadi}}</span>
+                        <label class="col-lg-4 fw-bold text-muted"> x/Menit</label>
                     </div>
                     <div class="col-lg-2">
-                        <span class="fw-bolder fs-6 text-gray-800 me-2">R 10</span>
-                        <label class="col-lg-4 fw-bold text-muted">x/Menit</label>
+                        <span class="fw-bolder fs-6 text-gray-800 me-2">RI = {{$Pasien->ri}}</span>
+                        <label class="col-lg-4 fw-bold text-muted"> x/Menit</label>
                     </div>
                     <div class="col-lg-2">
-                        <span class="fw-bolder fs-6 text-gray-800 me-2">Suhu 36</span>
+                        <span class="fw-bolder fs-6 text-gray-800 me-2">Suhu {{$Pasien->suhu}}</span>
                         <label class="col-lg-4 fw-bold text-muted">C</label>
                     </div>
                 </div>
@@ -199,15 +210,15 @@
                         <label class="col-lg-4 fw-bold text-muted">His </label>
                     </div>
                     <div class="col-lg-1">
-                        <span class="fw-bolder fs-6 text-gray-800 me-2"> 10 X/10 Menit</span>
+                        <span class="fw-bolder fs-6 text-gray-800 me-2"> {{$Pasien->his}} X/10 Menit</span>
                     </div>
                     <div class="col-lg-2">
-                        <span class="fw-bolder fs-6 text-gray-800 me-2">10</span>
+                        <span class="fw-bolder fs-6 text-gray-800 me-2">{{$Pasien->durasi}}</span>
                         <label class="col-lg-4 fw-bold text-muted">Detik</label>
                     </div>
                     <div class="col-lg-2">
                         <label class="col-lg-4 fw-bold text-muted">DJJ</label>
-                        <span class="fw-bolder fs-6 text-gray-800 me-2"> 10</span>
+                        <span class="fw-bolder fs-6 text-gray-800 me-2">{{$Pasien->djj}}</span>
                         <label class="col-lg-4 fw-bold text-muted">x/Menit</label>
                     </div>
                 </div>
@@ -218,16 +229,16 @@
                         <label class="col-lg-4 fw-bold text-muted">TFU </label>
                     </div>
                     <div class="col-lg-1">
-                        <span class="fw-bolder fs-6 text-gray-800 me-2"> 10 CM</span>
+                        <span class="fw-bolder fs-6 text-gray-800 me-2"> {{$Pasien->tfu}} CM</span>
                     </div>
                     <div class="col-lg-3">
                         <label class="col-lg-4 fw-bold text-muted">Lingkar Pinggang</label>
-                        <span class="fw-bolder fs-6 text-gray-800 me-2">10</span>
+                        <span class="fw-bolder fs-6 text-gray-800 me-2">{{$Pasien->lingkarpinggang}}</span>
                         <label class="col-lg-4 fw-bold text-muted">cm</label>
                     </div>
                     <div class="col-lg-2">
                         <label class="col-lg-4 fw-bold text-muted">Tbj</label>
-                        <span class="fw-bolder fs-6 text-gray-800 me-2"> 10</span>
+                        <span class="fw-bolder fs-6 text-gray-800 me-2">{{$Pasien->tbj}} </span>
                         <label class="col-lg-4 fw-bold text-muted">Gram</label>
                     </div>
                 </div>
@@ -238,16 +249,16 @@
                         <label class="col-lg-4 fw-bold text-muted">Pembukaan</label>
                     </div>
                     <div class="col-lg-1">
-                        <span class="fw-bolder fs-6 text-gray-800 me-2"> 10</span>
+                        <span class="fw-bolder fs-6 text-gray-800 me-2"> {{$Pasien->pembukaan}}</span>
                         <label class="col-lg-4 fw-bold text-muted">CM</label>
                     </div>
                     <div class="col-lg-2">
                         <label class="col-lg-4 fw-bold text-muted">Ketuban</label>
-                        <span class="fw-bolder fs-6 text-gray-800 me-2"> utuh</span>
+                        <span class="fw-bolder fs-6 text-gray-800 me-2">{{$Pasien->Ketuban->deskripsi}} </span>
                     </div>
                     <div class="col-lg-4">
                         <label class="col-lg-4 fw-bold text-muted">Warna Ketuban</label>
-                        <span class="fw-bolder fs-6 text-gray-800 me-2"> Jernih</span>
+                        <span class="fw-bolder fs-6 text-gray-800 me-2">{{$Pasien->WarnaKetuban->deskripsi}} </span>
                     </div>
                 </div>
             </div>
@@ -257,63 +268,65 @@
                         <label class="col-lg-4 fw-bold text-muted">Bagian Terdepan</label>
                     </div>
                     <div class="col-lg-1">
-                        <span class="fw-bolder fs-6 text-gray-800 me-2"> kaki</span>
+                        <span class="fw-bolder fs-6 text-gray-800 me-2">{{$Pasien->bagianterdepan}}</span>
                     </div>
                     <div class="col-lg-2">
                         <label class="col-lg-4 fw-bold text-muted">Kepala</label>
-                        <span class="fw-bolder fs-6 text-gray-800 me-2"> Hodge II</span>
+                        <span class="fw-bolder fs-6 text-gray-800 me-2">{{$Pasien->Kepala->deskripsi}}</span>
                     </div>
                 </div>
             </div>
             <div class="row mb-7">
                 <div class="col-lg-12 d-flex align-items-center">
                     <label class="col-lg-4 fw-bold text-muted">Diagnosa</label>
-                    <span class="fw-bolder fs-6 text-gray-800 me-2"> </span>
+                    <span class="fw-bolder fs-6 text-gray-800 me-2">{{$Pasien->diagnosa}}</span>
                 </div>
             </div>
             <div class="row mb-7">
                 <div class="col-lg-12 d-flex align-items-center">
                     <label class="col-lg-4 fw-bold text-muted">Terapi yang telah berikan</label>
-                    <span class="fw-bolder fs-6 text-gray-800 me-2"> </span>
+                    <span class="fw-bolder fs-6 text-gray-800 me-2">{{ $Pasien->terapi }} </span>
                 </div>
             </div>
             <div class="row mb-7">
                 <div class="col-lg-12 d-flex align-items-center">
                     <label class="col-lg-4 fw-bold text-muted">Alasan Merujuk</label>
-                    <span class="fw-bolder fs-6 text-gray-800 me-2"> </span>
+                    <span class="fw-bolder fs-6 text-gray-800 me-2">{{ $Pasien->alasanmerujuk }} </span>
                 </div>
             </div>
         </div>
         <!--end::Card body-->
     </div>
-{{-- Modal --}}
-<div class="modal fade" tabindex="-1" id="kt_modal_1">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-            <form action="{{ route('TambahAdvice', ['filter' => Crypt::encryptString($Pasien->id)]) }}" method="post">
-                @method('post')
-                @csrf
-                <h5 class="modal-title">Input Advice Dokter</h5>
+    {{-- Modal --}}
+    <div class="modal fade" tabindex="-1" id="kt_modal_1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <form action="{{ route('TambahAdvice', ['filter' => Crypt::encryptString($Pasien->id)]) }}"
+                        method="post">
+                        @method('post')
+                        @csrf
+                        <h5 class="modal-title">Input Advice Dokter</h5>
 
-                <!--begin::Close-->
-                <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
-                    <span class="svg-icon svg-icon-2x"></span>
+                        <!--begin::Close-->
+                        <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal"
+                            aria-label="Close">
+                            <span class="svg-icon svg-icon-2x"></span>
+                        </div>
+                        <!--end::Close-->
                 </div>
-                <!--end::Close-->
-            </div>
 
-            <div class="modal-body">
-                <Textarea name="advicedokter" class="form-control"></Textarea>
-            </div>
+                <div class="modal-body">
+                    <Textarea name="advicedokter" class="form-control"></Textarea>
+                </div>
 
-            <div class="modal-footer">
-                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">simpan</button>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">simpan</button>
+                </div>
+                </form>
             </div>
-            </form>
         </div>
     </div>
-</div>
-{{-- End Modal --}}
-    @endsection
+    {{-- End Modal --}}
+@endsection

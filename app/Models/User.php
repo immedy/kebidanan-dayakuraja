@@ -43,6 +43,6 @@ class User extends Authenticatable
     ];
     public function pegawai()
     {
-        return $this->hasOne(Pegawai::class,'id','pegawai_id');
+        return $this->hasOne(pegawai::class,'id','pegawai_id');
     }
 }

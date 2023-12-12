@@ -26,7 +26,7 @@
                     <!--begin::Input group-->
                     <div class="row mb-6">
                         <!--begin::Label-->
-                        <label class="col-lg-2 col-form-label required fw-bold fs-6">Tanggal/Jam Masuk</label>
+                        <label class="col-lg-2 col-form-label  fw-bold fs-6">Tanggal/Jam Masuk</label>
                         <!--end::Label-->
                         <!--begin::Col-->
                         <div class="col-lg">
@@ -45,7 +45,7 @@
                     </div>
                     <div class="row mb-6">
                         <!--begin::Label-->
-                        <label class="col-lg-2 col-form-label required fw-bold fs-6">Jaminan</label>
+                        <label class="col-lg-2 col-form-label  fw-bold fs-6">Jaminan</label>
                         <!--end::Label-->
                         <!--begin::Col-->
                         <div class="col-lg">
@@ -54,14 +54,14 @@
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
                                     <select name="jaminan" class="form-select form-select-solid mb-2" data-control="select2"
-                                        required data-placeholder="Pilih">
+                                         data-placeholder="Pilih">
                                         <option selected disabled value="">Pilih</option>
                                         @foreach ($jaminan as $p)
                                             <option value="{{ $p->id }}"> {{ $p->deskripsi }} </option>
                                         @endforeach
                                     </select>
                                 </div>
-                                <label class="col-lg-2 col-form-label required fw-bold fs-6">No Kartu</label>
+                                <label class="col-lg-2 col-form-label  fw-bold fs-6">No Kartu</label>
                                 <div class="col-lg fv-row">
                                     <div class="col-lg fv-row">
                                         <input type="number" name="nokartu" id="nokartu"
@@ -76,7 +76,7 @@
                     </div>
                     <div class="row mb-6">
                         <!--begin::Label-->
-                        <label class="col-lg-2 col-form-label required fw-bold fs-6">HPHT</label>
+                        <label class="col-lg-2 col-form-label  fw-bold fs-6">HPHT</label>
                         <!--end::Label-->
                         <!--begin::Col-->
                         <div class="col-lg">
@@ -91,26 +91,26 @@
                                 <!--end::Col-->
 
                                 <!--begin::Label-->
-                                <label class="col-lg-2 col-form-label required fw-bold fs-6">Gravida</label>
+                                <label class="col-lg-2 col-form-label  fw-bold fs-6">Gravida</label>
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
                                     <input type="text" name="gravida" id="gravida"
                                         class="form-control form-control-lg form-control-solid" placeholder="gravida" />
                                 </div>
-                                <label class="col-lg-2 col-form-label required fw-bold fs-6">Partus</label>
+                                <label class="col-lg-2 col-form-label  fw-bold fs-6">Partus</label>
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
                                     <input type="text" name="partus" id="partus"
                                         class="form-control form-control-lg form-control-solid" placeholder="Partus" />
                                 </div>
-                                <label class="col-lg-2 col-form-label required fw-bold fs-6">Abortus</label>
+                                <label class="col-lg-2 col-form-label  fw-bold fs-6">Abortus</label>
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
                                     <input type="text" name="abortus" id="abortus"
-                                        class="form-control form-control-lg form-control-solid" placeholder="gravida" />
+                                        class="form-control form-control-lg form-control-solid" placeholder="abortus" />
                                 </div>
                                 <!--end::Col-->
                             </div>
@@ -120,7 +120,39 @@
                     </div>
                     <div class="row mb-6">
                         <!--begin::Label-->
-                        <label class="col-lg-2 col-form-label required fw-bold fs-6">Keluhan</label>
+                        <label class="col-lg-2 col-form-label  fw-bold fs-6">Usia Kandungan</label>
+                        <!--end::Label-->
+                        <!--begin::Col-->
+                        <div class="col-lg">
+                            <!--begin::Row-->
+                            <div class="row">
+                                <!--begin::Col-->
+                                <div class="col-lg-3 fv-row">
+                                    <input type="text" name="usiakandungan" id="usiakandungan"
+                                        class="form-control form-control-lg form-control-solid mb-3 mb-lg-0"
+                                        placeholder="Usia Kandungan" />
+                                </div>
+                                <!--end::Col-->
+
+                                <!--begin::Label-->
+                                <label class="col-lg-2 col-form-label  fw-bold fs-6">Minggu</label>
+                                <!--end::Label-->
+                                <!--begin::Col-->
+                                <div class="col-lg fv-row">
+                                    <input type="text" name="berat" id="berat"
+                                        class="form-control form-control-lg form-control-solid" placeholder="Dalam Gram" />
+                                </div>
+                                <label class="col-lg-2 col-form-label  fw-bold fs-6">(gram)Berat</label>                                
+                                
+                            </div>
+                            <!--end::Row-->
+                        </div>
+                        <!--end::Col-->
+                    </div>
+                    
+                    <div class="row mb-6">
+                        <!--begin::Label-->
+                        <label class="col-lg-2 col-form-label  fw-bold fs-6">Keluhan</label>
                         <!--end::Label-->
                         <!--begin::Col-->
                         <div class="col-lg">
@@ -140,7 +172,7 @@
                     </div>
                     <div class="row mb-6">
                         <!--begin::Label-->
-                        <label class="col-lg-2 col-form-label required fw-bold fs-6">Pervaginam Berat Bayi Terbesar</label>
+                        <label class="col-lg-2 col-form-label  fw-bold fs-6">Pervaginam Berat Bayi Terbesar</label>
                         <!--end::Label-->
                         <!--begin::Col-->
                         <div class="col-lg">
@@ -154,7 +186,7 @@
                                 <!--end::Col-->
 
                                 <!--begin::Label-->
-                                <label class="col-lg-2 col-form-label required fw-bold fs-6">Indikasi SC</label>
+                                <label class="col-lg-2 col-form-label  fw-bold fs-6">Indikasi SC</label>
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
@@ -167,7 +199,7 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                <label class="col-lg-2 col-form-label required fw-bold fs-6">Tahun SC</label>
+                                <label class="col-lg-2 col-form-label  fw-bold fs-6">Tahun SC</label>
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
@@ -188,7 +220,7 @@
                     </div>
                     <div class="row mb-6">
                         <!--begin::Label-->
-                        <label class="col-lg-2 col-form-label required fw-bold fs-6">Keadaan Umum</label>
+                        <label class="col-lg-2 col-form-label  fw-bold fs-6">Keadaan Umum</label>
                         <!--end::Label-->
                         <!--begin::Col-->
                         <div class="col-lg">
@@ -208,7 +240,7 @@
                                 <!--end::Col-->
 
                                 <!--begin::Label-->
-                                <label class="col-lg-2 col-form-label required fw-bold fs-6">TD (mmgh)</label>
+                                <label class="col-lg-2 col-form-label  fw-bold fs-6">TD (mmgh)</label>
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
@@ -216,20 +248,29 @@
                                         class="form-control form-control-lg form-control-solid" />
                                 </div>
                                 <!--end::Col-->
-                                <label class="col-lg-2 col-form-label required fw-bold fs-6">Nadi (x/menit)</label>
+                                <label class="col-lg-2 col-form-label  fw-bold fs-6">Nadi (x/menit)</label>
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
                                     <input type="text" name="nadi" id="nadi"
                                         class="form-control form-control-lg form-control-solid" />
                                 </div>
-                                <label class="col-lg-2 col-form-label required fw-bold fs-6">Suhu (Celcius)</label>
+                                <label class="col-lg-2 col-form-label  fw-bold fs-6">Suhu (Celcius)</label>
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
                                     <input type="text" name="suhu" id="suhu"
                                         class="form-control form-control-lg form-control-solid" />
                                 </div>
+
+                                <label class="col-lg col-form-label  fw-bold fs-6">RI</label>
+                                <!--end::Label-->
+                                <!--begin::Col-->
+                                <div class="col-lg fv-row">
+                                    <input type="text" name="ri" id="ri"
+                                        class="form-control form-control-lg form-control-solid" />
+                                </div>
+                                
                                 <!--end::Col-->
                             </div>
                             <!--end::Row-->
@@ -238,7 +279,7 @@
                     </div>
                     <div class="row mb-6">
                         <!--begin::Label-->
-                        <label class="col-lg-2 col-form-label required fw-bold fs-6">HIS</label>
+                        <label class="col-lg-2 col-form-label  fw-bold fs-6">HIS</label>
                         <!--end::Label-->
                         <!--begin::Col-->
                         <div class="col-lg">
@@ -260,7 +301,7 @@
                                 <!--end::Col-->
 
                                 <!--begin::Label-->
-                                <label class="col-lg-2 col-form-label required fw-bold fs-6">dalam 10 Menit Durasi</label>
+                                <label class="col-lg-2 col-form-label  fw-bold fs-6">dalam 10 Menit Durasi</label>
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
@@ -268,7 +309,7 @@
                                         class="form-control form-control-lg form-control-solid" />
                                 </div>
                                 <!--end::Col-->
-                                <label class="col-lg-2 col-form-label required fw-bold fs-6">DJJ (x/Menit)</label>
+                                <label class="col-lg-2 col-form-label  fw-bold fs-6">DJJ (x/Menit)</label>
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
@@ -283,7 +324,7 @@
                     </div>
                     <div class="row mb-6">
                         <!--begin::Label-->
-                        <label class="col-lg-2 col-form-label required fw-bold fs-6">TFU (cm)</label>
+                        <label class="col-lg-2 col-form-label  fw-bold fs-6">TFU (cm)</label>
                         <!--end::Label-->
                         <!--begin::Col-->
                         <div class="col-lg">
@@ -297,7 +338,7 @@
                                 <!--end::Col-->
 
                                 <!--begin::Label-->
-                                <label class="col-lg-2 col-form-label required fw-bold fs-6">Lingkar Pinggang (cm)</label>
+                                <label class="col-lg-2 col-form-label  fw-bold fs-6">Lingkar Pinggang (cm)</label>
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
@@ -305,7 +346,7 @@
                                         class="form-control form-control-lg form-control-solid" />
                                 </div>
                                 <!--end::Col-->
-                                <label class="col-lg-2 col-form-label required fw-bold fs-6">Tbj (gram)</label>
+                                <label class="col-lg-2 col-form-label  fw-bold fs-6">Tbj (gram)</label>
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
@@ -313,7 +354,7 @@
                                         class="form-control form-control-lg form-control-solid" />
                                 </div>
                                 <!--end::Col-->
-                                <label class="col-lg-2 col-form-label required fw-bold fs-6">Pembukaan (cm)</label>
+                                <label class="col-lg-2 col-form-label  fw-bold fs-6">Pembukaan (cm)</label>
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
@@ -340,7 +381,7 @@
                     </div>
                     <div class="row mb-6">
                         <!--begin::Label-->
-                        <label class="col-lg-2 col-form-label required fw-bold fs-6">Ketuban</label>
+                        <label class="col-lg-2 col-form-label  fw-bold fs-6">Ketuban</label>
                         <!--end::Label-->
                         <!--begin::Col-->
                         <div class="col-lg">
@@ -358,7 +399,7 @@
                                     </select>
                                 </div>
                                 <!--end::Col-->
-                                <label class="col-lg-2 col-form-label required fw-bold fs-6">Warna</label>
+                                <label class="col-lg-2 col-form-label  fw-bold fs-6">Warna</label>
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
@@ -371,7 +412,7 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                <label class="col-lg-2 col-form-label required fw-bold fs-6">Bagian Terdepan</label>
+                                <label class="col-lg-2 col-form-label  fw-bold fs-6">Bagian Terdepan</label>
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
@@ -380,7 +421,7 @@
                                             class="form-control form-control-lg form-control-solid" />
                                     </div>
                                 </div>
-                                <label class="col-lg-2 col-form-label required fw-bold fs-6">Kepala</label>
+                                <label class="col-lg-2 col-form-label  fw-bold fs-6">Kepala</label>
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
@@ -401,7 +442,7 @@
                     </div>
                     <div class="row mb-6">
                         <!--begin::Label-->
-                        <label class="col-lg-2 col-form-label required fw-bold fs-6">Diagnosa</label>
+                        <label class="col-lg-2 col-form-label  fw-bold fs-6">Diagnosa</label>
                         <!--end::Label-->
                         <!--begin::Col-->
                         <div class="col-lg">
@@ -421,7 +462,27 @@
                     </div>
                     <div class="row mb-6">
                         <!--begin::Label-->
-                        <label class="col-lg-2 col-form-label required fw-bold fs-6">Alasan Merujuk</label>
+                        <label class="col-lg-2 col-form-label  fw-bold fs-6">Terapi yang Diberikan</label>
+                        <!--end::Label-->
+                        <!--begin::Col-->
+                        <div class="col-lg">
+                            <!--begin::Row-->
+                            <div class="row">
+                                <!--begin::Col-->
+                                <div class="col-lg">
+                                    <textarea name="terapi" class="form-control form-control-lg form-control-solid" rows="3"
+                                        placeholder="Terapi yang Di berikan"></textarea>
+                                </div>
+                                <!--end::Col-->
+
+                            </div>
+                            <!--end::Row-->
+                        </div>
+                        <!--end::Col-->
+                    </div>
+                    <div class="row mb-6">
+                        <!--begin::Label-->
+                        <label class="col-lg-2 col-form-label  fw-bold fs-6">Alasan Merujuk</label>
                         <!--end::Label-->
                         <!--begin::Col-->
                         <div class="col-lg">

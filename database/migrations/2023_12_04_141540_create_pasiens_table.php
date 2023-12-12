@@ -33,7 +33,7 @@ return new class extends Migration
             $table->char('kelurahan',30);
             $table->string('rt',3)->nullable();
             $table->string('rw',3)->nullable();
-            $table->string('kodepos',5)->nullable();
+            $table->string('kodepos',25)->nullable();
             $table->foreignIdFor(pegawai::class)->nullable();
             $table->foreignId('faskespegawai')->nullable();
             $table->boolean('status');

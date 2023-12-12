@@ -5,8 +5,6 @@ use App\Http\Controllers\PasienController;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\ReferensiController;
 use App\Http\Controllers\RujukanController;
-use App\Models\Advice;
-use App\Models\Pasien;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,11 +35,9 @@ Route::controller(RujukanController::class)->group(function(){
     route::get('/DashboardRS','index2')->name('DashboardRS')->middleware('auth','AdminRs');
     route::get('/tambahRujukan', 'create')->name('createrujukan')->middleware(['auth','AdminPuskesmas']);
     route::post('/simpanRujukan', 'store')->name('storerujukan')->middleware(['auth','AdminPuskesmas']);
-    route::get('/DashboardRS/Rujukan/','show')->middleware(['auth','AdminRs'])->name('DetailRujukan');
-    // route::get('/RujukanEdit/{id}','DetailRujukan')->name('EditDetailRujukan')->middleware(['auth','AdminPuskesmas']);
+    route::get('/DashboardRS/Rujukan/','show')->middleware(['auth','AdminRs'])->name('DetailRujukan');    
     route::get('/RujukanEdit','edit')->name('EditDetailRujukan')->middleware(['auth','AdminPuskesmas']);
     route::put('/RujukanEditSave','update')->name('RujukanUpdate')->middleware(['auth','AdminPuskesmas']);
-    // route::get('/AdviceDokter','AdviceDokter')->name('AdviceDokter')->middleware(['auth','AdminPuskesmas']);
     route::get('/UpdateStatusPasien','UpdateStatusPasien')->name('UpdateStatusPasien')->middleware(['auth','AdminRs']);
     route::get('/indexFaskesCount','indexFaskesCount')->name('indexFaskesCount')->middleware(['auth','AdminRs']);
     route::post('/HalamanLaporan','getFaskesCounts')->name('faskes.getCounts')->middleware(['auth','AdminRs']);

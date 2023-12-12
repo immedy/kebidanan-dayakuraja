@@ -24,7 +24,7 @@
                                 <th class="w-25px">
                                     No
                                 </th>
-                                <th class="min-w-150px">Advice</th>
+                                <th >Advice</th>
                             </tr>
                         </thead>
                         <!--end::Table head-->

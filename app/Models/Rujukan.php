@@ -18,7 +18,7 @@ class Rujukan extends Model
     }
     public function pasien()
     {
-        return $this->belongsTo(pasien::class,'pasien_id','id');
+        return $this->belongsTo(Pasien::class,'pasien_id','id');
     }
      public function faskes()
      {
@@ -27,5 +27,29 @@ class Rujukan extends Model
     public function Oleh(): BelongsTo
     {
         return $this->belongsTo(pegawai::class,'oleh');
+    }
+    public function Jaminan()
+    {
+        return $this->belongsTo(DataReferensi::class,'jaminan');
+    }
+    public function INDIKASI()
+    {
+        return $this->belongsTo(DataReferensi::class,'indikasisc','id');
+    }
+    public function KeadaanUmum()
+    {
+        return $this->belongsTo(DataReferensi::class,'keadaanumum');
+    }
+    public function Ketuban()
+    {
+        return $this->belongsTo(DataReferensi::class,'ketuban');
+    }
+    public function WarnaKetuban()
+    {
+        return $this->belongsTo(DataReferensi::class,'warnaketuban');
+    }
+    public function Kepala()
+    {
+        return $this->belongsTo(DataReferensi::class,'kepala');
     }
 }

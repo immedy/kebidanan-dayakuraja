@@ -15,7 +15,8 @@
                         <!--begin::Col-->
                         <div class="col-md-12 ">
                             <!--begin::Form-->
-                            <form action="{{ route('simpanpasien') }}" class="form mb-15" method="post" id="kt_contact_form">
+                            <form action="{{ route('simpanpasien') }}" class="form mb-15" method="post"
+                                id="kt_contact_form">
                                 @csrf
                                 <!--begin::Input group-->
                                 <div class="row mb-3">
@@ -43,15 +44,15 @@
                                     </div>
                                     <div class="col-md-1 fv-row">
                                         <input type="number" class="form-control form-control-solid mb-2"
-                                            placeholder="Umur Thn" name="" />
+                                            placeholder="Umur Thn" name="" id="umur_tahun" />
                                     </div>
                                     <div class="col-md-1 fv-row">
                                         <input type="number" class="form-control form-control-solid mb-2"
-                                            placeholder="Umur Bln" name="" />
+                                            placeholder="Umur Bln" name=""  id="umur_bulan"/>
                                     </div>
                                     <div class="col-md-1 fv-row">
                                         <input type="number" class="form-control form-control-solid mb-2"
-                                            placeholder="Umur Hr" name="" />
+                                            placeholder="Umur Hr" name="" id="umur_hari"/>
                                     </div>
                                     <div class="col-md-3 fv-row">
                                         <select name="perkawinan" aria-label="Select a Country" data-control="select2"
@@ -105,18 +106,19 @@
                                     </div>
                                     <label class="fs-5 fw-semibold mb-2">Alamat Kartu Identitas</label>
                                     <div class="col-md-6 fv-row">
-                                        <select name="jenis_identitas" aria-label="Select a Country" data-control="select2"
-                                            data-placeholder="Pilih.."
+                                        <select name="jenis_identitas" aria-label="Select a Country" data-control="select2"                                            
                                             class="form-select form-select-solid form-select-lg fw-bold">
-                                            <option value="">Pilih..</option>
+                                            
                                             @foreach ($identitas as $p)
                                                 <option value="{{ $p->id }}">{{ $p->deskripsi }} </option>
                                             @endforeach
                                         </select>
                                     </div>
                                     <div class="col-md-6 fv-row">
+                                        <span id="errorSpan" style="color: red; display: none;">Nomor KTP harus terdiri dari
+                                            16 digit.</span>
                                         <input type="text" class="form-control form-control-solid mb-2"
-                                            placeholder="NO KARTU" name="noidentitas" />
+                                            placeholder="NO KARTU" name="noidentitas" id="NoKtp" />
                                     </div>
                                     <div class="col-md-12 fv-row">
                                         <input type="text" class="form-control form-control-solid mb-2"
@@ -203,7 +205,8 @@
                                             placeholder="KODE POS" name="" />
                                     </div> --}}
                                     <div class="modal-footer">
-                                        <a href="{{ route('listpasien') }}" type="button" class="btn btn-danger btn-outline ">Tutup</a>
+                                        <a href="{{ route('listpasien') }}" type="button"
+                                            class="btn btn-danger btn-outline ">Tutup</a>
                                         <button type="submit" class="btn btn-primary btn-outline">Simpan</button>
                                     </div>
                             </form>
@@ -233,7 +236,7 @@
                                 value.DESKRIPSI + '</option>');
                             $('#kecamatan1').html(
                                 '<option selected disabled value="">Pilih Kecamatan</option>'
-                                );
+                            );
                         });
                     }
                 });
@@ -252,7 +255,7 @@
                                 '">' + value.DESKRIPSI + '</option>');
                             $('#desa1').html(
                                 '<option selected disabled value="">Pilih Desa</option>'
-                                );
+                            );
                         });
                     }
                 });
@@ -292,7 +295,7 @@
                                 value.DESKRIPSI + '</option>');
                             $('#kecamatan2').html(
                                 '<option selected disabled value="">Pilih Kecamatan</option>'
-                                );
+                            );
                         });
                     }
                 });
@@ -311,7 +314,7 @@
                                 '">' + value.DESKRIPSI + '</option>');
                             $('#desa2').html(
                                 '<option selected disabled value="">Pilih Desa</option>'
-                                );
+                            );
                         });
                     }
                 });

@@ -106,15 +106,16 @@ class PasienController extends Controller
         //
         // dd($request->filter);
         $id = Crypt::decryptString($request->input('filter'));
+        $pasien = Pasien::findOrFail($id);
         return view('PageDashboard.Pasien.DetailPasien.EditPasien',[
-            'pasien' => Pasien::findOrFail($id),
             "provincies" => Wilayah::selectWilayah(1),
-            "StatusKawin" => DataReferensi::where('referensi_id',9)->get(),
-            "Agama" => DataReferensi::where('referensi_id',13)->get(),
-            "Pendidikan" => DataReferensi::where('referensi_id',10)->get(),
-            "Pekerjaan" => DataReferensi::where('referensi_id',11)->get(),
-            "Goldar" => DataReferensi::where('referensi_id',12)->get(),
+            "StatusKawin" => DataReferensi::where('referensi_id',9)->whereNotIn('id', [$pasien->perkawinan])->get(),
+            "Agama" => DataReferensi::where('referensi_id',13)->whereNotIn('id', [$pasien->agama])->get(),  
+            "Pendidikan" => DataReferensi::where('referensi_id',10)->whereNotIn('id', [$pasien->pendidikan])->get(),
+            "Pekerjaan" => DataReferensi::where('referensi_id',11)->whereNotIn('id', [$pasien->pekerjaan])->get(),
+            "Goldar" => DataReferensi::where('referensi_id',12)->whereNotIn('id', [$pasien->goldar])->get(),
             "identitas" => DataReferensi::where('referensi_id', 1)->get(),
+            "pasien" => $pasien
         ]);
     }
 
@@ -131,7 +132,7 @@ class PasienController extends Controller
         $request['kecamatan'] = $request['kecamatan1'];
         $request['kelurahan'] = $request['desa1'];
         $validatedData = $request->validate([
-            'noidentitas' => 'nullable',
+            'noidentitas' => 'required',
             'jenis_identitas' => 'nullable',
             'norm' => 'nullable',
             'namalengkap' => 'required',

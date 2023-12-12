@@ -19,7 +19,7 @@ class RujukanController extends Controller
     public function index()
     {
         return view('PageDashboard.Pasien.Halamanutama',[
-            'pasien' =>Rujukan::all()
+            'pasien' =>Rujukan::where('faskes_id', auth()->user()->pegawai->faskes_id)->latest()->get()
         ]);
     }
 
@@ -60,31 +60,35 @@ class RujukanController extends Controller
         $validateData = $request->validate([
             'pasien_id' => 'required',
             'tanggaljam' => 'required',
-            'jaminan' => 'nullable',
+            'jaminan' => 'required',
             'nokartu' => 'nullable',
             'hpht' => 'nullable',
             'gravida' => 'nullable',
             'partus' => 'nullable',
             'abortus' => 'nullable',
+            'usiakandungan' => 'required',
+            'berat' => 'nullable',
             'keluhan' => 'nullable',
             'pervaginambbmax' => 'nullable',
-            'indikasisc' => 'nullable',
+            'indikasisc' => 'required',
             'tahunsc' => 'nullable',
-            'keadaanumum' => 'nullable',
+            'keadaanumum' => 'required',
+            'ri' => 'nullable',
             'td' => 'nullable',
             'nadi' => 'nullable',
             'suhu' => 'nullable',
-            'his' => 'nullable',
+            'his' => 'required',
             'durasi' => 'nullable',
             'djj' => 'nullable',
             'tfu' => 'nullable',
             'lingkarpinggang' => 'nullable',
             'tbj' => 'nullable',
-            'pembukaan' => 'nullable',
-            'ketuban' => 'nullable',
-            'warnaketuban' => 'nullable',
+            'pembukaan' => 'required',
+            'ketuban' => 'required',
+            'warnaketuban' => 'required',
             'bagianterdepan' => 'nullable',
-            'kepala' => 'nullable',
+            'kepala' => 'required',
+            'terapi' => 'nullable',
             'diagnosa' => 'nullable',
             'alasanmerujuk' => 'nullable',
         ]);
@@ -134,15 +138,16 @@ class RujukanController extends Controller
     {
         //
         $id = Crypt::decryptString($request->input('filter'));
-        // dd($id);
-        return view('PageDashboard.Pasien.DetailPasien.EditPasienRujukan',[
-            'Pasien' => Rujukan::findOrFail($id),
-            'jaminan' => DataReferensi::where('referensi_id', 2)->get(),
-            'indikasi' => DataReferensi::where('referensi_id', 4)->get(),
-            'KeadaanUmum' => DataReferensi::where('referensi_id',5)->get(),
-            'ketuban' => DataReferensi::where('referensi_id', 6)->get(),
-            'warna' => DataReferensi::where('referensi_id', 7)->get(),
-            'kepala' => DataReferensi::where('referensi_id', 8)->get()
+        $Pasien = Rujukan::findOrFail($id);
+  
+        return view('PageDashboard.Pasien.DetailPasien.EditPasienRujukan',[            
+            'jaminan' => DataReferensi::where('referensi_id', 2)->whereNotIn('id', [$Pasien->jaminan])->get(),
+            'indikasi' => DataReferensi::where('referensi_id', 4)->whereNotIn('id', [$Pasien->indikasisc])->get(),
+            'KeadaanUmum' => DataReferensi::where('referensi_id',5)->whereNotIn('id', [$Pasien->keadaanumum])->get(),
+            'ketuban' => DataReferensi::where('referensi_id', 6)->whereNotIn('id', [$Pasien->ketuban])->get(),
+            'warna' => DataReferensi::where('referensi_id', 7)->whereNotIn('id', [$Pasien->warnaketuban])->get(),
+            'kepala' => DataReferensi::where('referensi_id', 8)->whereNotIn('id', [$Pasien->kepala])->get(),
+            'Pasien' => $Pasien
         ]);
     }
 
