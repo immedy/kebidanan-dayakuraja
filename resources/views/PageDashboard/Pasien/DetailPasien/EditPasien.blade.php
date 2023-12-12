@@ -106,8 +106,8 @@
                                     </div>
                                     <label class="fs-5 fw-semibold mb-2">Alamat Kartu Identitas</label>
                                     <div class="col-md-6 fv-row">
-                                        <select name="jenis_identitas" aria-label="Select a Country" data-control="select2"                                            
-                                            class="form-select form-select-solid form-select-lg fw-bold">                                            
+                                        <select name="jenis_identitas" aria-label="Select a Country" data-control="select2"
+                                            class="form-select form-select-solid form-select-lg fw-bold">
                                             @foreach ($identitas as $p)
                                                 <option value="{{ $p->id }}">{{ $p->deskripsi }} </option>
                                             @endforeach
@@ -202,7 +202,7 @@
                                             placeholder="KODE POS" name="" />
                                     </div> --}}
                                     <div class="modal-footer">
-                                        <a href="{{route('listpasien')}}" type="button" class="btn btn-danger btn-outline ">Tutup</a>
+                                        <a href="{{route('search.patients')}}" type="button" class="btn btn-danger btn-outline ">Tutup</a>
                                         <button type="submit" class="btn btn-primary btn-outline">Simpan</button>
                                     </div>
                             </form>
