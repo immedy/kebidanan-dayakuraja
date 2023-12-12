@@ -15,7 +15,7 @@ class PasienSeeder extends Seeder
     {
         //
         Pasien::create([
-            'noidentitas' => '66', 'jenis_identitas' => '3', 'norm' => '321', 'namalengkap' => 'Michele Jade', 'namapanggilan' => 'Michele', 'tempat_lahir' => 'Tokyo', 'tanggal_lahir' => '1987-04-16', 'agama' => '1', 'perkawinan' => '1', 'pendidikan' => '1', 'pekerjaan' => '1', 'goldar' => '1', 'alamat' => 'JL Akasia', 'provinsi' => '64', 'kabupaten' => '6472', 'kecamatan' => '647209', 'kelurahan' => '6472091003', 'rt' => '1', 'rw' => '2', 'kodepos' => '321', 'pegawai_id' => '1', 'faskespegawai' => '1', 'status' => '1',
+            'noidentitas' => '66', 'jenis_identitas' => '3', 'norm' => '321', 'namalengkap' => 'Michele Jade', 'namapanggilan' => 'Michele', 'tempat_lahir' => 'Tokyo', 'tanggal_lahir' => '1987-04-16', 'agama' => '142', 'perkawinan' => '24', 'pendidikan' => '27', 'pekerjaan' => '38', 'goldar' => '129', 'alamat' => 'JL Akasia', 'provinsi' => '64', 'kabupaten' => '6472', 'kecamatan' => '647209', 'kelurahan' => '6472091003', 'rt' => '1', 'rw' => '2', 'kodepos' => '321', 'pegawai_id' => '1', 'faskespegawai' => '1', 'status' => '1',
         ]);
     }
 }
