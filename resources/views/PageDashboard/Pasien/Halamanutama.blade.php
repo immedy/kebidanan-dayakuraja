@@ -12,7 +12,7 @@
                     </h3>
                     <div class="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover"
                         title="List Pasien">
-                        <a href="{{ route('listpasien') }}"
+                        <a href="{{ route('search.patients') }}"
                             class="border border-success btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
                             <!--begin::Svg Icon | path: icons/duotune/general/gen027.svg-->
                             <span class="svg-icon svg-icon-3">
