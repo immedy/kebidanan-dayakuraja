@@ -17,8 +17,8 @@
             @php
                 // $id = $Pasien->pasien->id;
             @endphp
-            <form id="kt_account_profile_details_form" class="form" action="{{ route('RujukanUpdate', ['filter' => Crypt::encryptString($Pasien->id)]) }}"
-                method="post">
+            <form id="kt_account_profile_details_form" class="form"
+                action="{{ route('RujukanUpdate', ['filter' => Crypt::encryptString($Pasien->id)]) }}" method="post">
                 @method('put')
                 @csrf
 
@@ -35,7 +35,8 @@
                             <div class="row">
                                 <!--begin::Col-->
                                 <div class="col-lg-2 fv-row">
-                                    <input type="datetime" name="tanggaljam" id="tanggaljam" value="{{$Pasien->tanggaljam}}"
+                                    <input type="datetime" name="tanggaljam" id="tanggaljam"
+                                        value="{{ $Pasien->tanggaljam }}"
                                         class="form-control form-control-lg form-control-solid mb-3 mb-lg-0"
                                         placeholder="Tanggal" />
                                 </div>
@@ -55,8 +56,8 @@
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
                                     <select name="jaminan" class="form-select form-select-solid mb-2" data-control="select2"
-                                        required data-placeholder="Pilih">
-                                        <option selected disabled value="">Pilih</option>
+                                        required>
+                                        <option value="{{ $Pasien->jaminan }}"> {{ $Pasien->Jaminan->deskripsi }} </option>
                                         @foreach ($jaminan as $p)
                                             <option value="{{ $p->id }}"> {{ $p->deskripsi }} </option>
                                         @endforeach
@@ -67,7 +68,7 @@
                                     <div class="col-lg fv-row">
                                         <input type="number" name="nokartu" id="nokartu"
                                             class="form-control form-control-lg form-control-solid mb-3 mb-lg-0"
-                                            placeholder="No Kartu" value="{{ $Pasien->nokartu }}"/>
+                                            placeholder="No Kartu" value="{{ $Pasien->nokartu }}" />
                                     </div>
                                 </div>
                             </div>
@@ -85,7 +86,7 @@
                             <div class="row">
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
-                                    <input type="text" name="hpht" id="hpht" value="{{$Pasien->hpht}}"
+                                    <input type="" name="hpht" id="HPHT" value="{{ $Pasien->hpht }}"
                                         class="form-control form-control-lg form-control-solid mb-3 mb-lg-0"
                                         placeholder="HPHT" />
                                 </div>
@@ -97,23 +98,57 @@
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
                                     <input type="text" name="gravida" id="gravida"
-                                        class="form-control form-control-lg form-control-solid" placeholder="gravida" value="{{ $Pasien->gravida }}"/>
+                                        class="form-control form-control-lg form-control-solid" placeholder="gravida"
+                                        value="{{ $Pasien->gravida }}" />
                                 </div>
                                 <label class="col-lg-2 col-form-label required fw-bold fs-6">Partus</label>
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
                                     <input type="text" name="partus" id="partus"
-                                        class="form-control form-control-lg form-control-solid" placeholder="Partus" value="{{ $Pasien->partus }}"/>
+                                        class="form-control form-control-lg form-control-solid" placeholder="Partus"
+                                        value="{{ $Pasien->partus }}" />
                                 </div>
                                 <label class="col-lg-2 col-form-label required fw-bold fs-6">Abortus</label>
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
                                     <input type="text" name="abortus" id="abortus"
-                                        class="form-control form-control-lg form-control-solid" value="{{ $Pasien->abortus }}" placeholder="abortus" />
+                                        class="form-control form-control-lg form-control-solid"
+                                        value="{{ $Pasien->abortus }}" placeholder="abortus" />
                                 </div>
                                 <!--end::Col-->
+                            </div>
+                            <!--end::Row-->
+                        </div>
+                        <!--end::Col-->
+                    </div>
+                    <div class="row mb-6">
+                        <!--begin::Label-->
+                        <label class="col-lg-2 col-form-label required fw-bold fs-6">Usia Kandungan</label>
+                        <!--end::Label-->
+                        <!--begin::Col-->
+                        <div class="col-lg">
+                            <!--begin::Row-->
+                            <div class="row">
+                                <!--begin::Col-->
+                                <div class="col-lg-3 fv-row">
+                                    <input type="text" name="usiakandungan"
+                                        class="form-control form-control-lg form-control-solid mb-3 mb-lg-0"
+                                        placeholder="Usia Kandungan" />
+                                </div>
+                                <!--end::Col-->
+
+                                <!--begin::Label-->
+                                <label class="col-lg-2 col-form-label required fw-bold fs-6">Minggu</label>
+                                <!--end::Label-->
+                                <!--begin::Col-->
+                                <div class="col-lg fv-row">
+                                    <input type="text" name="gravida" id="gravida"
+                                        class="form-control form-control-lg form-control-solid" placeholder="Dalam Gram" />
+                                </div>
+                                <label class="col-lg-2 col-form-label required fw-bold fs-6">Berat</label>                                
+                                
                             </div>
                             <!--end::Row-->
                         </div>
@@ -130,7 +165,7 @@
                                 <!--begin::Col-->
                                 <div class="col-lg">
                                     <textarea id="keluhan" name="keluhan" class="form-control form-control-lg form-control-solid" rows="3"
-                                        placeholder="Keluhan">{{$Pasien->keluhan}} </textarea>
+                                        placeholder="Keluhan">{{ $Pasien->keluhan }} </textarea>
                                 </div>
                                 <!--end::Col-->
 
@@ -149,7 +184,8 @@
                             <div class="row">
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
-                                    <input type="text" name="pervaginambbmax" value="{{ $Pasien->pervaginambbmax }}" id="pervaginambbmax"
+                                    <input type="text" name="pervaginambbmax" value="{{ $Pasien->pervaginambbmax }}"
+                                        id="pervaginambbmax"
                                         class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" />
                                 </div>
                                 <!--end::Col-->
@@ -162,7 +198,7 @@
                                     <select name="indikasisc" id="indikasisc" aria-label="Select a Country"
                                         data-control="select2" data-placeholder="Pilih..."
                                         class="form-select form-select-solid form-select-lg fw-bold">
-                                        <option value="{{ $Pasien->indikasisc }}">{{ $Pasien->indikasisc }}</option>
+                                        <option disabled value="">Pilih Indikasi</option>                                        
                                         @foreach ($indikasi as $p)
                                             <option value="{{ $p->id }}"> {{ $p->deskripsi }}</option>
                                         @endforeach
@@ -172,8 +208,11 @@
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
-                                    <input type="text" name="tahunsc" id="TahunSc" value="{{ $Pasien->tahunsc }}"
-                                        class="form-control form-control-lg form-control-solid" />
+                                    <select name="tahunsc" id="TahunSc" aria-label="Select a Country"
+                                        data-control="select2"
+                                        class="form-select form-select-solid form-select-lg fw-bold">
+                                        <option disabled value=""></option>
+                                    </select>
                                 </div>
                                 <!--end::Col-->
                             </div>
@@ -193,8 +232,7 @@
                                 <div class="col-lg fv-row">
                                     <select name="keadaanumum" id="keadaanumum" aria-label="Select a Country"
                                         data-control="select2" data-placeholder="Pilih.."
-                                        class="form-select form-select-solid form-select-lg fw-bold">
-                                        <option value="">Pilih..</option>
+                                        class="form-select form-select-solid form-select-lg fw-bold">                                        
                                         @foreach ($KeadaanUmum as $p)
                                             <option value="{{ $p->id }}">{{ $p->deskripsi }} </option>
                                         @endforeach
@@ -207,7 +245,7 @@
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
-                                    <input type="text" name="td" id="td"
+                                    <input type="text" name="td" id="td" value="{{ $Pasien->td }}"
                                         class="form-control form-control-lg form-control-solid" />
                                 </div>
                                 <!--end::Col-->
@@ -215,7 +253,7 @@
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
-                                    <input type="text" name="nadi" id="nadi"
+                                    <input type="text" name="nadi" id="nadi" value="{{ $Pasien->nadi }}"
                                         class="form-control form-control-lg form-control-solid" />
                                 </div>
                                 <label class="col-lg-2 col-form-label required fw-bold fs-6">Suhu (Celcius)</label>
@@ -287,7 +325,8 @@
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
                                     <input type="text" name="tfu" id="tfu"
-                                        class="form-control form-control-lg form-control-solid" value="{{ $Pasien->tfu }}"/>
+                                        class="form-control form-control-lg form-control-solid"
+                                        value="{{ $Pasien->tfu }}" />
                                 </div>
                                 <!--end::Col-->
 
@@ -296,7 +335,8 @@
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg fv-row">
-                                    <input type="text" name="lingkarpinggang" id="lingkarpinggang" value="{{ $Pasien->lingkarpinggang }}"
+                                    <input type="text" name="lingkarpinggang" id="lingkarpinggang"
+                                        value="{{ $Pasien->lingkarpinggang }}"
                                         class="form-control form-control-lg form-control-solid" />
                                 </div>
                                 <!--end::Col-->
@@ -346,7 +386,10 @@
                                     <select name="ketuban" id="ketuban" aria-label="Select a Country"
                                         data-control="select2" data-placeholder="Pilih.."
                                         class="form-select form-select-solid form-select-lg fw-bold">
-                                        <option value="">Pilih..</option>
+                                        @if (!empty($Pasien->Ketuban->id))
+                                            <option value="{{ $Pasien->Ketuban->id }}">{{ $Pasien->Ketuban->deskripsi }}
+                                            </option>
+                                        @endif
                                         @foreach ($ketuban as $p)
                                             <option value="{{ $p->id }}">{{ $p->deskripsi }}</option>
                                         @endforeach
@@ -360,7 +403,11 @@
                                     <select name="warnaketuban" id="warnaketuban" aria-label="Select a Country"
                                         data-control="select2" data-placeholder="Pilih.."
                                         class="form-select form-select-solid form-select-lg fw-bold">
-                                        <option value="">Pilih..</option>
+                                        @if (!empty($Pasien->Kepala->id))
+                                            <option value="{{ $Pasien->WarnaKetuban->id }}">
+                                                {{ $Pasien->WarnaKetuban->deskripsi }}</option>
+                                        @endif
+                                        <option value="">Pilih...</option>
                                         @foreach ($warna as $p)
                                             <option value="{{ $p->id }}">{{ $p->deskripsi }} </option>
                                         @endforeach
@@ -382,7 +429,12 @@
                                     <select name="kepala" id="kepala" aria-label="Select a Country"
                                         data-control="select2" data-placeholder="Pilih.."
                                         class="form-select form-select-solid form-select-lg fw-bold">
-                                        <option value="">Pilih..</option>
+                                        @if (!empty($Pasien->Kepala->id))
+                                            <option value="{{ $Pasien->Kepala->id }}">{{ $Pasien->Kepala->deskripsi }}
+                                            </option>
+                                        @endif
+
+                                        <option value="">Pilih...</option>
                                         @foreach ($kepala as $p)
                                             <option value="{{ $p->id }}">{{ $p->deskripsi }} </option>
                                         @endforeach
@@ -406,6 +458,26 @@
                                 <div class="col-lg">
                                     <textarea name="diagnosa" id="diagnosa" class="form-control form-control-lg form-control-solid" rows="3"
                                         placeholder="Diagnosa">{{ $Pasien->diagnosa }}</textarea>
+                                </div>
+                                <!--end::Col-->
+
+                            </div>
+                            <!--end::Row-->
+                        </div>
+                        <!--end::Col-->
+                    </div>
+                    <div class="row mb-6">
+                        <!--begin::Label-->
+                        <label class="col-lg-2 col-form-label required fw-bold fs-6">Terapi yang Diberikan</label>
+                        <!--end::Label-->
+                        <!--begin::Col-->
+                        <div class="col-lg">
+                            <!--begin::Row-->
+                            <div class="row">
+                                <!--begin::Col-->
+                                <div class="col-lg">
+                                    <textarea name="terapi" class="form-control form-control-lg form-control-solid" rows="3"
+                                        placeholder="Terapi yang Di berikan"></textarea>
                                 </div>
                                 <!--end::Col-->
 

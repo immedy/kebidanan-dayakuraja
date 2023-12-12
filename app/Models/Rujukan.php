@@ -28,4 +28,28 @@ class Rujukan extends Model
     {
         return $this->belongsTo(pegawai::class,'oleh');
     }
+    public function Jaminan()
+    {
+        return $this->belongsTo(DataReferensi::class,'jaminan');
+    }
+    public function INDIKASI()
+    {
+        return $this->belongsTo(DataReferensi::class,'indikasisc','id');
+    }
+    public function KeadaanUmum()
+    {
+        return $this->belongsTo(DataReferensi::class,'keadaanumum');
+    }
+    public function Ketuban()
+    {
+        return $this->belongsTo(DataReferensi::class,'ketuban');
+    }
+    public function WarnaKetuban()
+    {
+        return $this->belongsTo(DataReferensi::class,'warnaketuban');
+    }
+    public function Kepala()
+    {
+        return $this->belongsTo(DataReferensi::class,'kepala');
+    }
 }

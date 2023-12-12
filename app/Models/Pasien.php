@@ -19,4 +19,25 @@ class Pasien extends Model
     {
         return $this->belongsTo(faskes::class,'faskespegawai');
     }
+
+    public function StatusKawin()
+    {
+        return $this->belongsTo(DataReferensi::class,'perkawinan');
+    }
+    public function Agama()
+    {
+        return $this->belongsTo(DataReferensi::class,'agama');
+    }
+    public function Pendidikan()
+    {
+        return $this->belongsTo(DataReferensi::class,'pendidikan');
+    }
+    public function Pekerjaan()
+    {
+        return $this->belongsTo(DataReferensi::class,'pekerjaan');
+    }
+    public function GolDar()
+    {
+        return $this->belongsTo(DataReferensi::class,'goldar');
+    }
 }

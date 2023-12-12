@@ -15,7 +15,7 @@
                         <!--begin::Col-->
                         <div class="col-md-12 ">
                             <!--begin::Form-->
-                            <form action="{{ route('UpdatePasien', ['filter' => Crypt::encryptString($pasien->id)] }}" class="form mb-15" method="post" id="kt_contact_form">
+                            <form action="{{ route('UpdatePasien', ['filter' => Crypt::encryptString($pasien->id)]) }}" class="form mb-15" method="post" id="kt_contact_form">
                                 @method('put')
                                 @csrf
                                 <!--begin::Input group-->
@@ -44,21 +44,21 @@
                                     </div>
                                     <div class="col-md-1 fv-row">
                                         <input type="number" class="form-control form-control-solid mb-2"
-                                            placeholder="Umur Thn" name="" />
+                                            placeholder="Umur Thn" name="" id="umur_tahun"/>
                                     </div>
                                     <div class="col-md-1 fv-row">
                                         <input type="number" class="form-control form-control-solid mb-2"
-                                            placeholder="Umur Bln" name="" />
+                                            placeholder="Umur Bln" name="" id="umur_bulan"/>
                                     </div>
                                     <div class="col-md-1 fv-row">
                                         <input type="number" class="form-control form-control-solid mb-2"
-                                            placeholder="Umur Hr" name="" />
+                                            placeholder="Umur Hr" name="" id="umur_hari"/>
                                     </div>
                                     <div class="col-md-3 fv-row">
                                         <select name="perkawinan" aria-label="Select a Country" data-control="select2"
                                             data-placeholder="Pilih.."
                                             class="form-select form-select-solid form-select-lg fw-bold">
-                                            <option value="">Pilih..</option>
+                                            <option value="{{$pasien->StatusKawin->id}}">{{$pasien->StatusKawin->deskripsi}}</option>
                                             @foreach ($StatusKawin as $p)
                                                 <option value="{{ $p->id }}">{{ $p->deskripsi }} </option>
                                             @endforeach
@@ -68,7 +68,7 @@
                                         <select name="agama" aria-label="Select a Country" data-control="select2"
                                             data-placeholder="Pilih.."
                                             class="form-select form-select-solid form-select-lg fw-bold">
-                                            <option value="">Pilih..</option>
+                                            <option value="{{$pasien->Agama->id}}">{{$pasien->Agama->deskripsi}}</option>
                                             @foreach ($Agama as $p)
                                                 <option value="{{ $p->id }}">{{ $p->deskripsi }} </option>
                                             @endforeach
@@ -78,7 +78,7 @@
                                         <select name="pendidikan" aria-label="Select a Country" data-control="select2"
                                             data-placeholder="Pilih.."
                                             class="form-select form-select-solid form-select-lg fw-bold">
-                                            <option value="">Pilih..</option>
+                                            <option value="{{$pasien->Pendidikan->id}}">{{$pasien->Pendidikan->deskripsi}}</option>
                                             @foreach ($Pendidikan as $p)
                                                 <option value="{{ $p->id }}">{{ $p->deskripsi }} </option>
                                             @endforeach
@@ -88,7 +88,7 @@
                                         <select name="pekerjaan" aria-label="Select a Country" data-control="select2"
                                             data-placeholder="Pilih.."
                                             class="form-select form-select-solid form-select-lg fw-bold">
-                                            <option value="">Pilih..</option>
+                                            <option value="{{$pasien->Pekerjaan->id}}">{{$pasien->Pekerjaan->deskripsi}}</option>
                                             @foreach ($Pekerjaan as $p)
                                                 <option value="{{ $p->id }}">{{ $p->deskripsi }} </option>
                                             @endforeach
@@ -98,7 +98,7 @@
                                         <select name="goldar" aria-label="Select a Country" data-control="select2"
                                             data-placeholder="Pilih.."
                                             class="form-select form-select-solid form-select-lg fw-bold">
-                                            <option value="">Pilih..</option>
+                                            <option value="{{$pasien->Goldar->id}}">{{$pasien->GolDar->deskripsi}}</option>
                                             @foreach ($Goldar as $p)
                                                 <option value="{{ $p->id }}">{{ $p->deskripsi }} </option>
                                             @endforeach
@@ -106,10 +106,8 @@
                                     </div>
                                     <label class="fs-5 fw-semibold mb-2">Alamat Kartu Identitas</label>
                                     <div class="col-md-6 fv-row">
-                                        <select name="jenis_identitas" aria-label="Select a Country" data-control="select2"
-                                            data-placeholder="Pilih.."
-                                            class="form-select form-select-solid form-select-lg fw-bold">
-                                            <option value="">Pilih..</option>
+                                        <select name="jenis_identitas" aria-label="Select a Country" data-control="select2"                                            
+                                            class="form-select form-select-solid form-select-lg fw-bold">                                            
                                             @foreach ($identitas as $p)
                                                 <option value="{{ $p->id }}">{{ $p->deskripsi }} </option>
                                             @endforeach
@@ -117,7 +115,7 @@
                                     </div>
                                     <div class="col-md-6 fv-row">
                                         <input type="text" class="form-control form-control-solid mb-2"
-                                            placeholder="NO KARTU" name="noidentitas" />
+                                            placeholder="NO KARTU" name="noidentitas" value="{{$pasien->noidentitas}}"  id="NoKtp"/>
                                     </div>
                                     <div class="col-md-12 fv-row">
                                         <input type="text" class="form-control form-control-solid mb-2"

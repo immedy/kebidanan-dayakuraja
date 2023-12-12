@@ -77,7 +77,8 @@
     <script src="{{ asset('assets/js/custom/modals/create-app.js') }}"></script>
     <script src="{{ asset('assets/js/custom/modals/upgrade-plan.js') }}"></script>
     <script src="{{ asset('assets/js/UserDetail.js') }}"></script>
-    <script src="{{ asset('assets/js/Tanggal.js') }}"></script>    
+    <script src="{{ asset('assets/js/Tanggal.js') }}"></script>
+    <script src="{{ asset('assets/js/NoKtp.js')}}"></script>
 </body>
 <!--end::Body-->
 
