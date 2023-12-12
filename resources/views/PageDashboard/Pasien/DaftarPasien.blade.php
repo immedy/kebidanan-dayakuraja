@@ -142,14 +142,14 @@
                                     <input type="text" name="berat" id="berat"
                                         class="form-control form-control-lg form-control-solid" placeholder="Dalam Gram" />
                                 </div>
-                                <label class="col-lg-2 col-form-label  fw-bold fs-6">(gram)Berat</label>                                
-                                
+                                <label class="col-lg-2 col-form-label  fw-bold fs-6">(gram)Berat</label>
+
                             </div>
                             <!--end::Row-->
                         </div>
                         <!--end::Col-->
                     </div>
-                    
+
                     <div class="row mb-6">
                         <!--begin::Label-->
                         <label class="col-lg-2 col-form-label  fw-bold fs-6">Keluhan</label>
@@ -270,7 +270,7 @@
                                     <input type="text" name="ri" id="ri"
                                         class="form-control form-control-lg form-control-solid" />
                                 </div>
-                                
+
                                 <!--end::Col-->
                             </div>
                             <!--end::Row-->
@@ -504,7 +504,7 @@
                 <!--end::Card body-->
                 <!--begin::Actions-->
                 <div class="card-footer d-flex justify-content-end py-6 px-9">
-                    <a href="{{ route('listpasien') }}" class="btn btn-danger btn-active-light-primary me-2">Kembali</a>
+                    <a href="{{ route('search.patients') }}" class="btn btn-danger btn-active-light-primary me-2">Kembali</a>
                     <button type="reset" class="btn btn-info btn-active-light-primary me-2">Reset</button>
                     <button type="submit" class="btn btn-primary" id="kt_account_profile_details_submit">Simpan</button>
                 </div>
