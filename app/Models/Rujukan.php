@@ -18,7 +18,7 @@ class Rujukan extends Model
     }
     public function pasien()
     {
-        return $this->belongsTo(pasien::class,'pasien_id','id');
+        return $this->belongsTo(Pasien::class,'pasien_id','id');
     }
      public function faskes()
      {
