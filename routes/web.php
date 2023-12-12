@@ -43,6 +43,9 @@ Route::controller(RujukanController::class)->group(function(){
     route::put('/RujukanEditSave','update')->name('RujukanUpdate')->middleware(['auth','AdminPuskesmas']);
     // route::get('/AdviceDokter','AdviceDokter')->name('AdviceDokter')->middleware(['auth','AdminPuskesmas']);
     route::get('/UpdateStatusPasien','UpdateStatusPasien')->name('UpdateStatusPasien')->middleware(['auth','AdminRs']);
+    route::get('/indexFaskesCount','indexFaskesCount')->name('indexFaskesCount')->middleware(['auth','AdminRs']);
+    route::post('/HalamanLaporan','getFaskesCounts')->name('faskes.getCounts')->middleware(['auth','AdminRs']);
+    route::post('/faskes/reset','resetFilter')->name('faskes.resetFilter')->middleware(['auth','AdminRs']);
 });
 
 Route::controller(AdviceController::class)->group(function(){

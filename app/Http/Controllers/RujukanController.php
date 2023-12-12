@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pasien;
 use App\Models\Rujukan;
 use Illuminate\Http\Request;
+use App\Models\DataReferensi;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Crypt;
 use App\Http\Requests\StoreRujukanRequest;
 use App\Http\Requests\UpdateRujukanRequest;
-use App\Models\DataReferensi;
-use App\Models\Pasien;
-use Illuminate\Support\Facades\Crypt;
 
 class RujukanController extends Controller
 {
@@ -219,6 +220,38 @@ class RujukanController extends Controller
         } else {
             return response()->json(['success' => false, 'message' => 'Record not found']);
         }
+    }
+
+    public function indexFaskesCount()
+    {
+        $faskesCountsNotFiltered = Rujukan::select('faskes_id', DB::raw('COUNT(*) as count'))
+            ->groupBy('faskes_id')
+            ->get();
+
+        return view('PageDashboard.Laporan.Laporan', compact('faskesCountsNotFiltered'));
+    }
+
+    public function getFaskesCounts(Request $request)
+    {
+        $startDate = $request->input('start_date');
+        $endDate = $request->input('end_date');
+
+        if ($startDate && $endDate) {
+            $faskesCounts = Rujukan::select('faskes_id', DB::raw('COUNT(*) as count'))
+                ->whereBetween('tanggaljam', [$startDate, $endDate])
+                ->groupBy('faskes_id')
+                ->get();
+
+            return view('PageDashboard.Laporan.Laporan', compact('faskesCounts', 'startDate', 'endDate'));
+        } else {
+            return $this->indexFaskesCount();
+        }
+    }
+
+
+    public function resetFilter()
+    {
+        return redirect()->route('indexFaskesCount');
     }
 
 }
