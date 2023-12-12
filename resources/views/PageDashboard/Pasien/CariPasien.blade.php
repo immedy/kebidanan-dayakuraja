@@ -4,15 +4,15 @@
         <!--begin::Col-->
         <div class="col-xl-12">
 
-            <div class="card card-xl-stretch mb-5 mb-xl-8">
-                <div class="card-header border-0 pt-5">
-                    <h3 class="card-title align-items-start flex-column">
-                        <span class="card-label fw-bolder fs-3 mb-1">pasien</span>
-                    </h3>
+            <div class="card card-xl-stretch mb-4 mb-xl-8">
+                <div class="card-header border1 pt-5">
+                    <h4 class="card-title align-items-start flex-column">
+                        <span class="card-label fw-bolder fs-2 mb-1">pasien</span>
+                    </h4>
                     <form action="">
                         <div class="card-toolbar">
                             <div>
-                                <input type="text" name="" value="" class="form-control sm me-6"
+                                <input type="text" id="caripasien" name="caripasien" value="" class="form-control sm me-6"
                                     placeholder="Cari Pasien" />
                             </div>
                             <div>
