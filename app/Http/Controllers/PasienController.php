@@ -19,9 +19,6 @@ class PasienController extends Controller
     public function index()
     {
         //
-        return view('PageDashboard.Pasien.CariPasien', [
-            "patiens" => Pasien::all(),
-        ]);
     }
 
     /**
@@ -110,7 +107,7 @@ class PasienController extends Controller
         return view('PageDashboard.Pasien.DetailPasien.EditPasien',[
             "provincies" => Wilayah::selectWilayah(1),
             "StatusKawin" => DataReferensi::where('referensi_id',9)->whereNotIn('id', [$pasien->perkawinan])->get(),
-            "Agama" => DataReferensi::where('referensi_id',13)->whereNotIn('id', [$pasien->agama])->get(),  
+            "Agama" => DataReferensi::where('referensi_id',13)->whereNotIn('id', [$pasien->agama])->get(),
             "Pendidikan" => DataReferensi::where('referensi_id',10)->whereNotIn('id', [$pasien->pendidikan])->get(),
             "Pekerjaan" => DataReferensi::where('referensi_id',11)->whereNotIn('id', [$pasien->pekerjaan])->get(),
             "Goldar" => DataReferensi::where('referensi_id',12)->whereNotIn('id', [$pasien->goldar])->get(),
@@ -197,4 +194,20 @@ class PasienController extends Controller
             return response()->json($village);
         }
     }
+
+    public function searchPatients(Request $request)
+    {
+        $keyword = $request->input('caripasien');
+
+        // Perform the search query if a keyword is provided
+        if ($keyword) {
+            $patients = Pasien::where('namalengkap', 'LIKE', "%$keyword%")->get();
+        } else {
+            // Display all patients if no search keyword is provided
+            $patients = Pasien::all();
+        }
+
+        return view('PageDashboard.Pasien.CariPasien', compact('patients'));
+    }
+
 }

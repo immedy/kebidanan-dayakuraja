@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::controller(PasienController::class)->group(function(){
-    route::get('/ListPasien','index')->name('listpasien')->middleware(['auth','AdminPuskesmas']);
+    // route::get('/ListPasien','index')->name('listpasien')->middleware(['auth','AdminPuskesmas']);
     route::get('/TambahPasien','create')->name('tambahpasien')->middleware(['auth','AdminPuskesmas']);
     route::post('/pasienstore','store')->name('simpanpasien')->middleware(['auth','AdminPuskesmas']);
     route::get('/EditPasien','edit')->middleware(['auth','AdminPuskesmas'])->name('EditPasien');
@@ -28,6 +28,7 @@ Route::controller(PasienController::class)->group(function(){
     route::get('/getCity','getCity')->name('getCity');
     route::get('/getCounty','getCounty')->name('getCounty');
     route::get('/getVillage','getVillage')->name('getVillage');
+    Route::get('/search-patients', 'searchPatients')->name('search.patients')->middleware('auth', 'AdminPuskesmas');
 });
 
 Route::controller(RujukanController::class)->group(function(){
@@ -35,10 +36,13 @@ Route::controller(RujukanController::class)->group(function(){
     route::get('/DashboardRS','index2')->name('DashboardRS')->middleware('auth','AdminRs');
     route::get('/tambahRujukan', 'create')->name('createrujukan')->middleware(['auth','AdminPuskesmas']);
     route::post('/simpanRujukan', 'store')->name('storerujukan')->middleware(['auth','AdminPuskesmas']);
-    route::get('/DashboardRS/Rujukan/','show')->middleware(['auth','AdminRs'])->name('DetailRujukan');    
+    route::get('/DashboardRS/Rujukan/','show')->middleware(['auth','AdminRs'])->name('DetailRujukan');
     route::get('/RujukanEdit','edit')->name('EditDetailRujukan')->middleware(['auth','AdminPuskesmas']);
     route::put('/RujukanEditSave','update')->name('RujukanUpdate')->middleware(['auth','AdminPuskesmas']);
     route::get('/UpdateStatusPasien','UpdateStatusPasien')->name('UpdateStatusPasien')->middleware(['auth','AdminRs']);
+    route::get('/indexFaskesCount','indexFaskesCount')->name('indexFaskesCount')->middleware(['auth','AdminRs']);
+    route::post('/HalamanLaporan','getFaskesCounts')->name('faskes.getCounts')->middleware(['auth','AdminRs']);
+    route::post('/faskes/reset','resetFilter')->name('faskes.resetFilter')->middleware(['auth','AdminRs']);
 });
 
 Route::controller(AdviceController::class)->group(function(){
@@ -62,4 +66,5 @@ Route::controller(PegawaiController::class)->group(function(){
     route::post('AddPegawai','AddPegawai')->name('AddPegawai')->middleware(['auth','AdminRs']);
     route::get('/username/{id}','Username')->name('Username')->middleware(['auth','AdminRs']);
     route::put('/AddUsername','AddUsername')->name('AddUsername')->middleware(['auth','AdminRs']);
+    Route::delete('/pegawai/delete', 'deletePegawai')->name('pegawai.delete')->middleware(['auth', 'AdminRs']);
 });

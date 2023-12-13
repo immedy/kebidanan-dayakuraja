@@ -19,7 +19,14 @@ class User extends Authenticatable
      */
     protected $guarded = [
         'id',
+    ];
+
+    protected $fillable = [
         'pegawai_id',
+        'username',
+        'password',
+        'hak_akses',
+        'status',
     ];
 
     /**

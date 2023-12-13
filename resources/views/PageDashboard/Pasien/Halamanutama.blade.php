@@ -12,7 +12,7 @@
                     </h3>
                     <div class="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover"
                         title="List Pasien">
-                        <a href="{{ route('listpasien') }}"
+                        <a href="{{ route('search.patients') }}"
                             class="border border-success btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
                             <!--begin::Svg Icon | path: icons/duotune/general/gen027.svg-->
                             <span class="svg-icon svg-icon-3">
@@ -142,35 +142,5 @@
         <!--end::Col-->
     </div>
 
-    {{-- <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#updateStatusButton').click(function() {
-                // Make an AJAX request to update the data
-                $.ajax({
-                    url: '/UpdateStatusPasien',
-                    type: 'POST',
-                    dataType: 'json',
-                    data: {
-                        // Add any data you need to send to the server
-                        // ...
-                        record_id: recordId,
-                        _token: '{{ csrf_token() }}',
-                    },
-                    success: function(response) {
-                        if (response.success) {
-                            // Reload the page after updating the data
-                            location.reload();
-                        } else {
-                            alert('Failed to update data');
-                        }
-                    },
-                    error: function() {
-                        alert('Error occurred while updating data');
-                    }
-                });
-            });
-        });
-    </script> --}}
 
 @endsection

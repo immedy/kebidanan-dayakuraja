@@ -58,7 +58,7 @@
                                     </a>
                                 </div>
                                 <div class="menu-item">
-                                    <a class="menu-link" href="#">
+                                    <a class="menu-link" href="{{ route('indexFaskesCount') }}">
                                         <span class="menu-icon">
                                             <i class="bi bi-app-indicator fs-3"></i>
                                         </span>

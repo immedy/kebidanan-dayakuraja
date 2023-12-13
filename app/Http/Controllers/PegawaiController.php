@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\faskes;
 use App\Models\pegawai;
-use App\Models\User;
-use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Crypt;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class PegawaiController extends Controller
@@ -20,7 +20,10 @@ class PegawaiController extends Controller
 
     public function Pegawai()
     {
-        return view('PageDashboardRs.MasterData.Pegawai.HomePegawai',[
+        $title = 'Delete User!';
+        $text = "Are you sure you want to delete?";
+        confirmDelete($title, $text);
+        return view('PageDashboardRs.MasterData.Pegawai.HomePegawai', [
             'pegawai' => pegawai::all(),
             'faskes' => faskes::all()
         ]);
@@ -34,11 +37,34 @@ class PegawaiController extends Controller
         ]);
         $ValidasiAddPegawai['status'] = 1;
         pegawai::create($ValidasiAddPegawai);
-        if($ValidasiAddPegawai){
+        if ($ValidasiAddPegawai) {
             Alert::Success('Berhasil');
         }
         return back();
     }
+
+    public function deletePegawai(Request $request)
+    {
+
+        $id = Crypt::decryptString($request->input('filter'));
+        $pegawai = Pegawai::find($id);
+        $username = User::where('pegawai_id', $id)->first();
+        // dd($username);
+        if (!$pegawai) {
+            // Handle case where Pegawai is not found
+            return redirect()->back()->withErrors(['Pegawai not found']);
+        }
+
+        $pegawai->delete();
+        if ($username) {
+            # code...
+            $username->delete();
+        }
+        Alert::success('Berhasil dihapus');
+
+        return redirect()->back();
+    }
+
     public function Username($id)
     {
         $username = pegawai::with('user')->find($id);
@@ -47,22 +73,22 @@ class PegawaiController extends Controller
 
     public function AddUsername(Request $request)
     {
-        
+
+        $request['status'] = 1;
         $ValidasiAddUsername = $request->validate([
             'pegawai_id' => 'required',
             'username' => 'required',
             'password' => 'required',
-            'hak_akses' => 'required'
+            'hak_akses' => 'required',
+            'status' => 'required',
         ]);
-        $ValidasiAddUsername['status']= 1;
         $ValidasiAddUsername['password'] = bcrypt($ValidasiAddUsername['password']);
         $pegawai_id = $ValidasiAddUsername['pegawai_id'];
-        User::updateOrInsert(['pegawai_id'=>$pegawai_id], $ValidasiAddUsername);
-        if($ValidasiAddUsername){
+        User::updateOrCreate(['pegawai_id' => $pegawai_id], $ValidasiAddUsername);
+        if ($ValidasiAddUsername) {
             Alert::Success('Berhasil');
         }
         return back();
-
     }
     public function Autentikasi(Request $request)
     {
@@ -70,18 +96,17 @@ class PegawaiController extends Controller
             'username' => ['required'],
             'password' => ['required'],
         ]);
-        if (Auth::attempt($ValidasiLogin)){
+        if (Auth::attempt($ValidasiLogin)) {
             $ValidasiLogin = Auth()->user();
-            if ($ValidasiLogin->status == '1' && $ValidasiLogin->hak_akses == '1'){
+            if ($ValidasiLogin->status == '1' && $ValidasiLogin->hak_akses == '1') {
                 $request->session()->regenerate();
-                Alert::Toast('Selamat Datang','success');
-                return redirect('/DashboardRS');
+                Alert::Toast('Selamat Datang', 'success');
+                return redirect()->route('DashboardRS');
             } elseif ($ValidasiLogin->status == '1' && $ValidasiLogin->hak_akses == '2') {
                 $request->session()->regenerate();
-                Alert::Toast('Selamat Datang','success');
-                return redirect('/');
-            } 
-            else {
+                Alert::Toast('Selamat Datang', 'success');
+                return redirect()->route('halamanutama');
+            } else {
                 auth()->logout();
             }
         }
@@ -97,6 +122,6 @@ class PegawaiController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/login');
+        return redirect()->route('login');
     }
 }
