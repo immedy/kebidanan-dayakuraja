@@ -19,6 +19,9 @@ class PegawaiController extends Controller
 
     public function Pegawai()
     {
+        $title = 'Delete User!';
+        $text = "Are you sure you want to delete?";
+        confirmDelete($title, $text);
         return view('PageDashboardRs.MasterData.Pegawai.HomePegawai',[
             'pegawai' => pegawai::all(),
             'faskes' => faskes::all()
@@ -75,11 +78,11 @@ class PegawaiController extends Controller
             if ($ValidasiLogin->status == '1' && $ValidasiLogin->hak_akses == '1'){
                 $request->session()->regenerate();
                 Alert::Toast('Selamat Datang','success');
-                return redirect('/DashboardRS');
+                return redirect()->route('DashboardRS');
             } elseif ($ValidasiLogin->status == '1' && $ValidasiLogin->hak_akses == '2') {
                 $request->session()->regenerate();
                 Alert::Toast('Selamat Datang','success');
-                return redirect('/');
+                return redirect()->route('halamanutama');
             }
             else {
                 auth()->logout();
@@ -97,6 +100,6 @@ class PegawaiController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/login');
+        return redirect()->route('login');
     }
 }
