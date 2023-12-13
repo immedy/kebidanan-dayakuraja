@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\faskes;
 use App\Models\pegawai;
 use App\Models\User;
-use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
