@@ -47,17 +47,18 @@ class PegawaiController extends Controller
 
     public function AddUsername(Request $request)
     {
-        
+
+        $request['status']= 1;
         $ValidasiAddUsername = $request->validate([
             'pegawai_id' => 'required',
             'username' => 'required',
             'password' => 'required',
-            'hak_akses' => 'required'
+            'hak_akses' => 'required',
+            'status' => 'required',
         ]);
-        $ValidasiAddUsername['status']= 1;
         $ValidasiAddUsername['password'] = bcrypt($ValidasiAddUsername['password']);
         $pegawai_id = $ValidasiAddUsername['pegawai_id'];
-        User::updateOrInsert(['pegawai_id'=>$pegawai_id], $ValidasiAddUsername);
+        User::updateOrCreate(['pegawai_id'=>$pegawai_id], $ValidasiAddUsername);
         if($ValidasiAddUsername){
             Alert::Success('Berhasil');
         }
@@ -80,7 +81,7 @@ class PegawaiController extends Controller
                 $request->session()->regenerate();
                 Alert::Toast('Selamat Datang','success');
                 return redirect('/');
-            } 
+            }
             else {
                 auth()->logout();
             }
