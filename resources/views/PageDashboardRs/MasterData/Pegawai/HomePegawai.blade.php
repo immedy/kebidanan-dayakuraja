@@ -155,7 +155,7 @@
                                                         <!--end::Svg Icon-->
                                                     </span>
                                                 </a>
-                                                <a href="" data-confirm-delete="true" data-url="" id="deletePegawai"
+                                                <a href="{{ route('pegawai.delete', ['filter' => Crypt::encryptString($p->id)]) }}" data-confirm-delete="true" data-url="" id="deletePegawai"
                                                     class="btn btn-icon btn-bg-light btn-active-color-danger btn-sm me-1 border border-danger"
                                                     data-bs-toggle="tooltip" data-bs-placement="top"
                                                     title="Delete Pegawai">
