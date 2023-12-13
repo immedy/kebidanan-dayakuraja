@@ -124,7 +124,7 @@
                                     <div class="col-md-6 fv-row">
                                         <select name="provinsi1" id="provinsi1"
                                             class="form-select form-select-solid mb-2" data-control="select2" required
-                                            data-placeholder="Pilih">
+                                            data-placeholder="Pilih Provinsi">
                                             <option selected disabled value="">Pilih Provinsi</option>
                                             @if ($provincies->count())
                                                 @foreach ($provincies as $prov)
@@ -135,16 +135,16 @@
                                     </div>
                                     <div class="col-md-6 fv-row">
                                         <select name="kota1" id="kota1" class="form-select form-select-solid mb-2"
-                                            data-control="select2" required data-placeholder="Pilih"></select>
+                                            data-control="select2" required data-placeholder="Pilih Kabupaten"></select>
                                     </div>
                                     <div class="col-md-6 fv-row">
                                         <select name="kecamatan1" id="kecamatan1"
                                             class="form-select form-select-solid mb-2" data-control="select2" required
-                                            data-placeholder="Pilih"></select>
+                                            data-placeholder="Pilih Kecamatan"></select>
                                     </div>
                                     <div class="col-md-6 fv-row">
                                         <select name="desa1" id="desa1" class="form-select form-select-solid mb-2"
-                                            data-control="select2" required data-placeholder="Pilih"></select>
+                                            data-control="select2" required data-placeholder="Pilih Desa"></select>
                                     </div>
                                     <div class="col-md-4 fv-row">
                                         <input type="text" class="form-control form-control-solid mb-2"

@@ -28,7 +28,7 @@
                                     </div>
                                     <div class="col-md-4 fv-row">
                                         <input type="text" class="form-control form-control-solid mb-2"
-                                            placeholder="NAMA LENGKAP" name="namalengkap" />
+                                            placeholder="NAMA LENGKAP" name="namalengkap"  required/>
                                     </div>
                                     <div class="col-md-3 fv-row">
                                         <input type="text" class="form-control form-control-solid mb-2"
@@ -36,11 +36,11 @@
                                     </div>
                                     <div class="col-md-3 fv-row">
                                         <input type="" class="form-control form-control-solid mb-2"
-                                            placeholder="TEMPAT LAHIR" name="tempat_lahir" />
+                                            placeholder="TEMPAT LAHIR" name="tempat_lahir" required/>
                                     </div>
                                     <div class="col-md-2 fv-row">
                                         <input class="form-control form-control-solid mb-2" placeholder="TANGGAL lAHIR"
-                                            name="tanggal_lahir" id="Tanggal" />
+                                            name="tanggal_lahir" id="Tanggal" required/>
                                     </div>
                                     <div class="col-md-1 fv-row">
                                         <input type="number" class="form-control form-control-solid mb-2"
@@ -56,9 +56,9 @@
                                     </div>
                                     <div class="col-md-3 fv-row">
                                         <select name="perkawinan" aria-label="Select a Country" data-control="select2"
-                                            data-placeholder="Pilih.."
+                                            data-placeholder="Status Perkawinan" required
                                             class="form-select form-select-solid form-select-lg fw-bold">
-                                            <option value="">Pilih..</option>
+                                            <option value=""></option>
                                             @foreach ($StatusKawin as $p)
                                                 <option value="{{ $p->id }}">{{ $p->deskripsi }} </option>
                                             @endforeach
@@ -66,9 +66,9 @@
                                     </div>
                                     <div class="col-md-4 fv-row">
                                         <select name="agama" aria-label="Select a Country" data-control="select2"
-                                            data-placeholder="Pilih.."
+                                            data-placeholder="Agama" required
                                             class="form-select form-select-solid form-select-lg fw-bold">
-                                            <option value="">Pilih..</option>
+                                            <option value=""></option>
                                             @foreach ($Agama as $p)
                                                 <option value="{{ $p->id }}">{{ $p->deskripsi }} </option>
                                             @endforeach
@@ -76,9 +76,9 @@
                                     </div>
                                     <div class="col-md-4 fv-row">
                                         <select name="pendidikan" aria-label="Select a Country" data-control="select2"
-                                            data-placeholder="Pilih.."
+                                            data-placeholder="Pendidikan" required
                                             class="form-select form-select-solid form-select-lg fw-bold">
-                                            <option value="">Pilih..</option>
+                                            <option value="">Pendidikan</option>
                                             @foreach ($Pendidikan as $p)
                                                 <option value="{{ $p->id }}">{{ $p->deskripsi }} </option>
                                             @endforeach
@@ -86,9 +86,9 @@
                                     </div>
                                     <div class="col-md-4 fv-row">
                                         <select name="pekerjaan" aria-label="Select a Country" data-control="select2"
-                                            data-placeholder="Pilih.."
+                                            data-placeholder="Pekerjaan" required
                                             class="form-select form-select-solid form-select-lg fw-bold">
-                                            <option value="">Pilih..</option>
+                                            <option value=""></option>
                                             @foreach ($Pekerjaan as $p)
                                                 <option value="{{ $p->id }}">{{ $p->deskripsi }} </option>
                                             @endforeach
@@ -96,9 +96,9 @@
                                     </div>
                                     <div class="col-md-4 mb-15 fv-row">
                                         <select name="goldar" aria-label="Select a Country" data-control="select2"
-                                            data-placeholder="Pilih.."
+                                            data-placeholder="Golongan Darah" required
                                             class="form-select form-select-solid form-select-lg fw-bold">
-                                            <option value="">Pilih..</option>
+                                            <option value=""></option>
                                             @foreach ($Goldar as $p)
                                                 <option value="{{ $p->id }}">{{ $p->deskripsi }} </option>
                                             @endforeach
@@ -106,7 +106,7 @@
                                     </div>
                                     <label class="fs-5 fw-semibold mb-2">Alamat Kartu Identitas</label>
                                     <div class="col-md-6 fv-row">
-                                        <select name="jenis_identitas" aria-label="Select a Country" data-control="select2"                                            
+                                        <select name="jenis_identitas" aria-label="Select a Country" data-control="select2" required
                                             class="form-select form-select-solid form-select-lg fw-bold">
                                             
                                             @foreach ($identitas as $p)
@@ -117,17 +117,17 @@
                                     <div class="col-md-6 fv-row">
                                         <span id="errorSpan" style="color: red; display: none;">Nomor KTP harus terdiri dari
                                             16 digit.</span>
-                                        <input type="text" class="form-control form-control-solid mb-2"
+                                        <input type="text" class="form-control form-control-solid mb-2" required
                                             placeholder="NO KARTU" name="noidentitas" id="NoKtp" />
                                     </div>
                                     <div class="col-md-12 fv-row">
-                                        <input type="text" class="form-control form-control-solid mb-2"
+                                        <input type="text" class="form-control form-control-solid mb-2" required
                                             placeholder="ALAMAT" name="alamat" />
                                     </div>
                                     <div class="col-md-6 fv-row">
                                         <select name="provinsi1" id="provinsi1"
                                             class="form-select form-select-solid mb-2" data-control="select2" required
-                                            data-placeholder="Pilih">
+                                            data-placeholder="Pilih Provinsi">
                                             <option selected disabled value="">Pilih Provinsi</option>
                                             @if ($provincies->count())
                                                 @foreach ($provincies as $prov)
@@ -138,16 +138,16 @@
                                     </div>
                                     <div class="col-md-6 fv-row">
                                         <select name="kota1" id="kota1" class="form-select form-select-solid mb-2"
-                                            data-control="select2" required data-placeholder="Pilih"></select>
+                                            data-control="select2" required data-placeholder="Pilih Kabupaten"></select>
                                     </div>
                                     <div class="col-md-6 fv-row">
                                         <select name="kecamatan1" id="kecamatan1"
                                             class="form-select form-select-solid mb-2" data-control="select2" required
-                                            data-placeholder="Pilih"></select>
+                                            data-placeholder="Pilih Kecamatan"></select>
                                     </div>
                                     <div class="col-md-6 fv-row">
                                         <select name="desa1" id="desa1" class="form-select form-select-solid mb-2"
-                                            data-control="select2" required data-placeholder="Pilih"></select>
+                                            data-control="select2" required data-placeholder="Pilih Desa"></select>
                                     </div>
                                     <div class="col-md-4 fv-row">
                                         <input type="text" class="form-control form-control-solid mb-2"
