@@ -66,4 +66,5 @@ Route::controller(PegawaiController::class)->group(function(){
     route::post('AddPegawai','AddPegawai')->name('AddPegawai')->middleware(['auth','AdminRs']);
     route::get('/username/{id}','Username')->name('Username')->middleware(['auth','AdminRs']);
     route::put('/AddUsername','AddUsername')->name('AddUsername')->middleware(['auth','AdminRs']);
+    Route::delete('/pegawai/delete', 'deletePegawai')->name('pegawai.delete')->middleware(['auth', 'AdminRs']);
 });
