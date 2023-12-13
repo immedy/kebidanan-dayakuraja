@@ -37,27 +37,27 @@ Inputmask({
 //Berat
 Inputmask({
     "mask": "9",
-    "repeat": 1,
+    "repeat": 2,
     "greedy": false
 }).mask("#gravida");
 
 //Berat
 Inputmask({
     "mask": "9",
-    "repeat": 1,
+    "repeat": 2,
     "greedy": false
 }).mask("#partus");
 
 //Berat
 Inputmask({
     "mask": "9",
-    "repeat": 1,
+    "repeat": 2,
     "greedy": false
 }).mask("#abortus");
 
 Inputmask({
     "mask": "9",
-    "repeat": 2,
+    "repeat": 6,
     "greedy": false
 }).mask("#pervaginambbmax");
 
