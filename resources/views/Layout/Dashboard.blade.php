@@ -187,7 +187,7 @@
                                         <div class="cursor-pointer symbol symbol-30px symbol-md-40px"
                                             data-kt-menu-trigger="click" data-kt-menu-attach="parent"
                                             data-kt-menu-placement="bottom-end">
-                                            <img src="{{ asset('assets/media/avatars/150-26.jpg') }}" alt="user" />
+                                            <img src="{{ asset('assets/media/avatars/avatar.png') }}" alt="user" />
                                         </div>
                                         <div class="cursor-pointer symbol symbol-30px symbol-md-40px"
                                             style="margin-left: 5%">
@@ -220,7 +220,7 @@
                                                     <!--begin::Avatar-->
                                                     <div class="symbol symbol-50px me-5">
                                                         <img alt="Logo"
-                                                            src="{{ asset('assets/media/avatars/150-26.jpg') }}" />
+                                                            src="{{ asset('assets/media/avatars/avatar.png') }}" />
                                                     </div>
                                                     <!--end::Avatar-->
                                                     <!--begin::Username-->
