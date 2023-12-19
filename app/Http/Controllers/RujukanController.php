@@ -45,7 +45,9 @@ class RujukanController extends Controller
             'KeadaanUmum' => DataReferensi::where('referensi_id',5)->get(),
             'ketuban' => DataReferensi::where('referensi_id', 6)->get(),
             'warna' => DataReferensi::where('referensi_id', 7)->get(),
-            'kepala' => DataReferensi::where('referensi_id', 8)->get()
+            'kepala' => DataReferensi::where('referensi_id', 8)->get(),
+            'his' => DataReferensi::where('referensi_id', 14)->get(),
+            'pembukaan' => DataReferensi::where('referensi_id', 15)->get(),
         ]);
     }
 
@@ -147,6 +149,8 @@ class RujukanController extends Controller
             'ketuban' => DataReferensi::where('referensi_id', 6)->whereNotIn('id', [$Pasien->ketuban])->get(),
             'warna' => DataReferensi::where('referensi_id', 7)->whereNotIn('id', [$Pasien->warnaketuban])->get(),
             'kepala' => DataReferensi::where('referensi_id', 8)->whereNotIn('id', [$Pasien->kepala])->get(),
+            'his' => DataReferensi::where('referensi_id', 14)->whereNotIn('id', [$Pasien->his])->get(),
+            'pembukaan' => DataReferensi::where('referensi_id', 15)->whereNotIn('id', [$Pasien->pembukaan])->get(),
             'Pasien' => $Pasien
         ]);
     }

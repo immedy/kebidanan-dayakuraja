@@ -20,12 +20,7 @@ inputElement.on('input', function () {
     }
 });
 
-//usia kandungan
-Inputmask({
-    "mask": "9",
-    "repeat": 3,
-    "greedy": false
-}).mask("#usiakandungan");
+
 
 //Berat
 Inputmask({
@@ -83,3 +78,9 @@ Inputmask({
     "repeat": 2,
     "greedy": false
 }).mask("#ri");
+
+Inputmask({
+    "mask": "9",
+    "repeat": 4,
+    "greedy": false
+}).mask("#tahunsc");

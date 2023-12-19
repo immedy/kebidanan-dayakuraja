@@ -52,4 +52,13 @@ class Rujukan extends Model
     {
         return $this->belongsTo(DataReferensi::class,'kepala');
     }
+
+    public function HIS()
+    {
+        return $this->belongsTo(DataReferensi::class,'his');
+    }
+    public function Pembukaan()
+    {
+        return $this->belongsTo(DataReferensi::class,'pembukaan');
+    }
 }
