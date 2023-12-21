@@ -75,7 +75,7 @@ class PasienController extends Controller
         $validatedData['faskespegawai'] = Auth::user()->pegawai->faskes_id;
         $validatedData['status'] = 1;
         Pasien::create($validatedData);
-        return redirect()->route('listpasien')->with('success', 'Pasien Telah terinput');
+        return redirect()->route('search.patients')->with('success', 'Pasien Telah terinput');
     }
 
     /**
